@@ -1,0 +1,112 @@
+{
+    "name": "Peanut Butter Cookies",
+    "yields": {
+        "amount": "24",
+        "measure": "cookies"
+    },
+    "ingredients": [
+        {
+            "amount": "1 3/4",
+            "measure": "cup",
+            "ingredient": "brown sugar"
+        },
+        {
+            "amount": "2",
+            "measure": "",
+            "ingredient": "eggs"
+        },
+        {
+            "amount": "1/2",
+            "measure": "tsp",
+            "ingredient": "vanilla extract"
+        },
+        {
+            "amount": "1 3/4",
+            "measure": "cup",
+            "ingredient": "peanut butter"
+        },
+        {
+            "amount": "",
+            "measure": "",
+            "ingredient": "salt"
+        }
+    ],
+    "instructions": {
+        "prep": "Preheat the oven to 350°F",
+        "steps": [
+            {
+                "task": "Mix the dough",
+                "subtasks": [
+                    {
+                        "pretext": "In a large bowl, mix together",
+                        "ingredients": [
+                            {
+                                "amount": "1 3/4",
+                                "measure": "cup",
+                                "ingredient": "brown sugar"
+                            },
+                            {
+                                "amount": "2",
+                                "measure": "",
+                                "ingredient": "eggs"
+                            }
+                        ],
+                        "text": "until smooth."
+                    },
+                    {
+                        "pretext": "Then, mix in",
+                        "ingredients": [
+                            {
+                                "amount": "1/2",
+                                "measure": "tsp",
+                                "ingredient": "vanilla extract"
+                            },
+                            {
+                                "amount": "1 3/4",
+                                "measure": "cup",
+                                "ingredient": "peanut butter"
+                            }
+                        ],
+                        "text": "until smooth again."
+                    }
+                ]
+            },
+            {
+                "task": "Form the dough",
+                "subtasks": [
+                    {
+                        "text": "Store the dough in the freezer for 15 min."
+                    },
+                    {
+                        "text": "Scoop the dough into golf ball-sized lumps and place them onto a baking sheet lined with parchment paper."
+                    },
+                    {
+                        "text": "Drag a fork across the top of each dough ball to create the signature striations."
+                    },
+                    {
+                        "pretext": "Finally, sprinkle a bit of",
+                        "ingredients": [
+                            {
+                                "amount": "",
+                                "measure": "",
+                                "ingredient": "salt"
+                            }
+                        ],
+                        "text": "onto each dough ball."
+                    }
+                ]
+            },
+            {
+                "task": "Bake the cookies",
+                "subtasks": [
+                    {
+                        "text": "Bake the cookies for 15-20 min. The cookies should be lightly browned around the edges when done."
+                    },
+                    {
+                        "text": "Let cool for a couple minutes so the cookies can get crispy on the outside and enjoy!"
+                    }
+                ]
+            }
+        ]
+    }
+}
