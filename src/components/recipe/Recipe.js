@@ -21,31 +21,46 @@ export const Recipe = (props) => {
   );
   return (
     <RecipeDiv>
-      <ArticleContainer>
-        <ThemeButton />
-        <Header1 text={props.name} />
-        <IngredientList
-          ingredients={ingredients}
-          setIngredients={setIngredients}
-          originalIngredients={props.ingredients}
-          gradient={gradient}
-        />
-        <InstructionList
-          ingredients={ingredients}
-          instructions={props.instructions}
-          gradient={gradient}
-        />
-        <RowDiv>
-          {/* <Footer /> */}
-          <ThemeButton />
-          {/* <Footer /> */}
-        </RowDiv>
-      </ArticleContainer>
+      <Header1 text={props.name} />
+      <ContentDiv>
+        <ArticleContainer>
+          {/* <ThemeButton /> */}
+          {/* <Header1 text={props.name} /> */}
+          <IngredientList
+            ingredients={ingredients}
+            setIngredients={setIngredients}
+            originalIngredients={props.ingredients}
+            gradient={gradient}
+          />
+          {props.isMobile && (
+            <InstructionList
+              ingredients={ingredients}
+              instructions={props.instructions}
+              gradient={gradient}
+            />
+          )}
+          <RowDiv>
+            {/* <Footer /> */}
+            <ThemeButton />
+            {/* <Footer /> */}
+          </RowDiv>
+        </ArticleContainer>
+        {!props.isMobile && (
+          <ArticleContainer style={{ width: styles.width.contentDesktop }}>
+            <InstructionList
+              ingredients={ingredients}
+              instructions={props.instructions}
+              gradient={gradient}
+            />
+          </ArticleContainer>
+        )}
+      </ContentDiv>
     </RecipeDiv>
   );
 };
 
 Recipe.defaultProps = {
+  isMobile: true,
   name: false,
   ingredients: false,
   instructions: false,
@@ -55,10 +70,26 @@ const RecipeDiv = styled.div`
   // flexbox
   display: flex;
   flex-direction: column;
+  //justify-content: center;
 
   // box model
   margin: 0 auto;
-  width: 100%;
+  width: 100%; //${styles.width.content};
+  max-width: 100vw;
+  height: 100vh;
+  padding: ${units.rem2} 0;
+`;
+
+const ContentDiv = styled.div`
+  // flexbox
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  // box model
+  margin: 0 auto;
+  width: 100%; //${styles.width.content};
+  max-width: 100vw;
   height: 100vh;
 `;
 
@@ -70,7 +101,7 @@ const ArticleContainer = styled.div`
   gap: ${units.rem5};
 
   // box model
-  margin: 0 auto;
+  width: ${styles.width.content};
   padding: ${units.rem2} ${units.rem4};
 `;
 

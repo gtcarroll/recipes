@@ -42,6 +42,7 @@ export const styles = {
   width: {
     h2: "19rem",
     content: "31rem",
+    contentDesktop: "43rem",
     frog: "10rem",
   },
   height: {

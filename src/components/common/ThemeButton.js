@@ -30,7 +30,7 @@ const ThemeButtonDiv = styled.button`
   margin: 0 auto;
   box-shadow: ${styles.boxShadow.card};
   border: none;
-  border-radius: ${units.rem1};
+  border-radius: ${styles.borderRadius.button};
   height: ${units.rem4};
   padding: 0 ${units.rem2};
 

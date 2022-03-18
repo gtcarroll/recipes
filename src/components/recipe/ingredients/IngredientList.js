@@ -39,10 +39,10 @@ const IngredientListDiv = styled.div`
   gap: ${units.rem1};
 
   // box model
+  margin-top: 1.2rem;
   box-shadow: ${styles.boxShadow.card};
   border-radius: ${styles.borderRadius.card};
   width: 100%;
-  max-width: ${styles.width.content};
   padding: ${units.rem2};
   padding-bottom: 0.9rem;
 `;

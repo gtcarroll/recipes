@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Recipe } from "./recipe/";
 import { ThemeContext, themes, styles } from "./common";
@@ -11,19 +11,31 @@ export const App = () => {
     : "light";
   document.documentElement.style.setProperty("color-scheme", preferredTheme);
   const [theme, setTheme] = useState(themes[preferredTheme]);
-  const value = {
-    theme,
-    setTheme,
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    checkResize();
+    window.addEventListener("resize", checkResize);
+    return () => window.removeEventListener("resize", checkResize);
+  }, []);
+  const checkResize = () => {
+    setIsMobile(window.innerWidth < 1000);
   };
+
   return (
-    <ThemeContext.Provider value={value}>
+    <ThemeContext.Provider
+      value={{
+        theme,
+        setTheme,
+      }}
+    >
       <AppDiv
         style={{
           color: theme.foreground,
           backgroundColor: theme.background,
         }}
       >
-        <Recipe {...peanutButterCookies} />
+        <Recipe {...peanutButterCookies} isMobile={isMobile} />
       </AppDiv>
     </ThemeContext.Provider>
   );
@@ -39,8 +51,8 @@ const AppDiv = styled.div`
   height: 100%;
 
   // clipping
-  overflow-x: none;
-  overflow-y: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   // typography
   font-size: ${styles.fontSize.body};

@@ -44,8 +44,7 @@ const InstructionListDiv = styled.div`
   // box model
   margin: 0 -${units.rem2};
   border-radius: ${units.rem1};
-  max-width: calc(${styles.width.content} + ${units.rem2} + ${units.rem2});
-  //padding: ${units.rem2} 0;
+  width: 100%;
 `;
 
 const Instructions = styled.div`
