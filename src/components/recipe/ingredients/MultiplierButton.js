@@ -1,29 +1,40 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import { ThemeContext, functions, units } from "../../common";
+import {
+  ThemeContext,
+  MixedNumber,
+  functions,
+  units,
+  styles,
+} from "../../common";
 
 export const MultiplierButton = (props) => {
+  const [isHovered, setIsHovered] = useState(false);
   const { theme } = useContext(ThemeContext);
-  let fraction = functions.splitFraction(props.label);
+  let transparentColor = functions.addAlpha(props.color, 0.15);
   return (
     <MultiplierButtonDiv
       style={{
         color: props.isActive ? theme.background : props.color,
-        borderColor: props.isActive ? props.color : null,
-        backgroundColor: props.isActive ? props.color : "transparent",
-        opacity: props.isActive ? 1 : null,
-        //borderRadius: props.isActive ? "50%" : null, //units.rem0 : null,
+        //borderColor: isHovered ? props.color : "transparent",
+        backgroundColor: props.isActive
+          ? props.color
+          : isHovered
+          ? transparentColor
+          : "transparent",
+        opacity:
+          props.isActive || isHovered ? 1 : styles.transparency.underline,
       }}
       onClick={props.onClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onFocus={() => setIsHovered(true)}
+      onBlur={() => setIsHovered(false)}
     >
-      {fraction.whole && fraction.whole}
-      {fraction.numerator && (
-        <Fraction>
-          <sup>{fraction.numerator}</sup>
-          &frasl;
-          <sub>{fraction.denominator}</sub>
-        </Fraction>
-      )}
+      <MixedNumber
+        number={props.value}
+        color={props.isActive ? theme.background : props.color}
+      />
     </MultiplierButtonDiv>
   );
 };
@@ -31,38 +42,21 @@ export const MultiplierButton = (props) => {
 MultiplierButton.defaultProps = {
   gradient: [],
   color: "rgb(125, 125, 0)",
-  label: 0,
+  value: 0,
 };
-
-const Fraction = styled.div`
-  // typography:
-  font-size: 1.4rem;
-  font-weight: bolder;
-`;
 
 const MultiplierButtonDiv = styled.button`
   // animation
-  transition-duration: ${units.transition.button};
+  transition: ${styles.transition.button};
 
   // box model
-  border: solid ${units.px0};
-  border-radius: ${units.rem0}; //50%;
-  border-color: transparent;
+  //border: ${styles.border.button};
+  border-radius: ${styles.borderRadius.button};
   width: ${units.rem4};
   height: ${units.rem4};
 
   // typography
-  font-size: ${units.fontSize.body};
-  font-family: ${units.fontFamily.monospace};
+  font-size: ${styles.fontSize.body};
+  font-family: ${styles.fontFamily.monospace};
   font-weight: bold;
-
-  // psuedo-classes
-  opacity: 0.3;
-  &:hover,
-  &:focus,
-  &:active {
-    opacity: 1;
-    //border-radius: 50%; //${units.rem0};
-    border-color: white;
-  }
 `;

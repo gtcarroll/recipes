@@ -1,13 +1,12 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { MultiplierButton } from "./MultiplierButton.js";
-import { ThemeContext, functions, units } from "../../common";
+import { ThemeContext, functions, units, styles } from "../../common";
 
 export const MultiplierButtons = (props) => {
+  let buttonValues = ["1/2", "1", "2", "3"];
   const { theme } = useContext(ThemeContext);
-  const [activeIndex, setActive] = useState(1);
-  // let transparentColor = functions.addAlpha(props.color, 0.3);
-  let buttonValues = ["1/2", "1", "2"];
+  const [activeIndex, setActive] = useState(buttonValues.indexOf("1"));
   let gradient = functions.getColorGradient(
     buttonValues.length,
     theme.ingredient1,
@@ -18,19 +17,19 @@ export const MultiplierButtons = (props) => {
       <MultiplierButton
         key={i}
         color={gradient[i]}
-        label={value}
+        value={value}
         isActive={i === activeIndex}
-        onClick={() => setActive(i)}
+        onClick={() => {
+          setActive(i);
+          props.setIngredients(
+            functions.multiplyIngredients(value, props.ingredients)
+          );
+        }}
       />
     );
   });
   return (
     <MultiplierButtonsDiv style={{ color: theme.ingredient1 }}>
-      <Label
-        style={{
-          color: gradient[activeIndex],
-        }}
-      ></Label>
       {buttons}
     </MultiplierButtonsDiv>
   );
@@ -39,11 +38,6 @@ export const MultiplierButtons = (props) => {
 MultiplierButtons.defaultProps = {
   gradient: [],
 };
-
-const Label = styled.div`
-  // box model
-  margin: auto 0;
-`;
 
 const MultiplierButtonsDiv = styled.div`
   // flexbox
@@ -56,7 +50,7 @@ const MultiplierButtonsDiv = styled.div`
   margin-top: ${units.rem0};
 
   // typography
-  font-size: ${units.fontSize.body};
-  font-family: ${units.fontFamily.monospace};
+  font-size: ${styles.fontSize.body};
+  font-family: ${styles.fontFamily.monospace};
   font-weight: bold;
 `;

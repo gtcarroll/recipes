@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { ThemeContext } from "./theme-context";
-import { units } from "./units";
+import { units, styles } from "./styles";
 
 export const Header2 = (props) => {
   const { theme } = useContext(ThemeContext);
@@ -24,17 +24,20 @@ Header2.defaultProps = {
 };
 
 const Header2Div = styled.h2`
+  // animation
+  transition: ${styles.transition.body};
+
   // box model
   margin: auto;
-  border-radius: ${units.rem0};
+  border-radius: ${styles.borderRadius.bubble};
   width: 100%;
-  max-width: ${units.width.h2};
-  height: ${units.height.bubble};
+  max-width: ${styles.width.h2};
+  height: ${styles.height.bubble};
   padding-top: ${units.px1};
   padding-bottom: ${units.px0};
 
   // typography
-  font-size: ${units.fontSize.h2};
-  font-family: ${units.fontFamily.sansSerif};
+  //font-size: ${styles.fontSize.h2};
+  font-family: ${styles.fontFamily.sansSerif};
   text-align: center;
 `;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { units } from "../../common";
+import { units, styles } from "../../common";
 import { SubTask, NumberBubble } from ".";
 
 export const Instruction = (props) => {
@@ -19,6 +19,7 @@ export const Instruction = (props) => {
         gradient={props.gradient}
         ingredientIndex={prevIndex}
         {...subtask}
+        ingredientsRef={props.ingredientsRef}
       />
     );
   });
@@ -56,7 +57,6 @@ const Heading = styled.div`
   // flexbox
   display: flex;
   flex-direction: row;
-  //gap: ${units.rem2};
 `;
 
 const Content = styled.div`
@@ -72,6 +72,9 @@ const Content = styled.div`
 const Task = styled.h3`
   // box model
   margin: ${units.rem1} 0 0 ${units.rem1};
+
+  // typography
+  font-size: ${styles.fontSize.h3};
 `;
 
 const SubTasks = styled.div`

@@ -1,5 +1,6 @@
 let px = 3;
 let rem = 0.3;
+// units used for css styles
 export const units = {
   // rem
   rem0: rem + "rem", // 0.3
@@ -13,12 +14,22 @@ export const units = {
   // px
   px0: px + "px", // borders
   px1: px * 2 + "px",
-  px2: "8px",
+  px2: px * 4 + "px",
+};
 
-  // css properties
+// css style values
+export const styles = {
+  border: {
+    button: "solid 2px",
+  },
+  borderRadius: {
+    button: units.rem1,
+    card: units.rem1,
+    bubble: units.rem0,
+  },
   transition: {
-    body: "1s",
-    button: "0.231s",
+    body: "0.5s ease-out",
+    button: "0.2s ease-out",
   },
   transparency: {
     highlight: 0.15,
@@ -39,11 +50,12 @@ export const units = {
   fontSize: {
     h1: "2.7rem",
     h2: "2.1rem",
-    h3: "1.5rem",
-    body: "1.5rem", //1.3rem for mobile?
+    h3: "1.6rem",
+    body: "1.2rem", //"1.3rem",
+    fraction: "1.2rem",
   },
   fontFamily: {
-    monospace: "courier, monospace",
-    sansSerif: "sans-serif",
+    monospace: "Menlo, monospace", //"courier, monospace",
+    sansSerif: "helvetica, sans-serif",
   },
 };

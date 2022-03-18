@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { ThemeContext, functions, units } from "../../common";
+import { ThemeContext, functions, units, styles } from "../../common";
 
 export const LetterBubble = (props) => {
   const { theme } = useContext(ThemeContext);
   let transparentColor = functions.addAlpha(
     theme.instruction,
-    units.transparency.highlight
+    styles.transparency.highlight
   );
   return (
     <LetterBubbleDiv
@@ -25,18 +25,22 @@ LetterBubble.defaultProps = {
 };
 
 const LetterBubbleDiv = styled.div`
+  // animation
+  transition: ${styles.transition.body};
+
+  // flexbox
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   // box model
   margin-left: -${units.rem2};
-  //margin-right: ${units.rem0};
-  border-radius: ${units.rem0};
+  border-radius: ${styles.borderRadius.bubble};
   width: ${units.rem4};
   min-width: ${units.rem4};
   height: ${units.rem4};
-  padding-top: ${units.px2};
-
-  box-sizing: border-box;
 
   // typography
-  font-size: ${units.fontSize.h3};
+  font-size: ${styles.fontSize.h3};
   text-align: center;
 `;

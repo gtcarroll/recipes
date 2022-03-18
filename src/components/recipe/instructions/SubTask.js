@@ -1,20 +1,23 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { ThemeContext, units } from "../../common";
+import { ThemeContext, units, styles } from "../../common";
 import { Ingredient } from "../ingredients";
 import { LetterBubble } from ".";
 
 export const SubTask = (props) => {
   const { theme } = useContext(ThemeContext);
-  let ingredientList = props.ingredients.map((item, i) => {
-    return (
+  let ingredientList = [];
+  for (let i = 0; i < props.ingredients.length; i++) {
+    let ingredient = props.ingredientsRef[props.ingredientIndex + i];
+    ingredientList.push(
       <Ingredient
         key={i}
         color={props.gradient[props.ingredientIndex + i]}
-        {...item}
+        fontFamily={styles.fontFamily.sansSerif}
+        {...ingredient}
       />
     );
-  });
+  }
   return (
     <SubTaskDiv
       style={{

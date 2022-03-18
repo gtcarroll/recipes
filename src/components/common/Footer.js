@@ -1,28 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import { units } from "./units";
+import { units, styles } from "./styles";
 import froggy from "../../assets/photos/froggychef_dark_lg.png";
 import froggyLight from "../../assets/photos/froggychef_light.png";
-// import froggyDark from "../../assets/photos/froggychef_dark.png";
 
 export const Footer = (props) => {
   return (
     <FooterDiv>
       <img
-        style={{ maxWidth: units.width.frog, marginTop: "-" + units.rem2 }}
+        style={{ maxWidth: styles.width.frog, marginTop: "-" + units.rem2 }}
         draggable="false"
         src={froggy}
         alt="froggy chef"
       />
-      {/* <img
-        style={{
-          maxWidth: units.width.frog,
-          marginTop: "-" + units.rem2,
-        }}
-        draggable="false"
-        src={froggyDark}
-        alt="froggy chef"
-      /> */}
       <img
         style={{
           maxWidth: units.width.frog,

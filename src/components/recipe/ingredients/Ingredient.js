@@ -1,11 +1,16 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { ThemeContext, functions, units } from "../../common";
+import {
+  ThemeContext,
+  MixedNumber,
+  functions,
+  units,
+  styles,
+} from "../../common";
 
 export const Ingredient = (props) => {
   const { theme } = useContext(ThemeContext);
   let transparentColor = functions.addAlpha(props.color, 0.3);
-  let fraction = functions.splitFraction(props.amount);
   return (
     <IngredientDiv
       style={{
@@ -15,20 +20,12 @@ export const Ingredient = (props) => {
     >
       <div>{props.ingredient}</div>
       <RowDiv>
-        <Number
-          style={{
-            color: theme.foreground,
-          }}
-        >
-          {fraction.whole && fraction.whole}
-          {fraction.numerator && (
-            <Fraction>
-              <sup>{fraction.numerator}</sup>
-              &frasl;
-              <sub>{fraction.denominator}</sub>
-            </Fraction>
-          )}
-        </Number>
+        <MixedNumber
+          number={props.amount}
+          color={theme.foreground}
+          fontFamily={props.fontFamily}
+          isIngredient
+        />
         <Measure>{props.measure}</Measure>
       </RowDiv>
     </IngredientDiv>
@@ -44,7 +41,7 @@ Ingredient.defaultProps = {
 
 const IngredientDiv = styled.div`
   // animation
-  transition-duration: ${units.transition.body};
+  transition: ${styles.transition.body};
 
   // flexbox
   display: flex;
@@ -68,23 +65,8 @@ const RowDiv = styled.div`
   height: ${units.rem3};
 `;
 
-const Number = styled.div`
-  // flexbox
-  display: flex;
-  flex-direction: row;
-
-  // box model
-  margin-left: ${units.rem1};
-  margin-right: ${units.rem1};
-`;
-
-const Fraction = styled.div`
-  // box model
-  margin-top: -${units.rem0};
-  margin-left: ${units.rem0};
-`;
-
 const Measure = styled.div`
   // box model
+  margin-left: ${units.rem1};
   min-width: ${units.rem6};
 `;

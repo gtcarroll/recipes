@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { ThemeContext, themes } from "./theme-context";
-import { units } from "./units";
+import { units, styles } from "./styles";
 
 export const ThemeButton = (props) => {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -24,11 +24,11 @@ export const ThemeButton = (props) => {
 
 const ThemeButtonDiv = styled.button`
   // animation
-  transition-duration: ${units.transition.button};
+  transition: ${styles.transition.button};
 
   // box model
   margin: 0 auto;
-  box-shadow: ${units.boxShadow.card};
+  box-shadow: ${styles.boxShadow.card};
   border: none;
   border-radius: ${units.rem1};
   height: ${units.rem4};
@@ -40,6 +40,6 @@ const ThemeButtonDiv = styled.button`
 
   // pseudo-classes
   :hover {
-    box-shadow: ${units.boxShadow.hover};
+    box-shadow: ${styles.boxShadow.hover};
   }
 `;

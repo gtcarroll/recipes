@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  transition-duration: 1s;
+  line-height: 100%;
 }
 
 body {
@@ -11,15 +11,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-body {
-  transition-duration: 0s;
 }
 
 /* remove default button styles */

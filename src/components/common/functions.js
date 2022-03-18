@@ -71,4 +71,74 @@ export const functions = {
     }
     return { whole: amount };
   },
+
+  multiplyIngredients: (multiplier, ingredients) => {
+    // set flag for fractional multipliers
+    let isDivision = multiplier.includes("/");
+    if (isDivision) multiplier = multiplier.split("/")[1];
+
+    let newIngredients = ingredients.map((ingredient) => {
+      let num = functions.splitFraction(ingredient.amount);
+      // convert mixed num to fractional form
+      // (eg 2 3/4 => 11/4)
+      if (num.whole) {
+        if (!num.numerator) num.numerator = 0;
+        if (!num.denominator) num.denominator = 1;
+        num.numerator =
+          parseInt(num.numerator) + parseInt(num.whole * num.denominator);
+      }
+      // multiply fractional form
+      // (eg 11/4 => 11/8)
+      if (isDivision) num.denominator *= multiplier;
+      else num.numerator *= multiplier;
+      // simplify fractional form
+      // (eg 12/4 => 3/1)
+      let factor = functions.gcf(num.numerator, num.denominator);
+      num.numerator = num.numerator / factor;
+      num.denominator = num.denominator / factor;
+      // convert fractional form to mixed form
+      // (eg 11/8 => 1 3/8)
+      if (num.numerator > num.denominator) {
+        let quotient = Math.floor(num.numerator / num.denominator);
+        num = {
+          whole: quotient,
+          numerator: num.numerator - quotient * num.denominator,
+          denominator: num.denominator,
+        };
+        if (num.numerator === 0) {
+          num = {
+            whole: quotient,
+          };
+        }
+      } else if (num.numerator === num.denominator) {
+        num = {
+          whole: 1,
+        };
+      } else {
+        // num.numerator < num.denominator
+        num.whole = "";
+      }
+
+      // store mixed form in new ingredients data as a string
+      let newAmount = num.whole ? num.whole : "";
+      newAmount += num.numerator
+        ? " " + num.numerator + "/" + num.denominator
+        : "";
+      return {
+        amount: newAmount,
+        measure: ingredient.measure,
+        ingredient: ingredient.ingredient,
+      };
+    });
+    return newIngredients;
+  },
+
+  // returns the greatest common factor that [a] and [b] share
+  gcf(a, b) {
+    if (b) {
+      return functions.gcf(b, a % b);
+    } else {
+      return Math.abs(a);
+    }
+  },
 };

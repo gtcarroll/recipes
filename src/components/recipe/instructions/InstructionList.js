@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Instruction } from ".";
-import { Header2, units } from "../../common";
+import { Header2, units, styles } from "../../common";
 
 export const InstructionList = (props) => {
   let ingredientIndex = 0;
@@ -16,6 +16,7 @@ export const InstructionList = (props) => {
         number={i + 1}
         gradient={props.gradient}
         ingredientIndex={prevIndex}
+        ingredientsRef={props.ingredients} // create sub-array here!
         {...step}
       />
     );
@@ -43,7 +44,7 @@ const InstructionListDiv = styled.div`
   // box model
   margin: 0 -${units.rem2};
   border-radius: ${units.rem1};
-  max-width: calc(${units.width.content} + ${units.rem2} + ${units.rem2});
+  max-width: calc(${styles.width.content} + ${units.rem2} + ${units.rem2});
   //padding: ${units.rem2} 0;
 `;
 

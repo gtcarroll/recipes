@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import {
   Header1,
@@ -7,10 +7,12 @@ import {
   ThemeContext,
   functions,
   units,
+  styles,
 } from "../common";
 import { IngredientList, InstructionList } from ".";
 
 export const Recipe = (props) => {
+  const [ingredients, setIngredients] = useState(props.ingredients);
   const { theme } = useContext(ThemeContext);
   const gradient = functions.getColorGradient(
     props.ingredients.length,
@@ -18,24 +20,25 @@ export const Recipe = (props) => {
     theme.ingredient2
   );
   return (
-    <RecipeDiv
-      style={{
-        color: theme.foreground,
-        backgroundColor: theme.background,
-      }}
-    >
+    <RecipeDiv>
       <ArticleContainer>
         <ThemeButton />
         <Header1 text={props.name} />
-        <IngredientList ingredients={props.ingredients} gradient={gradient} />
+        <IngredientList
+          ingredients={ingredients}
+          setIngredients={setIngredients}
+          originalIngredients={props.ingredients}
+          gradient={gradient}
+        />
         <InstructionList
+          ingredients={ingredients}
           instructions={props.instructions}
           gradient={gradient}
         />
         <RowDiv>
-          <Footer />
+          {/* <Footer /> */}
           <ThemeButton />
-          <Footer />
+          {/* <Footer /> */}
         </RowDiv>
       </ArticleContainer>
     </RecipeDiv>
@@ -52,10 +55,6 @@ const RecipeDiv = styled.div`
   // flexbox
   display: flex;
   flex-direction: column;
-
-  // clipping
-  overflow-x: none;
-  overflow-y: scroll;
 
   // box model
   margin: 0 auto;
@@ -81,4 +80,7 @@ const RowDiv = styled.div`
   flex-direction: row;
   justify-content: center;
   gap: ${units.rem3};
+
+  // box model
+  width: 0;
 `;
