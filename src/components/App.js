@@ -5,7 +5,12 @@ import { ThemeContext, themes, styles } from "./common";
 let peanutButterCookies = require("../assets/recipes/peanut-butter-cookies.json");
 
 export const App = () => {
-  const [theme, setTheme] = useState(themes.dark);
+  const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)")
+    .matches
+    ? "dark"
+    : "light";
+  document.documentElement.style.setProperty("color-scheme", preferredTheme);
+  const [theme, setTheme] = useState(themes[preferredTheme]);
   const value = {
     theme,
     setTheme,
