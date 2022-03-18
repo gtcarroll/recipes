@@ -67,6 +67,7 @@ const Content = styled.div`
 
   // box model
   margin: ${units.rem2};
+  margin-top: ${units.rem1};
 `;
 
 const Task = styled.h3`

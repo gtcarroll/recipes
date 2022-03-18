@@ -34,9 +34,11 @@ const NumberBubbleDiv = styled.div`
   border-radius: ${styles.borderRadius.bubble};
   width: ${units.rem4};
   min-width: ${units.rem4};
-  height: ${units.rem4};
+  height: calc(${units.rem4} - 1px);
+  padding-top: 1px;
 
   // typography
+  //font-family: ${styles.fontFamily.monospace};
   font-size: ${styles.fontSize.h2};
   text-align: center;
   font-weight: bold;

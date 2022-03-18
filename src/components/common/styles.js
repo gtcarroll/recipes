@@ -25,7 +25,8 @@ export const styles = {
   borderRadius: {
     button: units.rem1,
     card: units.rem1,
-    bubble: units.rem0,
+    bubble: units.rem1,
+    header: units.rem0,
   },
   transition: {
     body: "0.5s ease-out",
@@ -56,7 +57,8 @@ export const styles = {
     fraction: "1.2rem",
   },
   fontFamily: {
-    monospace: "Menlo, monospace", //"courier, monospace",
-    sansSerif: "helvetica, sans-serif",
+    monospace:
+      'source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace', //"Menlo, monospace", //"courier, monospace",
+    sansSerif: "Helvetica, sans-serif",
   },
 };

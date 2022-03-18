@@ -75,8 +75,6 @@ const RecipeDiv = styled.div`
   // box model
   margin: 0 auto;
   width: 100%; //${styles.width.content};
-  max-width: 100vw;
-  height: 100vh;
   padding: ${units.rem2} 0;
 `;
 
@@ -90,7 +88,7 @@ const ContentDiv = styled.div`
   margin: 0 auto;
   width: 100%; //${styles.width.content};
   max-width: 100vw;
-  height: 100vh;
+  //height: 100vh;
 `;
 
 const ArticleContainer = styled.div`
@@ -102,6 +100,7 @@ const ArticleContainer = styled.div`
 
   // box model
   width: ${styles.width.content};
+  //height: fit-content;
   padding: ${units.rem2} ${units.rem4};
 `;
 

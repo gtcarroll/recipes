@@ -47,8 +47,9 @@ const AppDiv = styled.div`
     color ${styles.transition.body};
 
   // box model
-  width: 100%;
-  height: 100%;
+  height: 100vh;
+  max-width: 100vw;
+  //height: 100%;
 
   // clipping
   overflow-x: hidden;
