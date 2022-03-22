@@ -1,26 +1,43 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Recipe } from "./recipe/";
-import { ThemeContext, themes, styles } from "./common";
+import {
+  PaletteStrip,
+  ThemeContext,
+  themes,
+  LayoutContext,
+  layouts,
+  styles,
+} from "./common";
 let peanutButterCookies = require("../assets/recipes/peanut-butter-cookies.json");
 
 export const App = () => {
+  const getLayout = (width) => {
+    return width > layouts.desktop.minWidth
+      ? layouts.desktop
+      : width > layouts.laptop.minWidth
+      ? layouts.laptop
+      : width > layouts.tablet.minWidth
+      ? layouts.tablet
+      : layouts.mobile;
+  };
+
   const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)")
     .matches
     ? "dark"
     : "light";
   document.documentElement.style.setProperty("color-scheme", preferredTheme);
   const [theme, setTheme] = useState(themes[preferredTheme]);
-  const [isMobile, setIsMobile] = useState(true);
+  const [layout, setLayout] = useState(getLayout(window.innerWidth));
 
   useEffect(() => {
+    const checkResize = () => {
+      setLayout(getLayout(window.innerWidth));
+    };
     checkResize();
     window.addEventListener("resize", checkResize);
     return () => window.removeEventListener("resize", checkResize);
   }, []);
-  const checkResize = () => {
-    setIsMobile(window.innerWidth < 1000);
-  };
 
   return (
     <ThemeContext.Provider
@@ -29,14 +46,23 @@ export const App = () => {
         setTheme,
       }}
     >
-      <AppDiv
-        style={{
-          color: theme.foreground,
-          backgroundColor: theme.background,
+      <LayoutContext.Provider
+        value={{
+          layout,
+          setLayout,
         }}
       >
-        <Recipe {...peanutButterCookies} isMobile={isMobile} />
-      </AppDiv>
+        <AppDiv
+          style={{
+            color: theme.foreground,
+            backgroundColor: theme.background,
+            fontSize: layout.fontSize.body,
+          }}
+        >
+          <PaletteStrip />
+          <Recipe {...peanutButterCookies} />
+        </AppDiv>
+      </LayoutContext.Provider>
     </ThemeContext.Provider>
   );
 };
@@ -49,13 +75,13 @@ const AppDiv = styled.div`
   // box model
   height: 100vh;
   max-width: 100vw;
-  //height: 100%;
+  /* padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left); // handles iphone notch issues */
 
   // clipping
   overflow-x: hidden;
   overflow-y: auto;
 
   // typography
-  font-size: ${styles.fontSize.body};
   font-family: ${styles.fontFamily.sansSerif};
 `;

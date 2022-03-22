@@ -2,9 +2,9 @@ import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import {
   Header1,
-  Footer,
   ThemeButton,
   ThemeContext,
+  LayoutContext,
   functions,
   units,
   styles,
@@ -14,6 +14,7 @@ import { IngredientList, InstructionList } from ".";
 export const Recipe = (props) => {
   const [ingredients, setIngredients] = useState(props.ingredients);
   const { theme } = useContext(ThemeContext);
+  const { layout } = useContext(LayoutContext);
   const gradient = functions.getColorGradient(
     props.ingredients.length,
     theme.ingredient1,
@@ -23,30 +24,23 @@ export const Recipe = (props) => {
     <RecipeDiv>
       <Header1 text={props.name} />
       <ContentDiv>
-        <ArticleContainer>
-          {/* <ThemeButton /> */}
-          {/* <Header1 text={props.name} /> */}
+        <ArticleContainer style={{ width: layout.width.ingredients }}>
           <IngredientList
             ingredients={ingredients}
             setIngredients={setIngredients}
             originalIngredients={props.ingredients}
             gradient={gradient}
           />
-          {props.isMobile && (
+          {layout.name !== "desktop" && (
             <InstructionList
               ingredients={ingredients}
               instructions={props.instructions}
               gradient={gradient}
             />
           )}
-          <RowDiv>
-            {/* <Footer /> */}
-            <ThemeButton />
-            {/* <Footer /> */}
-          </RowDiv>
         </ArticleContainer>
-        {!props.isMobile && (
-          <ArticleContainer style={{ width: styles.width.contentDesktop }}>
+        {layout.name === "desktop" && (
+          <ArticleContainer style={{ width: layout.width.instructions }}>
             <InstructionList
               ingredients={ingredients}
               instructions={props.instructions}
@@ -55,12 +49,12 @@ export const Recipe = (props) => {
           </ArticleContainer>
         )}
       </ContentDiv>
+      <ThemeButton />
     </RecipeDiv>
   );
 };
 
 Recipe.defaultProps = {
-  isMobile: true,
   name: false,
   ingredients: false,
   instructions: false,
@@ -70,7 +64,6 @@ const RecipeDiv = styled.div`
   // flexbox
   display: flex;
   flex-direction: column;
-  //justify-content: center;
 
   // box model
   margin: 0 auto;
@@ -86,12 +79,14 @@ const ContentDiv = styled.div`
 
   // box model
   margin: 0 auto;
-  width: 100%; //${styles.width.content};
+  width: 100%;
   max-width: 100vw;
-  //height: 100vh;
 `;
 
 const ArticleContainer = styled.div`
+  // animation
+  transition: width ${styles.transition.body};
+
   // flexbox
   display: flex;
   flex-direction: column;
@@ -100,17 +95,5 @@ const ArticleContainer = styled.div`
 
   // box model
   width: ${styles.width.content};
-  //height: fit-content;
   padding: ${units.rem2} ${units.rem4};
-`;
-
-const RowDiv = styled.div`
-  // flexbox
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: ${units.rem3};
-
-  // box model
-  width: 0;
 `;

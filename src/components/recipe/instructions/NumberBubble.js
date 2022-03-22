@@ -1,14 +1,16 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { ThemeContext, units, styles } from "../../common";
+import { ThemeContext, LayoutContext, units, styles } from "../../common";
 
 export const NumberBubble = (props) => {
   const { theme } = useContext(ThemeContext);
+  const { layout } = useContext(LayoutContext);
   return (
     <NumberBubbleDiv
       style={{
         color: theme.background,
         backgroundColor: theme.instruction,
+        fontSize: layout.fontSize.h2,
       }}
     >
       {props.number}
@@ -22,7 +24,8 @@ NumberBubble.defaultProps = {
 
 const NumberBubbleDiv = styled.div`
   // animation
-  transition: ${styles.transition.body};
+  transition: color ${styles.transition.body},
+    background-color ${styles.transition.body};
 
   // flexbox
   display: flex;
@@ -30,16 +33,13 @@ const NumberBubbleDiv = styled.div`
   justify-content: center;
 
   // box model
-  margin-left: 0; //-${units.rem2};
   border-radius: ${styles.borderRadius.bubble};
   width: ${units.rem4};
   min-width: ${units.rem4};
-  height: calc(${units.rem4} - 1px);
-  padding-top: 1px;
+  height: ${units.rem4};
 
   // typography
-  //font-family: ${styles.fontFamily.monospace};
-  font-size: ${styles.fontSize.h2};
   text-align: center;
   font-weight: bold;
+  user-select: none;
 `;

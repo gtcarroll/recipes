@@ -18,7 +18,6 @@ export const MixedNumber = (props) => {
           style={{
             marginTop: props.isIngredient ? "-" + units.rem0 : 0,
             marginLeft: props.isIngredient ? units.rem0 : 0,
-            fontSize: props.isIngredient ? null : styles.fontSize.fraction,
           }}
         >
           <sup
@@ -50,7 +49,7 @@ MixedNumber.defaultProps = {
 
 const MixedNumberDiv = styled.div`
   // animation
-  transition: ${styles.transition.body};
+  transition: color ${styles.transition.body};
 
   // flexbox
   display: flex;

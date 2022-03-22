@@ -6,10 +6,12 @@ import {
   functions,
   units,
   styles,
+  LayoutContext,
 } from "../../common";
 
 export const Ingredient = (props) => {
   const { theme } = useContext(ThemeContext);
+  const { layout } = useContext(LayoutContext);
   let transparentColor = functions.addAlpha(props.color, 0.3);
   return (
     <IngredientDiv
@@ -19,7 +21,11 @@ export const Ingredient = (props) => {
       }}
     >
       <div>{props.ingredient}</div>
-      <RowDiv>
+      <RowDiv
+        style={{
+          height: layout.fontSize.h2,
+        }}
+      >
         <MixedNumber
           number={props.amount}
           color={theme.foreground}
@@ -41,7 +47,8 @@ Ingredient.defaultProps = {
 
 const IngredientDiv = styled.div`
   // animation
-  transition: ${styles.transition.body};
+  transition: color ${styles.transition.body},
+    border-color ${styles.transition.body};
 
   // flexbox
   display: flex;

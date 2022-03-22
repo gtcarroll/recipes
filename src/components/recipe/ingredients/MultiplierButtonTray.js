@@ -50,7 +50,6 @@ const MultiplierButtonsDiv = styled.div`
   margin-top: ${units.rem0};
 
   // typography
-  font-size: ${styles.fontSize.body};
   font-family: ${styles.fontFamily.monospace};
   font-weight: bold;
 `;

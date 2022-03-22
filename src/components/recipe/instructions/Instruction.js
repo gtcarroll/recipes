@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { units, styles } from "../../common";
+import { Header3, units } from "../../common";
 import { SubTask, NumberBubble } from ".";
 
 export const Instruction = (props) => {
@@ -18,8 +18,8 @@ export const Instruction = (props) => {
         letter={String.fromCharCode(97 + i)}
         gradient={props.gradient}
         ingredientIndex={prevIndex}
-        {...subtask}
         ingredientsRef={props.ingredientsRef}
+        {...subtask}
       />
     );
   });
@@ -27,7 +27,7 @@ export const Instruction = (props) => {
     <InstructionDiv>
       <Heading>
         <NumberBubble number={props.number} />
-        <Task>{props.task}</Task>
+        <Header3 text={props.task} />
       </Heading>
       <Content>
         <SubTasks>{subtaskList}</SubTasks>
@@ -67,15 +67,7 @@ const Content = styled.div`
 
   // box model
   margin: ${units.rem2};
-  margin-top: ${units.rem1};
-`;
-
-const Task = styled.h3`
-  // box model
-  margin: ${units.rem1} 0 0 ${units.rem1};
-
-  // typography
-  font-size: ${styles.fontSize.h3};
+  //margin-top: ${units.rem1};
 `;
 
 const SubTasks = styled.div`

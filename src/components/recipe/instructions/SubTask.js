@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { ThemeContext, units, styles } from "../../common";
+import { ThemeContext, LayoutContext, units, styles } from "../../common";
 import { Ingredient } from "../ingredients";
 import { LetterBubble } from ".";
 
 export const SubTask = (props) => {
   const { theme } = useContext(ThemeContext);
+  const { layout } = useContext(LayoutContext);
   let ingredientList = [];
   for (let i = 0; i < props.ingredients.length; i++) {
     let ingredient = props.ingredientsRef[props.ingredientIndex + i];
@@ -24,7 +25,10 @@ export const SubTask = (props) => {
         backgroundColor: props.isOptional ? theme.overlay : "none",
       }}
     >
-      <LetterBubble letter={props.letter} />
+      <LetterBubble
+        letter={props.letter}
+        isIndented={layout.name !== "mobile"}
+      />
       <Content>
         <PreText>{props.pretext ? props.pretext : props.text}</PreText>
         {ingredientList.length > 0 && (
@@ -49,6 +53,9 @@ const SubTaskDiv = styled.div`
   display: flex;
   flex-direction: row;
   border-radius: ${units.rem0};
+
+  // TODO: add this in desktop mode
+  //margin-left: 1.2rem;
 `;
 
 const Content = styled.div`

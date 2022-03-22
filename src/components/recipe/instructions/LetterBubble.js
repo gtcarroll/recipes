@@ -1,9 +1,16 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { ThemeContext, functions, units, styles } from "../../common";
+import {
+  ThemeContext,
+  LayoutContext,
+  functions,
+  units,
+  styles,
+} from "../../common";
 
 export const LetterBubble = (props) => {
   const { theme } = useContext(ThemeContext);
+  const { layout } = useContext(LayoutContext);
   let transparentColor = functions.addAlpha(
     theme.instruction,
     styles.transparency.highlight
@@ -13,6 +20,8 @@ export const LetterBubble = (props) => {
       style={{
         color: theme.instruction,
         backgroundColor: transparentColor,
+        marginLeft: props.isIndented ? 0 : "-" + units.rem2,
+        fontSize: layout.fontSize.h3,
       }}
     >
       {props.letter}
@@ -22,11 +31,13 @@ export const LetterBubble = (props) => {
 
 LetterBubble.defaultProps = {
   letter: "-",
+  isIndented: false,
 };
 
 const LetterBubbleDiv = styled.div`
   // animation
-  transition: ${styles.transition.body};
+  transition: color ${styles.transition.body},
+    background-color ${styles.transition.body};
 
   // flexbox
   display: flex;
@@ -41,6 +52,6 @@ const LetterBubbleDiv = styled.div`
   height: ${units.rem4};
 
   // typography
-  font-size: ${styles.fontSize.h3};
   text-align: center;
+  user-select: none;
 `;

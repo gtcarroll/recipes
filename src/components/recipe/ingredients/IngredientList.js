@@ -1,10 +1,17 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { Ingredient, MultiplierButtonTray } from ".";
-import { Header2, ThemeContext, units, styles } from "../../common";
+import {
+  Header2,
+  ThemeContext,
+  LayoutContext,
+  units,
+  styles,
+} from "../../common";
 
 export const IngredientList = (props) => {
   const { theme } = useContext(ThemeContext);
+  const { layout } = useContext(LayoutContext);
   let ingredientList = props.ingredients.map((item, i) => {
     return <Ingredient key={i} color={props.gradient[i]} {...item} />;
   });
@@ -13,6 +20,9 @@ export const IngredientList = (props) => {
     <IngredientListDiv
       style={{
         backgroundColor: theme.overlay,
+        position: layout.name === "desktop" ? "sticky" : null,
+        top:
+          layout.name === "desktop" ? "calc(" + units.rem4 + " + 3px)" : null,
       }}
     >
       <Header2 text="Ingredients" isOffset />
@@ -31,7 +41,7 @@ IngredientList.defaultProps = {
 
 const IngredientListDiv = styled.div`
   // animation
-  transition: ${styles.transition.body};
+  transition: width ${styles.transition.body};
 
   // flexbox
   display: flex;
@@ -49,6 +59,5 @@ const IngredientListDiv = styled.div`
 
 const Ingredients = styled.div`
   // typography
-  font-size: ${styles.fontSize.body};
   font-family: ${styles.fontFamily.monospace};
 `;

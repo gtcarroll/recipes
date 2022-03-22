@@ -12,9 +12,9 @@ export const units = {
   rem6: rem * 12 + "rem", // 3.6
 
   // px
-  px0: px + "px", // borders
-  px1: px * 2 + "px",
-  px2: px * 4 + "px",
+  px0: px + "px", // 3
+  px1: px * 2 + "px", // 6
+  px2: px * 4 + "px", // 12
 };
 
 // css style values
@@ -25,11 +25,13 @@ export const styles = {
   borderRadius: {
     button: units.rem1,
     card: units.rem1,
-    bubble: units.rem1,
+    bubble: units.rem0,
     header: units.rem0,
   },
   transition: {
     body: "0.5s ease-out",
+    bodyALL:
+      "width 0.5s ease-out, color 0.5s ease-out, background-color 0.5s ease-out",
     button: "0.2s ease-out",
   },
   transparency: {
@@ -43,22 +45,28 @@ export const styles = {
   width: {
     h2: "19rem",
     content: "31rem",
-    contentDesktop: "43rem",
     frog: "10rem",
   },
   height: {
+    h2: rem * 8 + "rem",
     bubble: rem * 7 + "rem",
   },
   fontSize: {
-    h1: "2.7rem",
+    h1: "2.1rem",
+    h2: "1.8rem",
+    h3: "1.5rem",
+    body: "1.2rem",
+  },
+  fontSizeDesktop: {
+    h1: "2.4rem",
     h2: "2.1rem",
-    h3: "1.6rem",
-    body: "1.2rem", //"1.3rem",
-    fraction: "1.2rem",
+    h3: "1.8rem",
+    body: "1.5rem",
   },
   fontFamily: {
     monospace:
       'source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace', //"Menlo, monospace", //"courier, monospace",
-    sansSerif: "Helvetica, sans-serif",
+    sansSerif:
+      'BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen","Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",sans-serif', //"Helvetica, sans-serif",
   },
 };

@@ -8,6 +8,10 @@ export const ThemeButton = (props) => {
   const handleClick = () => {
     console.log("theme toggled");
     theme === themes.dark ? setTheme(themes.light) : setTheme(themes.dark);
+    document.documentElement.style.setProperty(
+      "color-scheme",
+      themes === themes.dark ? "dark" : "light"
+    );
   };
   return (
     <ThemeButtonDiv

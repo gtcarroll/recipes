@@ -16,7 +16,7 @@ export const InstructionList = (props) => {
         number={i + 1}
         gradient={props.gradient}
         ingredientIndex={prevIndex}
-        ingredientsRef={props.ingredients} // create sub-array here!
+        ingredientsRef={props.ingredients}
         {...step}
       />
     );
@@ -37,6 +37,9 @@ InstructionList.defaultProps = {
 };
 
 const InstructionListDiv = styled.div`
+  // animation
+  transition: width ${styles.transition.body};
+
   // flexbox
   display: flex;
   flex-direction: column;
@@ -44,7 +47,7 @@ const InstructionListDiv = styled.div`
   // box model
   margin: 0 -${units.rem2};
   border-radius: ${units.rem1};
-  width: 100%;
+  width: calc(100% + (2 * ${units.rem2}));
 `;
 
 const Instructions = styled.div`
