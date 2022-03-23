@@ -74,13 +74,14 @@ const AppDiv = styled.div`
 
   // box model
   height: 100vh;
+  height: -webkit-fill-available;
   max-width: 100vw;
   /* padding: env(safe-area-inset-top) env(safe-area-inset-right)
     env(safe-area-inset-bottom) env(safe-area-inset-left); // handles iphone notch issues */
 
   // clipping
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
 
   // typography
   font-family: ${styles.fontFamily.sansSerif};

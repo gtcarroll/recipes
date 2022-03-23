@@ -16,7 +16,6 @@ export const MultiplierButton = (props) => {
     <MultiplierButtonDiv
       style={{
         color: props.isActive ? theme.background : props.color,
-        //borderColor: isHovered ? props.color : "transparent",
         backgroundColor: props.isActive
           ? props.color
           : isHovered
@@ -25,21 +24,21 @@ export const MultiplierButton = (props) => {
         opacity:
           props.isActive || isHovered ? 1 : styles.transparency.underline,
       }}
-      onClick={props.onClick}
+      onClick={() => {
+        props.onClick();
+      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onFocus={() => setIsHovered(true)}
       onBlur={() => setIsHovered(false)}
     >
-      <MixedNumber
-        number={props.value}
-        color={props.isActive ? theme.background : props.color}
-      />
+      <MixedNumber number={props.value} />
     </MultiplierButtonDiv>
   );
 };
 
 MultiplierButton.defaultProps = {
+  isActive: false,
   gradient: [],
   color: "rgb(125, 125, 0)",
   value: 0,
