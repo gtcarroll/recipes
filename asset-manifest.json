@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/recipes/static/css/main.2177836a.css",
-    "main.js": "/recipes/static/js/main.3e1d3124.js",
+    "main.js": "/recipes/static/js/main.bdea6dae.js",
     "static/media/pb-cookies.png": "/recipes/static/media/pb-cookies.9029a9e6954c08be558f.png",
     "static/media/froggychef_dark_lg.png": "/recipes/static/media/froggychef_dark_lg.912c158f365578f42aff.png",
     "static/media/froggychef_light.png": "/recipes/static/media/froggychef_light.468c476de36e871dff55.png",
     "index.html": "/recipes/index.html",
     "main.2177836a.css.map": "/recipes/static/css/main.2177836a.css.map",
-    "main.3e1d3124.js.map": "/recipes/static/js/main.3e1d3124.js.map"
+    "main.bdea6dae.js.map": "/recipes/static/js/main.bdea6dae.js.map"
   },
   "entrypoints": [
     "static/css/main.2177836a.css",
-    "static/js/main.3e1d3124.js"
+    "static/js/main.bdea6dae.js"
   ]
 }
