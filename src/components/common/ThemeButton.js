@@ -9,10 +9,6 @@ export const ThemeButton = (props) => {
     console.log("theme toggled");
     let isDark = theme === themes.dark;
     isDark ? setTheme(themes.light) : setTheme(themes.dark);
-    // document.documentElement.style.setProperty(
-    //   "theme-color",
-    //   isDark ? "light" : "dark"
-    // );
     document.documentElement.style.setProperty(
       "--root-background-color",
       isDark ? themes.light.background : themes.dark.background

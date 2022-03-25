@@ -24,14 +24,19 @@ export const InstructionList = (props) => {
   return (
     <InstructionListDiv>
       <Header2 text="Instructions" />
-      <Instructions>{instructionList}</Instructions>
+      <Instructions>
+        {props.instructions.prep && (
+          <Instruction number={0} task={props.instructions.prep} />
+        )}
+        {instructionList}
+      </Instructions>
     </InstructionListDiv>
   );
 };
 
 InstructionList.defaultProps = {
   instructions: {
-    prep: "_prep_",
+    prep: false,
     steps: [],
   },
 };

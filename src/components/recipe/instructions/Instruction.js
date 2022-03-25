@@ -29,17 +29,19 @@ export const Instruction = (props) => {
         <NumberBubble number={props.number} />
         <Header3 text={props.task} />
       </Heading>
-      <Content>
-        <SubTasks>{subtaskList}</SubTasks>
-      </Content>
+      {subtaskList.length > 0 && (
+        <Content>
+          <SubTasks>{subtaskList}</SubTasks>
+        </Content>
+      )}
     </InstructionDiv>
   );
 };
 
 Instruction.defaultProps = {
   task: "_task_",
-  steps: [],
   gradient: [],
+  subtasks: [],
   number: 2,
 };
 
@@ -49,7 +51,7 @@ const InstructionDiv = styled.div`
   flex-direction: column;
 
   // box model
-  margin: 0; //-${units.rem5};
+  margin: 0;
   padding-top: ${units.rem1};
 `;
 
@@ -57,6 +59,9 @@ const Heading = styled.div`
   // flexbox
   display: flex;
   flex-direction: row;
+
+  // box model
+  margin-bottom: ${units.rem2};
 `;
 
 const Content = styled.div`
@@ -67,7 +72,7 @@ const Content = styled.div`
 
   // box model
   margin: ${units.rem2};
-  //margin-top: ${units.rem1};
+  margin-top: 0;
 `;
 
 const SubTasks = styled.div`

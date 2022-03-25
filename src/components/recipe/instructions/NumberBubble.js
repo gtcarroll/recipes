@@ -13,7 +13,7 @@ export const NumberBubble = (props) => {
         fontSize: layout.fontSize.h2,
       }}
     >
-      {props.number}
+      {props.number ? props.number : "★"}
     </NumberBubbleDiv>
   );
 };
