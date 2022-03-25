@@ -50,18 +50,7 @@ export const styles = {
   height: {
     h2: rem * 8 + "rem",
     bubble: rem * 7 + "rem",
-  },
-  fontSize: {
-    h1: "2.1rem",
-    h2: "1.8rem",
-    h3: "1.5rem",
-    body: "1.2rem",
-  },
-  fontSizeDesktop: {
-    h1: "2.4rem",
-    h2: "2.1rem",
-    h3: "1.8rem",
-    body: "1.5rem",
+    photo: "19rem",
   },
   fontFamily: {
     monospace:

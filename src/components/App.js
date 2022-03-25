@@ -67,21 +67,22 @@ export const App = () => {
   );
 };
 
-const AppDiv = styled.div`
+const AppDiv = styled.main`
   // animation
   transition: background-color ${styles.transition.body},
     color ${styles.transition.body};
 
   // box model
-  height: 100vh;
-  height: -webkit-fill-available;
+  /* height: -webkit-fill-available;
+  height: 100vh; */
+  height: auto;
   max-width: 100vw;
   /* padding: env(safe-area-inset-top) env(safe-area-inset-right)
     env(safe-area-inset-bottom) env(safe-area-inset-left); // handles iphone notch issues */
 
   // clipping
-  overflow-x: hidden;
-  overflow-y: scroll;
+  /* overflow-x: hidden;
+  overflow-y: auto; */
 
   // typography
   font-family: ${styles.fontFamily.sansSerif};

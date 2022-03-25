@@ -3,6 +3,17 @@
   padding: 0;
 }
 
+html {
+  --root-scrollbar-color: #2f3236 #0d1117;
+  --root-background-color: #0d1117;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-color: var(--root-scrollbar-color);
+  background-color: var(--root-background-color);
+  color-scheme: light dark;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -10,14 +21,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  /* prevent background scroll */
-  overflow: hidden;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
 
 /* remove default button styles */

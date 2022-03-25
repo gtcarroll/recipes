@@ -4,7 +4,7 @@ export const themes = {
     foreground: "rgb(201, 209, 217)", // #C9D1D9
     background: "rgb(13, 17, 23)", // #0D1117
     overlay: "rgba(242, 238, 232, 0.075)", // #F2EEE8
-    overlay2: "rgba(242, 238, 232, 0.15)", // #F2EEE8
+    scrollbar: "rgb(82, 83, 86)", // #525356
 
     ingredient1: "rgb(252, 136, 155)", // #FC889B
     ingredient2: "rgb(252, 200, 115)", // #FCC873
@@ -14,6 +14,7 @@ export const themes = {
     foreground: "rgb(54, 46, 38)", // #362e26
     background: "rgb(246, 241, 228)", // #f6f1e4
     overlay: "rgba(9, 14, 27, 0.05)", // #090e1b
+    scrollbar: "rgb(175, 173, 168)", // #AFADA8
 
     ingredient1: "rgb(173, 12, 155)", // #AD0C9B
     ingredient2: "rgb(13, 67, 191)", // #0D43BF

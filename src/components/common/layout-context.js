@@ -8,8 +8,11 @@ export const layouts = {
       ingredients: "31rem",
       instructions: "31rem",
     },
+    height: {
+      hero: "16rem",
+    },
     fontSize: {
-      h1: "2.1rem",
+      h1: "2.4rem",
       h2: "1.8rem",
       h3: "1.5rem",
       body: "1.2rem",
@@ -23,8 +26,11 @@ export const layouts = {
       ingredients: "35rem",
       instructions: "35rem",
     },
+    height: {
+      hero: "16rem",
+    },
     fontSize: {
-      h1: "2.25rem",
+      h1: "2.55rem",
       h2: "1.95rem",
       h3: "1.65rem",
       body: "1.35rem",
@@ -38,8 +44,11 @@ export const layouts = {
       ingredients: "39rem",
       instructions: "39rem",
     },
+    height: {
+      hero: "16rem",
+    },
     fontSize: {
-      h1: "2.4rem",
+      h1: "2.7rem",
       h2: "2.1rem",
       h3: "1.8rem",
       body: "1.5rem",
@@ -53,8 +62,11 @@ export const layouts = {
       ingredients: "39rem",
       instructions: "63rem",
     },
+    height: {
+      hero: "20rem",
+    },
     fontSize: {
-      h1: "2.4rem",
+      h1: "2.7rem",
       h2: "2.1rem",
       h3: "1.8rem",
       body: "1.5rem",

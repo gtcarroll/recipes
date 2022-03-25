@@ -4,7 +4,7 @@ import { MultiplierButton } from "./MultiplierButton.js";
 import { ThemeContext, functions, units, styles } from "../../common";
 
 export const MultiplierButtonTray = (props) => {
-  let buttonValues = ["1/2", "1", "2", "3"];
+  let buttonValues = ["1/2", "1", "2", "3", "4"];
   const { theme } = useContext(ThemeContext);
   const [activeIndex, setActive] = useState(buttonValues.indexOf("1"));
   let gradient = functions.getColorGradient(

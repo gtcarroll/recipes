@@ -7,11 +7,28 @@ export const ThemeButton = (props) => {
   const { theme, setTheme } = useContext(ThemeContext);
   const handleClick = () => {
     console.log("theme toggled");
-    theme === themes.dark ? setTheme(themes.light) : setTheme(themes.dark);
+    let isDark = theme === themes.dark;
+    isDark ? setTheme(themes.light) : setTheme(themes.dark);
+    // document.documentElement.style.setProperty(
+    //   "theme-color",
+    //   isDark ? "light" : "dark"
+    // );
     document.documentElement.style.setProperty(
-      "color-scheme",
-      themes === themes.dark ? "dark" : "light"
+      "--root-background-color",
+      isDark ? themes.light.background : themes.dark.background
     );
+    document.documentElement.style.setProperty(
+      "--root-scrollbar-color",
+      isDark
+        ? themes.light.scrollbar + " " + themes.light.background
+        : themes.dark.scrollbar + " " + themes.dark.background
+    );
+    document
+      .querySelector("meta[name='theme-color']")
+      .setAttribute(
+        "content",
+        isDark ? themes.light.background : themes.dark.background
+      );
   };
   return (
     <ThemeButtonDiv

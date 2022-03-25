@@ -6,15 +6,18 @@ import {
   functions,
   units,
   styles,
+  LayoutContext,
 } from "../../common";
 
 export const MultiplierButton = (props) => {
   const [isHovered, setIsHovered] = useState(false);
   const { theme } = useContext(ThemeContext);
+  const { layout } = useContext(LayoutContext);
   let transparentColor = functions.addAlpha(props.color, 0.15);
   return (
     <MultiplierButtonDiv
       style={{
+        fontSize: layout.fontSize.body,
         color: props.isActive ? theme.background : props.color,
         backgroundColor: props.isActive
           ? props.color
@@ -49,13 +52,11 @@ const MultiplierButtonDiv = styled.button`
   transition: ${styles.transition.button};
 
   // box model
-  //border: ${styles.border.button};
   border-radius: ${styles.borderRadius.button};
   width: ${units.rem4};
   height: ${units.rem4};
 
   // typography
-  font-size: ${styles.fontSize.body};
   font-family: ${styles.fontFamily.monospace};
   font-weight: bold;
 `;

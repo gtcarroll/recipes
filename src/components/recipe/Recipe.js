@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import {
-  Header1,
+  Hero,
   ThemeButton,
   ThemeContext,
   LayoutContext,
@@ -10,6 +10,7 @@ import {
   styles,
 } from "../common";
 import { IngredientList, InstructionList } from ".";
+import frogicon from "../../assets/photos/pb-cookies.png";
 
 export const Recipe = (props) => {
   const [ingredients, setIngredients] = useState(props.ingredients);
@@ -22,9 +23,14 @@ export const Recipe = (props) => {
   );
   return (
     <RecipeDiv>
-      <Header1 text={props.name} />
+      {layout.name === "mobile" && (
+        <Hero backgroundImage={frogicon} text={props.name} isScreenWidth />
+      )}
       <ContentDiv>
         <ArticleContainer style={{ width: layout.width.ingredients }}>
+          {layout.name !== "mobile" && (
+            <Hero backgroundImage={frogicon} text={props.name} />
+          )}
           <IngredientList
             ingredients={ingredients}
             setIngredients={setIngredients}
@@ -67,8 +73,8 @@ const RecipeDiv = styled.div`
 
   // box model
   margin: 0 auto;
-  width: 100%; //${styles.width.content};
-  padding: ${units.rem2} 0;
+  width: 100%;
+  padding: 0 0 ${units.rem4} 0;
 `;
 
 const ContentDiv = styled.div`
@@ -95,5 +101,5 @@ const ArticleContainer = styled.div`
 
   // box model
   width: ${styles.width.content};
-  padding: ${units.rem2} ${units.rem4};
+  padding: ${units.rem4};
 `;
