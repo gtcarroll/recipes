@@ -19,12 +19,6 @@ export const ThemeButton = (props) => {
         ? themes.light.scrollbar + " " + themes.light.background
         : themes.dark.scrollbar + " " + themes.dark.background
     );
-    document
-      .querySelector("meta[name='theme-color']")
-      .setAttribute(
-        "content",
-        isDark ? themes.light.background : themes.dark.background
-      );
   };
   return (
     <ThemeButtonDiv

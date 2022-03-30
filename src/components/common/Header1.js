@@ -6,7 +6,12 @@ import { units, styles } from "./styles";
 export const Header1 = (props) => {
   const { layout } = useContext(LayoutContext);
   return (
-    <Header1Div style={{ fontSize: layout.fontSize.h1, color: props.color }}>
+    <Header1Div
+      style={{
+        fontSize: layout.fontSize.h1,
+        color: props.color,
+      }}
+    >
       {props.text}
     </Header1Div>
   );
