@@ -1,16 +1,23 @@
 {
   "files": {
     "main.css": "/recipes/static/css/main.491ce337.css",
-    "main.js": "/recipes/static/js/main.d0ff152b.js",
+    "main.js": "/recipes/static/js/main.f90c8764.js",
+    "static/media/gacarr_profile.jpg": "/recipes/static/media/gacarr_profile.6a2c975f6f0a40cb6f43.jpg",
     "static/media/pb-cookies.png": "/recipes/static/media/pb-cookies.40c55e63b164372949ba.png",
+    "static/media/b-tea_profile.png": "/recipes/static/media/b-tea_profile.c6a80c9a21a4383aed5b.png",
+    "static/media/kofi_button.png": "/recipes/static/media/kofi_button.0013e7d191cdb94d9f78.png",
     "static/media/froggychef_dark_lg.png": "/recipes/static/media/froggychef_dark_lg.912c158f365578f42aff.png",
     "static/media/froggychef_light.png": "/recipes/static/media/froggychef_light.468c476de36e871dff55.png",
+    "static/media/github_logo.png": "/recipes/static/media/github_logo.c761f9cb74976ed72809.png",
+    "static/media/instagram_logo.png": "/recipes/static/media/instagram_logo.856b3b9f02670af4bcdf.png",
+    "static/media/twitter_logo.png": "/recipes/static/media/twitter_logo.c31eb3d12308c60aeb16.png",
+    "static/media/linked-in_logo.png": "/recipes/static/media/linked-in_logo.a0038cf75802e2ae4374.png",
     "index.html": "/recipes/index.html",
     "main.491ce337.css.map": "/recipes/static/css/main.491ce337.css.map",
-    "main.d0ff152b.js.map": "/recipes/static/js/main.d0ff152b.js.map"
+    "main.f90c8764.js.map": "/recipes/static/js/main.f90c8764.js.map"
   },
   "entrypoints": [
     "static/css/main.491ce337.css",
-    "static/js/main.d0ff152b.js"
+    "static/js/main.f90c8764.js"
   ]
 }
