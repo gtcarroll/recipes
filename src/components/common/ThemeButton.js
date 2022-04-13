@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ThemeContext, themes } from "./theme-context";
 import { units, styles } from "./styles";
 
-export const ThemeButton = (props) => {
+export const ThemeButton = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   const handleClick = () => {
     console.log("theme toggled");

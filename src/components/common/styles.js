@@ -29,9 +29,8 @@ export const styles = {
     header: units.rem0,
   },
   transition: {
-    body: "0.5s ease-out",
-    bodyALL:
-      "width 0.5s ease-out, color 0.5s ease-out, background-color 0.5s ease-out",
+    body: "0.5s ease",
+    bodyALL: "width 0.5s ease, color 0.5s ease, background-color 0.5s ease",
     button: "0.2s ease-out",
   },
   transparency: {

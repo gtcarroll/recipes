@@ -7,6 +7,7 @@ export const layouts = {
       header: "19rem",
       ingredients: "31rem",
       instructions: "31rem",
+      menuSpacer: "0",
     },
     height: {
       hero: "16rem",
@@ -25,6 +26,7 @@ export const layouts = {
       header: "21.5rem",
       ingredients: "35rem",
       instructions: "35rem",
+      menuSpacer: "1.2rem",
     },
     height: {
       hero: "16rem",
@@ -43,6 +45,7 @@ export const layouts = {
       header: "24rem",
       ingredients: "39rem",
       instructions: "39rem",
+      menuSpacer: "2.4rem",
     },
     height: {
       hero: "16rem",
@@ -61,6 +64,7 @@ export const layouts = {
       header: "24rem",
       ingredients: "39rem",
       instructions: "63rem",
+      menuSpacer: "2.4rem",
     },
     height: {
       hero: "20rem",

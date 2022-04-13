@@ -45,7 +45,7 @@ Instruction.defaultProps = {
   number: 2,
 };
 
-const InstructionDiv = styled.div`
+const InstructionDiv = styled.li`
   // flexbox
   display: flex;
   flex-direction: column;
@@ -75,7 +75,7 @@ const Content = styled.div`
   margin-top: 0;
 `;
 
-const SubTasks = styled.div`
+const SubTasks = styled.ol`
   // flexbox
   display: flex;
   flex-direction: column;

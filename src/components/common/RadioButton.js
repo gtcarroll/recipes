@@ -1,21 +1,15 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import {
-  ThemeContext,
-  MixedNumber,
-  functions,
-  units,
-  styles,
-  LayoutContext,
-} from "../../common";
+import { ThemeContext, MixedNumber, functions, LayoutContext } from "../common";
+import { styles, units } from "../common/styles";
 
-export const MultiplierButton = (props) => {
+export const RadioButton = (props) => {
   const [isHovered, setIsHovered] = useState(false);
   const { theme } = useContext(ThemeContext);
   const { layout } = useContext(LayoutContext);
   let transparentColor = functions.addAlpha(props.color, 0.15);
   return (
-    <MultiplierButtonDiv
+    <RadioButtonDiv
       style={{
         fontSize: layout.fontSize.body,
         color: props.isActive ? theme.background : props.color,
@@ -34,19 +28,20 @@ export const MultiplierButton = (props) => {
       onFocus={() => setIsHovered(true)}
       onBlur={() => setIsHovered(false)}
     >
-      <MixedNumber number={props.value} />
-    </MultiplierButtonDiv>
+      <Label>{props.label}</Label>
+    </RadioButtonDiv>
   );
 };
 
-MultiplierButton.defaultProps = {
+RadioButton.defaultProps = {
   isActive: false,
   gradient: [],
   color: "rgb(125, 125, 0)",
-  value: 0,
+  value: "0",
+  label: "0",
 };
 
-const MultiplierButtonDiv = styled.button`
+const RadioButtonDiv = styled.button`
   // animation
   transition: ${styles.transition.button};
 
@@ -58,4 +53,20 @@ const MultiplierButtonDiv = styled.button`
   // typography
   font-family: ${styles.fontFamily.monospace};
   font-weight: bold;
+`;
+
+const Label = styled.div`
+  // flexbox
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // typography
+  white-space: nowrap;
+
+  // children
+  svg {
+    width: ${units.rem3};
+    height: ${units.rem3};
+  }
 `;

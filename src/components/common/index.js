@@ -3,6 +3,9 @@ import { Header2 } from "./Header2";
 import { Header3 } from "./Header3";
 import { Hero } from "./Hero";
 import { Footer } from "./Footer";
+import { MenuCurtain } from "./MenuCurtain";
+import { RibbonButton } from "./RibbonButton";
+import { DropMenu } from "./DropMenu_old";
 import { MixedNumber } from "./MixedNumber";
 import { PaletteStrip } from "./PaletteStrip";
 import { ThemeButton } from "./ThemeButton";
@@ -17,6 +20,9 @@ export {
   Header3,
   Hero,
   Footer,
+  MenuCurtain,
+  RibbonButton,
+  DropMenu,
   MixedNumber,
   PaletteStrip,
   ThemeButton,

@@ -45,7 +45,7 @@ Ingredient.defaultProps = {
   ingredient: false,
 };
 
-const IngredientDiv = styled.div`
+const IngredientDiv = styled.li`
   // animation
   transition: color ${styles.transition.body},
     border-color ${styles.transition.body};

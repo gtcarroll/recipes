@@ -48,14 +48,11 @@ SubTask.defaultProps = {
   isOptional: false,
 };
 
-const SubTaskDiv = styled.div`
+const SubTaskDiv = styled.li`
   // flexbox
   display: flex;
   flex-direction: row;
   border-radius: ${units.rem0};
-
-  // TODO: add this in desktop mode
-  //margin-left: 1.2rem;
 `;
 
 const Content = styled.div`
@@ -71,7 +68,7 @@ const Content = styled.div`
 
 const PreText = styled.div``;
 
-const Ingredients = styled.div``;
+const Ingredients = styled.ul``;
 
 const Text = styled.div`
   // box model

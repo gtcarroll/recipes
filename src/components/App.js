@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Recipe } from "./recipe/";
 import {
-  PaletteStrip,
+  MenuCurtain,
   ThemeContext,
+  PaletteStrip,
   themes,
   LayoutContext,
   layouts,
@@ -21,6 +22,21 @@ export const App = () => {
       ? layouts.tablet
       : layouts.mobile;
   };
+
+  // set theme metadata
+  useEffect(() => {
+    let isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.style.setProperty(
+      "--root-background-color",
+      isDark ? themes.dark.background : themes.light.background
+    );
+    document.documentElement.style.setProperty(
+      "--root-scrollbar-color",
+      isDark
+        ? themes.dark.scrollbar + " " + themes.dark.background
+        : themes.light.scrollbar + " " + themes.light.background
+    );
+  }, []);
 
   const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)")
     .matches
@@ -59,7 +75,7 @@ export const App = () => {
             fontSize: layout.fontSize.body,
           }}
         >
-          <PaletteStrip />
+          <MenuCurtain dropToggle={false} />
           <Recipe {...peanutButterCookies} />
         </AppDiv>
       </LayoutContext.Provider>
@@ -73,16 +89,8 @@ const AppDiv = styled.main`
     color ${styles.transition.body};
 
   // box model
-  /* height: -webkit-fill-available;
-  height: 100vh; */
   height: auto;
   max-width: 100vw;
-  /* padding: env(safe-area-inset-top) env(safe-area-inset-right)
-    env(safe-area-inset-bottom) env(safe-area-inset-left); // handles iphone notch issues */
-
-  // clipping
-  /* overflow-x: hidden;
-  overflow-y: auto; */
 
   // typography
   font-family: ${styles.fontFamily.sansSerif};

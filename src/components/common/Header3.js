@@ -17,13 +17,9 @@ Header3.defaultProps = {
 };
 
 const Header3Div = styled.h3`
-  // animation
-  //transition: ${styles.transition.body};
-
   // flexbox
   display: flex;
   align-items: center;
-  justify-content: center;
 
   // box model
   margin-left: ${units.rem1};

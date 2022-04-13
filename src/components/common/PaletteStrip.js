@@ -10,8 +10,6 @@ export const PaletteStrip = (props) => {
         flexDirection: props.reverse ? "row-reverse" : "row",
         background:
           "linear-gradient(to right, " +
-          theme.ingredient2 +
-          ", " +
           theme.ingredient1 +
           ", " +
           theme.ingredient2 +
@@ -28,7 +26,4 @@ PaletteStrip.defaultProps = {
 const GradientContainer = styled.div`
   width: 100%;
   height: 3px;
-
-  position: fixed;
-  top: 0px;
 `;

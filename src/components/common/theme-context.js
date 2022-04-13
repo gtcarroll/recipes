@@ -1,6 +1,7 @@
 import { createContext } from "react";
 export const themes = {
   dark: {
+    isDark: true,
     foreground: "rgb(201, 209, 217)", // #C9D1D9
     background: "rgb(13, 17, 23)", // #0D1117
     overlay: "rgba(242, 238, 232, 0.075)", // #F2EEE8
@@ -14,6 +15,7 @@ export const themes = {
     photoForeground: "rgb(246, 241, 228)", // #F6F1E4
   },
   light: {
+    isDark: false,
     foreground: "rgb(54, 46, 38)", // #362E26
     background: "rgb(246, 241, 228)", // #F6F1E4
     overlay: "rgba(9, 14, 27, 0.05)", // #090E1B

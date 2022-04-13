@@ -57,7 +57,7 @@ const IngredientListDiv = styled.div`
   padding-bottom: 0.9rem;
 `;
 
-const Ingredients = styled.div`
+const Ingredients = styled.ul`
   // typography
   font-family: ${styles.fontFamily.monospace};
 `;

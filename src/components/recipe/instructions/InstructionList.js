@@ -55,7 +55,7 @@ const InstructionListDiv = styled.div`
   width: calc(100% + (2 * ${units.rem2}));
 `;
 
-const Instructions = styled.div`
+const Instructions = styled.ol`
   // box model
   margin-top: ${units.rem1};
 `;
