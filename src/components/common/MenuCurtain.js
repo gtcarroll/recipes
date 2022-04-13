@@ -21,7 +21,7 @@ export const MenuCurtain = (props) => {
   const [isActive, setActive] = useState(false);
   const { layout } = useContext(LayoutContext);
   const { theme } = useContext(ThemeContext);
-  let menuHeight = "18.25rem"; //"21.5rem";
+  let menuHeight = "19rem"; //"21.5rem";
   let gradient = functions.getColorGradient(
     3,
     theme.ingredient1,
@@ -149,6 +149,7 @@ const MenuHeader = styled.div`
   border-bottom: 3px solid;
   padding: ${units.rem1} ${units.rem2};
   padding-bottom: ${units.rem0};
+  margin-bottom: ${units.rem0};
 
   // typography
   white-space: nowrap;
