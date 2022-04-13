@@ -1,27 +1,20 @@
 {
   "files": {
     "main.css": "/recipes/static/css/main.491ce337.css",
-    "main.js": "/recipes/static/js/main.a4df3373.js",
-    "static/media/gacarr_profile.jpg": "/recipes/static/media/gacarr_profile.6a2c975f6f0a40cb6f43.jpg",
+    "main.js": "/recipes/static/js/main.34ef0012.js",
     "static/media/pb-cookies.png": "/recipes/static/media/pb-cookies.40c55e63b164372949ba.png",
-    "static/media/b-tea_profile.png": "/recipes/static/media/b-tea_profile.c6a80c9a21a4383aed5b.png",
     "static/media/patreon-wordmark.svg": "/recipes/static/media/patreon-wordmark.de6a14eab3f6554b5356d66a9451ad95.svg",
-    "static/media/kofi_button.png": "/recipes/static/media/kofi_button.0013e7d191cdb94d9f78.png",
     "static/media/froggychef_dark_lg.png": "/recipes/static/media/froggychef_dark_lg.912c158f365578f42aff.png",
     "static/media/froggychef_light.png": "/recipes/static/media/froggychef_light.468c476de36e871dff55.png",
-    "static/media/github_logo.png": "/recipes/static/media/github_logo.c761f9cb74976ed72809.png",
-    "static/media/instagram_logo.png": "/recipes/static/media/instagram_logo.856b3b9f02670af4bcdf.png",
-    "static/media/twitter_logo.png": "/recipes/static/media/twitter_logo.c31eb3d12308c60aeb16.png",
-    "static/media/linked-in_logo.png": "/recipes/static/media/linked-in_logo.a0038cf75802e2ae4374.png",
     "static/media/tomato.svg": "/recipes/static/media/tomato.150acdcb6b18c00ee4d65fe00e25a407.svg",
     "static/media/menu.svg": "/recipes/static/media/menu.0dc5e94ff27d3d5110d6a6abb82a8577.svg",
     "index.html": "/recipes/index.html",
     "static/media/patreon-logo.svg": "/recipes/static/media/patreon-logo.9f09f61ddb54a465227379b2912ac89f.svg",
     "main.491ce337.css.map": "/recipes/static/css/main.491ce337.css.map",
-    "main.a4df3373.js.map": "/recipes/static/js/main.a4df3373.js.map"
+    "main.34ef0012.js.map": "/recipes/static/js/main.34ef0012.js.map"
   },
   "entrypoints": [
     "static/css/main.491ce337.css",
-    "static/js/main.a4df3373.js"
+    "static/js/main.34ef0012.js"
   ]
 }
