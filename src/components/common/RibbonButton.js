@@ -90,7 +90,7 @@ const RibbonButtonDiv = styled.button`
 
   // box model
   box-shadow: ${styles.boxShadow.card};
-  border-bottom: 2px solid transparent;
+  /* border-bottom: 2px solid transparent; */
   border-radius: ${styles.borderRadius.button};
   border-top-left-radius: 0;
   border-top-right-radius: 0;
