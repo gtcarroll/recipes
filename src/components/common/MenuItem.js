@@ -74,7 +74,6 @@ const DisplayDiv = styled.button`
 
   // typography
   font-family: ${styles.fontFamily.sansSerif};
-  font-weight: bold;
 `;
 
 const Label = styled.div`

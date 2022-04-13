@@ -21,11 +21,11 @@ export const MenuCurtain = (props) => {
   const [isActive, setActive] = useState(false);
   const { layout } = useContext(LayoutContext);
   const { theme } = useContext(ThemeContext);
-  let menuHeight = "19rem"; //"24rem";
+  let menuHeight = "19.5rem";
   let gradient = functions.getColorGradient(
     3,
-    theme.ingredient2,
-    theme.ingredient1
+    theme.ingredient1,
+    theme.ingredient2
   );
 
   return (
@@ -46,8 +46,14 @@ export const MenuCurtain = (props) => {
           borderBottomRightRadius: layout.name === "mobile" ? 0 : null,
         }}
       >
-        <ColumnDiv>
-          <MenuHeader>~ recipes ~</MenuHeader>
+        <ColumnDiv
+          style={{
+            width: layout.width.menu,
+          }}
+        >
+          <MenuHeader>
+            <Unbold> —</Unbold>recipes<Unbold>— </Unbold>
+          </MenuHeader>
           <MenuItem
             icon={<Tomato fill={gradient[0]} />}
             color={gradient[0]}
@@ -63,16 +69,18 @@ export const MenuCurtain = (props) => {
             color={gradient[2]}
             label="vegan"
           />
-          <MenuHeader>~ themes ~</MenuHeader>
+          <MenuHeader>
+            <Unbold> —</Unbold>themes<Unbold>— </Unbold>
+          </MenuHeader>
           <RowDiv>
             <RadioButton
               label={<Tomato fill={theme.background} />}
-              color={gradient[2]}
+              color={gradient[0]}
               isActive
             />
             <RadioButton
               label={<Tomato fill={theme.ingredient2} />}
-              color={gradient[0]}
+              color={gradient[2]}
             />
           </RowDiv>
           {/* <PatreonButton /> */}
@@ -119,7 +127,8 @@ const MenuOverlay = styled.div`
 
 const MenuHeader = styled.div`
   // box model
-  padding: ${units.rem1} ${units.rem2};
+  padding: ${units.rem2};
+  padding-bottom: ${units.rem1};
 
   // typography
   white-space: nowrap;
@@ -133,7 +142,7 @@ const ColumnDiv = styled.div`
   justify-content: center; //flex-end;
   align-items: center;
 
-  min-width: 12rem;
+  min-width: 11rem;
 `;
 
 const RowDiv = styled.div`
@@ -145,4 +154,8 @@ const RowDiv = styled.div`
 
   // box model
   margin-top: ${units.rem1};
+`;
+
+const Unbold = styled.span`
+  font-weight: normal;
 `;
