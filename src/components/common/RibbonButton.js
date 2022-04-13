@@ -94,6 +94,7 @@ const RibbonButtonDiv = styled.button`
   border-radius: ${styles.borderRadius.button};
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  box-sizing: border-box;
 
   position: relative;
   top: 0;
@@ -118,4 +119,5 @@ const InnerDiv = styled.div`
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   padding: 0 ${units.rem1};
+  box-sizing: border-box;
 `;

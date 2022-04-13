@@ -21,12 +21,13 @@ export const MenuCurtain = (props) => {
   const [isActive, setActive] = useState(false);
   const { layout } = useContext(LayoutContext);
   const { theme } = useContext(ThemeContext);
-  let menuHeight = "19.5rem";
+  let menuHeight = "18.25rem"; //"21.5rem";
   let gradient = functions.getColorGradient(
     3,
     theme.ingredient1,
     theme.ingredient2
   );
+  let transparent0 = functions.addAlpha(theme.instruction, 0.3);
 
   return (
     <MenuUnderlay
@@ -49,11 +50,21 @@ export const MenuCurtain = (props) => {
         <ColumnDiv
           style={{
             width: layout.width.menu,
+            paddingTop: units.rem0,
           }}
         >
-          <MenuHeader>
-            <Unbold> —</Unbold>recipes<Unbold>— </Unbold>
+          <MenuHeader
+            style={{
+              borderColor: transparent0,
+            }}
+          >
+            Recipes
           </MenuHeader>
+          {/* <MenuItem
+            icon={<Tomato fill={gradient[0]} />}
+            color={gradient[0]}
+            label="home"
+          /> */}
           <MenuItem
             icon={<Tomato fill={gradient[0]} />}
             color={gradient[0]}
@@ -69,8 +80,12 @@ export const MenuCurtain = (props) => {
             color={gradient[2]}
             label="vegan"
           />
-          <MenuHeader>
-            <Unbold> —</Unbold>themes<Unbold>— </Unbold>
+          <MenuHeader
+            style={{
+              borderColor: transparent0,
+            }}
+          >
+            Themes
           </MenuHeader>
           <RowDiv>
             <RadioButton
@@ -78,6 +93,10 @@ export const MenuCurtain = (props) => {
               color={gradient[0]}
               isActive
             />
+            {/* <RadioButton
+              label={<Tomato fill={gradient[1]} />}
+              color={gradient[1]}
+            /> */}
             <RadioButton
               label={<Tomato fill={theme.ingredient2} />}
               color={gradient[2]}
@@ -121,41 +140,39 @@ const MenuOverlay = styled.div`
   border-radius: ${styles.borderRadius.button};
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  padding-right: ${units.rem2};
-  padding-bottom: ${units.rem2};
+  padding: ${units.rem2};
+  padding-top: 0;
 `;
 
 const MenuHeader = styled.div`
   // box model
-  padding: ${units.rem2};
-  padding-bottom: ${units.rem1};
+  border-bottom: 3px solid;
+  padding: ${units.rem1} ${units.rem2};
+  padding-bottom: ${units.rem0};
 
   // typography
   white-space: nowrap;
   font-family: ${styles.fontFamily.sansSerif};
   font-weight: bold;
+  margin-left: -${units.rem2};
+  padding-left: ${units.rem3};
+  margin-right: calc(-${units.rem5} - ${units.rem2} - 4px);
 `;
 
 const ColumnDiv = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center; //flex-end;
-  align-items: center;
-
-  min-width: 11rem;
+  justify-content: center;
 `;
 
 const RowDiv = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   width: calc(100% - ${units.rem6} - ${units.rem1});
-  gap: ${units.rem1};
 
   // box model
   margin-top: ${units.rem1};
-`;
-
-const Unbold = styled.span`
-  font-weight: normal;
+  width: calc(100% - ${units.rem4});
+  padding: 0 ${units.rem1};
 `;

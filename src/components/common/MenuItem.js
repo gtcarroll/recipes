@@ -69,7 +69,7 @@ const DisplayDiv = styled.button`
   // box model
   border-radius: ${styles.borderRadius.button};
   padding: ${units.rem0};
-  margin: ${units.rem0} auto;
+  margin: ${units.rem0};
   width: min-content;
 
   // typography
