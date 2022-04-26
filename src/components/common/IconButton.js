@@ -5,13 +5,13 @@ import { ThemeContext } from "./theme-context";
 import { units, styles } from "./styles";
 import { functions } from "./functions";
 
-export const ColorButton = (props) => {
+export const IconButton = (props) => {
   const [isHovered, setIsHovered] = useState(false);
   const { layout } = useContext(LayoutContext);
   const { theme } = useContext(ThemeContext);
   let transparentColor = functions.addAlpha(props.color, 0.3);
   return (
-    <ToggleButtonDiv
+    <IconButtonDiv
       onClick={() => {
         props.onClick();
       }}
@@ -37,11 +37,11 @@ export const ColorButton = (props) => {
         {props.icon && <Icon>{props.icon}</Icon>}
         {props.label && <Label>{props.label}</Label>}
       </DisplayDiv>
-    </ToggleButtonDiv>
+    </IconButtonDiv>
   );
 };
 
-ColorButton.defaultProps = {
+IconButton.defaultProps = {
   isActive: false,
   isCentered: false,
   icon: null,
@@ -49,7 +49,7 @@ ColorButton.defaultProps = {
   color: "rgb(125, 125, 0)",
 };
 
-const ToggleButtonDiv = styled.div`
+const IconButtonDiv = styled.div`
   // animation
   /* transition: ${styles.transition.button}; */
 

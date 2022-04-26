@@ -10,7 +10,7 @@ import { PaletteStrip } from "./PaletteStrip";
 import { ThemeButton } from "./ThemeButton";
 import { ThemeContext, themes } from "./theme-context";
 import { LayoutContext, layouts } from "./layout-context";
-import { ColorButton } from "./ColorButton";
+import { IconButton } from "./IconButton";
 import { functions } from "./functions";
 import { units, styles } from "./styles";
 
@@ -24,7 +24,7 @@ export {
   RibbonButton,
   MixedNumber,
   PaletteStrip,
-  ColorButton,
+  IconButton,
   ThemeButton,
   ThemeContext,
   themes,

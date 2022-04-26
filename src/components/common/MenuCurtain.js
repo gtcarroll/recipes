@@ -1,19 +1,12 @@
-import React, {
-  useContext,
-  useState,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-} from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import { ColorButton } from "./ColorButton";
+import { IconButton } from "./IconButton";
 import { RibbonButton } from "./RibbonButton";
 import { LayoutContext } from "./layout-context";
 import { ThemeContext, themes } from "./theme-context";
 import { functions } from "./functions";
 import { units, styles } from "./styles";
 import { ReactComponent as Tomato } from "../../assets/photos/tomato.svg";
-import { PatreonButton } from "./PatreonButton";
 
 export const MenuCurtain = (props) => {
   const { layout } = useContext(LayoutContext);
@@ -56,7 +49,7 @@ export const MenuCurtain = (props) => {
   let recipeButtons = recipesData.map((item, i) => {
     let isActiveRecipe = i === recipesIndex;
     return (
-      <ColorButton
+      <IconButton
         key={i}
         color={recipesGradient[i]}
         label={item.label}
@@ -75,7 +68,7 @@ export const MenuCurtain = (props) => {
   let themeButtons = themesData.map((item, i) => {
     let isActiveTheme = i === themesIndex;
     return (
-      <ColorButton
+      <IconButton
         key={i}
         color={themesGradient[i]}
         icon={
