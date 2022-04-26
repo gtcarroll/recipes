@@ -5,12 +5,13 @@ import { Hero } from "./Hero";
 import { Footer } from "./Footer";
 import { MenuCurtain } from "./MenuCurtain";
 import { RibbonButton } from "./RibbonButton";
-import { DropMenu } from "./DropMenu_old";
 import { MixedNumber } from "./MixedNumber";
 import { PaletteStrip } from "./PaletteStrip";
 import { ThemeButton } from "./ThemeButton";
 import { ThemeContext, themes } from "./theme-context";
 import { LayoutContext, layouts } from "./layout-context";
+import { ColorButton } from "./ColorButton";
+import { ColorInput } from "./ColorInput";
 import { functions } from "./functions";
 import { units, styles } from "./styles";
 
@@ -22,9 +23,10 @@ export {
   Footer,
   MenuCurtain,
   RibbonButton,
-  DropMenu,
   MixedNumber,
   PaletteStrip,
+  ColorButton,
+  ColorInput,
   ThemeButton,
   ThemeContext,
   themes,

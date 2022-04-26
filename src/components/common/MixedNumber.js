@@ -10,6 +10,9 @@ export const MixedNumber = (props) => {
       style={{
         color: props.color ? props.color : null,
         fontFamily: props.fontFamily,
+        transition: props.isIngredient
+          ? styles.transition.body
+          : styles.transition.button,
       }}
     >
       {fraction.whole && fraction.whole}
@@ -49,7 +52,7 @@ MixedNumber.defaultProps = {
 
 const MixedNumberDiv = styled.div`
   // animation
-  transition: color ${styles.transition.body};
+  transition: inherit; //color ${styles.transition.body};
 
   // flexbox
   display: flex;

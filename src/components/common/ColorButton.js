@@ -5,13 +5,13 @@ import { ThemeContext } from "./theme-context";
 import { units, styles } from "./styles";
 import { functions } from "./functions";
 
-export const MenuItem = (props) => {
+export const ColorButton = (props) => {
   const [isHovered, setIsHovered] = useState(false);
   const { layout } = useContext(LayoutContext);
   const { theme } = useContext(ThemeContext);
   let transparentColor = functions.addAlpha(props.color, 0.3);
   return (
-    <MenuItemDiv
+    <ToggleButtonDiv
       onClick={() => {
         props.onClick();
       }}
@@ -19,6 +19,9 @@ export const MenuItem = (props) => {
       onMouseLeave={() => setIsHovered(false)}
       onFocus={() => setIsHovered(true)}
       onBlur={() => setIsHovered(false)}
+      style={{
+        justifyContent: props.isCentered ? "center" : null,
+      }}
     >
       <DisplayDiv
         style={{
@@ -31,23 +34,24 @@ export const MenuItem = (props) => {
             : "transparent",
         }}
       >
-        {props.icon && <IconDiv>{props.icon}</IconDiv>}
-        <Label>{props.label}</Label>
+        {props.icon && <Icon>{props.icon}</Icon>}
+        {props.label && <Label>{props.label}</Label>}
       </DisplayDiv>
-    </MenuItemDiv>
+    </ToggleButtonDiv>
   );
 };
 
-MenuItem.defaultProps = {
+ColorButton.defaultProps = {
   isActive: false,
+  isCentered: false,
   icon: null,
   label: "",
   color: "rgb(125, 125, 0)",
 };
 
-const MenuItemDiv = styled.div`
+const ToggleButtonDiv = styled.div`
   // animation
-  transition: ${styles.transition.button};
+  /* transition: ${styles.transition.button}; */
 
   // flexbox
   display: flex;
@@ -77,6 +81,9 @@ const DisplayDiv = styled.button`
 `;
 
 const Label = styled.div`
+  // animation
+  transition: ${styles.transition.button};
+
   // box model
   padding: 0 ${units.rem1};
 
@@ -84,7 +91,7 @@ const Label = styled.div`
   white-space: nowrap;
 `;
 
-const IconDiv = styled.div`
+const Icon = styled.div`
   // flexbox
   display: flex;
   align-items: center;
@@ -93,4 +100,8 @@ const IconDiv = styled.div`
   // box model
   width: ${units.rem3};
   height: ${units.rem3};
+
+  svg {
+    transition: ${styles.transition.button};
+  }
 `;

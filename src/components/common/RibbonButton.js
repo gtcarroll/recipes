@@ -1,12 +1,5 @@
-import React, {
-  useContext,
-  useState,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-} from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-import { MenuItem } from "./MenuItem";
 import { LayoutContext } from "./layout-context";
 import { ThemeContext } from "./theme-context";
 import { units, styles } from "./styles";

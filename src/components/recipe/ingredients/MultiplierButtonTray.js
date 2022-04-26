@@ -1,14 +1,24 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { MultiplierButton } from "./MultiplierButton.js";
-import { ThemeContext, functions, units, styles } from "../../common";
+import {
+  ColorButton,
+  ColorInput,
+  ThemeContext,
+  functions,
+  units,
+  styles,
+} from "../../common";
 
 export const MultiplierButtonTray = (props) => {
-  let buttonValues = ["1/2", "1", "2", "3"];
+  let buttonValues = ["1/2", "1", "2"];
   const { theme } = useContext(ThemeContext);
-  const [activeIndex, setActive] = useState(buttonValues.indexOf("1"));
+  const [state, setState] = useState({
+    activeIndex: buttonValues.indexOf("1"),
+    customMultiple: "",
+  });
   let gradient = functions.getColorGradient(
-    buttonValues.length,
+    buttonValues.length + 1,
     theme.ingredient1,
     theme.ingredient2
   );
@@ -18,9 +28,12 @@ export const MultiplierButtonTray = (props) => {
         key={i}
         color={gradient[i]}
         value={value}
-        isActive={i === activeIndex}
+        isActive={i === state.activeIndex}
         onClick={() => {
-          setActive(i);
+          setState({
+            activeIndex: i,
+            customMultiple: "",
+          });
           props.setIngredients(
             functions.multiplyIngredients(value, props.ingredients)
           );
@@ -31,6 +44,20 @@ export const MultiplierButtonTray = (props) => {
   return (
     <MultiplierButtonsDiv style={{ color: theme.ingredient1 }}>
       {buttons}
+      <ColorInput
+        value={state.customMultiple}
+        color={gradient[gradient.length - 1]}
+        isActive={state.activeIndex === gradient.length - 1}
+        onChange={(multiplier) => {
+          setState({
+            activeIndex: gradient.length - 1,
+            customMultiple: multiplier,
+          });
+          props.setIngredients(
+            functions.multiplyIngredients(multiplier, props.ingredients)
+          );
+        }}
+      />
     </MultiplierButtonsDiv>
   );
 };

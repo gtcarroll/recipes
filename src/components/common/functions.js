@@ -72,6 +72,11 @@ export const functions = {
     return { whole: amount };
   },
 
+  roundToNearestHalf: (num) => {
+    let nearestHalf = Math.round(num * 2) / 2.0;
+    return "" + Math.abs(nearestHalf);
+  },
+
   multiplyIngredients: (multiplier, ingredients) => {
     // set flag for fractional multipliers
     let isDivision = multiplier.includes("/");

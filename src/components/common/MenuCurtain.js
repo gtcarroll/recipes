@@ -6,28 +6,90 @@ import React, {
   useRef,
 } from "react";
 import styled from "styled-components";
-import { MenuItem } from "./MenuItem";
+import { ColorButton } from "./ColorButton";
 import { RibbonButton } from "./RibbonButton";
 import { LayoutContext } from "./layout-context";
-import { ThemeContext } from "./theme-context";
+import { ThemeContext, themes } from "./theme-context";
 import { functions } from "./functions";
 import { units, styles } from "./styles";
-// import { MultiplierButton } from "../recipe/ingredients/MultiplierButton";
 import { ReactComponent as Tomato } from "../../assets/photos/tomato.svg";
-import { RadioButton } from "./RadioButton";
 import { PatreonButton } from "./PatreonButton";
 
 export const MenuCurtain = (props) => {
-  const [isActive, setActive] = useState(false);
   const { layout } = useContext(LayoutContext);
-  const { theme } = useContext(ThemeContext);
-  let menuHeight = "19rem"; //"21.5rem";
-  let gradient = functions.getColorGradient(
-    3,
+  const { theme, setTheme } = useContext(ThemeContext);
+  const [isActive, setActive] = useState(false);
+  const [recipesIndex, setRecipesIndex] = useState(-1);
+  const [themesIndex, setThemesIndex] = useState(0);
+  const menuHeight = "23rem";
+  const recipesData = [
+    { label: "sweet", icon: Tomato },
+    { label: "savory", icon: Tomato },
+    { label: "vegan", icon: Tomato },
+    { label: "random", icon: Tomato },
+  ];
+  const themesData = Object.keys(themes);
+  let recipesGradient = functions.getColorGradient(
+    recipesData.length,
     theme.ingredient1,
     theme.ingredient2
   );
+  let themesGradient = functions.getColorGradient(
+    themesData.length,
+    theme.ingredient1,
+    theme.ingredient2
+  );
+  const themeClick = (newTheme) => {
+    document.documentElement.style.setProperty(
+      "--root-background-color",
+      newTheme.isDark ? themes.dark.background : themes.light.background
+    );
+    document.documentElement.style.setProperty(
+      "--root-scrollbar-color",
+      newTheme.isDark
+        ? themes.dark.scrollbar + " " + themes.dark.background
+        : themes.light.scrollbar + " " + themes.light.background
+    );
+    setTheme(newTheme);
+  };
   let transparent0 = functions.addAlpha(theme.instruction, 0.3);
+  let recipeButtons = recipesData.map((item, i) => {
+    let isActiveRecipe = i === recipesIndex;
+    return (
+      <ColorButton
+        key={i}
+        color={recipesGradient[i]}
+        label={item.label}
+        icon={
+          <Tomato
+            fill={isActiveRecipe ? theme.background : recipesGradient[i]}
+          />
+        }
+        isActive={isActiveRecipe}
+        onClick={() => {
+          setRecipesIndex(i);
+        }}
+      />
+    );
+  });
+  let themeButtons = themesData.map((item, i) => {
+    let isActiveTheme = i === themesIndex;
+    return (
+      <ColorButton
+        key={i}
+        color={themesGradient[i]}
+        icon={
+          <Tomato fill={isActiveTheme ? theme.background : themesGradient[i]} />
+        }
+        isCentered
+        isActive={isActiveTheme}
+        onClick={() => {
+          setThemesIndex(i);
+          themeClick(themes[item]);
+        }}
+      />
+    );
+  });
 
   return (
     <MenuUnderlay
@@ -60,26 +122,7 @@ export const MenuCurtain = (props) => {
           >
             Recipes
           </MenuHeader>
-          {/* <MenuItem
-            icon={<Tomato fill={gradient[0]} />}
-            color={gradient[0]}
-            label="home"
-          /> */}
-          <MenuItem
-            icon={<Tomato fill={gradient[0]} />}
-            color={gradient[0]}
-            label="sweet"
-          />
-          <MenuItem
-            icon={<Tomato fill={gradient[1]} />}
-            color={gradient[1]}
-            label="savory"
-          />
-          <MenuItem
-            icon={<Tomato fill={gradient[2]} />}
-            color={gradient[2]}
-            label="vegan"
-          />
+          {recipeButtons}
           <MenuHeader
             style={{
               borderColor: transparent0,
@@ -87,22 +130,7 @@ export const MenuCurtain = (props) => {
           >
             Themes
           </MenuHeader>
-          <RowDiv>
-            <RadioButton
-              label={<Tomato fill={theme.background} />}
-              color={gradient[0]}
-              isActive
-            />
-            {/* <RadioButton
-              label={<Tomato fill={gradient[1]} />}
-              color={gradient[1]}
-            /> */}
-            <RadioButton
-              label={<Tomato fill={theme.ingredient2} />}
-              color={gradient[2]}
-            />
-          </RowDiv>
-          {/* <PatreonButton /> */}
+          <RowDiv>{themeButtons}</RowDiv>
         </ColumnDiv>
         <RibbonButton
           menuHeight={menuHeight}
@@ -147,17 +175,17 @@ const MenuOverlay = styled.div`
 const MenuHeader = styled.div`
   // box model
   border-bottom: 3px solid;
-  padding: ${units.rem1} ${units.rem2};
+  padding: ${units.rem1} ${units.rem2} ${units.rem0} ${units.rem1};
   padding-bottom: ${units.rem0};
-  margin-bottom: ${units.rem0};
+  margin: ${units.rem0} 0;
 
   // typography
   white-space: nowrap;
   font-family: ${styles.fontFamily.sansSerif};
   font-weight: bold;
-  margin-left: -${units.rem2};
-  padding-left: ${units.rem3};
-  margin-right: calc(-${units.rem5} - ${units.rem2} - 4px);
+  /* margin-left: -${units.rem2}; */
+  /* padding-left: ${units.rem1}; */
+  /* margin-right: calc(-${units.rem5} - ${units.rem1} - 4px); */
 `;
 
 const ColumnDiv = styled.div`

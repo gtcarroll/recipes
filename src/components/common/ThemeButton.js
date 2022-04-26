@@ -6,7 +6,6 @@ import { units, styles } from "./styles";
 export const ThemeButton = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   const handleClick = () => {
-    console.log("theme toggled");
     let isDark = theme === themes.dark;
     isDark ? setTheme(themes.light) : setTheme(themes.dark);
     document.documentElement.style.setProperty(
