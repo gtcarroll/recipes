@@ -23,13 +23,12 @@ export const ColorInput = (props) => {
           : "transparent",
       }}
       onChange={(event) => {
-        if (event.target.value)
-          props.onChange(functions.roundToNearestHalf(event.target.value));
+        props.onChange(event.target.value);
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onFocus={(event) => {
-        // event.target.select();
+        event.target.select();
         setIsHovered(true);
       }}
       onBlur={() => setIsHovered(false)}

@@ -53,9 +53,12 @@ export const MultiplierButtonTray = (props) => {
             activeIndex: gradient.length - 1,
             customMultiple: multiplier,
           });
-          props.setIngredients(
-            functions.multiplyIngredients(multiplier, props.ingredients)
-          );
+          if (multiplier) {
+            multiplier = functions.roundToNearestHalf(multiplier);
+            props.setIngredients(
+              functions.multiplyIngredients(multiplier, props.ingredients)
+            );
+          }
         }}
       />
     </MultiplierButtonsDiv>
