@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { Ingredient, MultiplierButtonTray } from ".";
+import { Ingredient, MultiplierTray } from ".";
 import {
   Header2,
   ThemeContext,
@@ -27,7 +27,7 @@ export const IngredientList = (props) => {
     >
       <Header2 text="Ingredients" isOffset />
       <Ingredients>{ingredientList}</Ingredients>
-      <MultiplierButtonTray
+      <MultiplierTray
         ingredients={props.originalIngredients}
         setIngredients={props.setIngredients}
       />

@@ -1,18 +1,21 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import { ThemeContext, MixedNumber, functions, LayoutContext } from "../common";
-import { styles, units } from "../common/styles";
+import {
+  ThemeContext,
+  MixedNumber,
+  functions,
+  units,
+  styles,
+  LayoutContext,
+} from "../../common";
 
-export const ColorInput = (props) => {
+export const NumberButton = (props) => {
   const [isHovered, setIsHovered] = useState(false);
   const { theme } = useContext(ThemeContext);
   const { layout } = useContext(LayoutContext);
   let transparentColor = functions.addAlpha(props.color, 0.15);
   return (
-    <ColorInputDiv
-      value={props.value}
-      placeholder="_"
-      type="number"
+    <MultiplierButtonDiv
       style={{
         fontSize: layout.fontSize.body,
         color: props.isActive ? theme.background : props.color,
@@ -21,35 +24,33 @@ export const ColorInput = (props) => {
           : isHovered
           ? transparentColor
           : "transparent",
+        opacity: props.isActive || isHovered ? 1 : 1, //styles.transparency.underline,
       }}
-      onChange={(event) => {
-        props.onChange(event.target.value);
+      onClick={() => {
+        props.onClick();
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onFocus={(event) => {
-        event.target.select();
-        setIsHovered(true);
-      }}
+      onFocus={() => setIsHovered(true)}
       onBlur={() => setIsHovered(false)}
-    />
+    >
+      <MixedNumber number={props.value} />
+    </MultiplierButtonDiv>
   );
 };
 
-ColorInput.defaultProps = {
+NumberButton.defaultProps = {
   isActive: false,
   gradient: [],
   color: "rgb(125, 125, 0)",
-  value: "0",
-  label: "0",
+  value: 0,
 };
 
-const ColorInputDiv = styled.input`
+const MultiplierButtonDiv = styled.button`
   // animation
   transition: ${styles.transition.button};
 
   // box model
-  border: 0px solid;
   border-radius: ${styles.borderRadius.button};
   width: ${units.rem4};
   height: ${units.rem4};
@@ -57,21 +58,4 @@ const ColorInputDiv = styled.input`
   // typography
   font-family: ${styles.fontFamily.monospace};
   font-weight: bold;
-  text-align: center;
-  appearance: textfield;
-
-  ::selection {
-    /* background: red; */
-  }
-  ::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: inherit;
-    opacity: 1; /* Firefox */
-  }
-  ::-webkit-outer-spin-button,
-  ::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    appearance: none;
-    margin: 0;
-  }
 `;

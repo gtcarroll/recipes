@@ -1,5 +1,5 @@
 import { IngredientList } from "./IngredientList.js";
 import { Ingredient } from "./Ingredient.js";
-import { MultiplierButtonTray } from "./MultiplierButtonTray.js";
+import { MultiplierTray } from "./MultiplierTray.js";
 
-export { IngredientList, Ingredient, MultiplierButtonTray };
+export { IngredientList, Ingredient, MultiplierTray };
