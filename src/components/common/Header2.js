@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { ThemeContext } from "./theme-context";
-import { LayoutContext } from "./layout-context";
-import { units, styles } from "./styles";
+import { ThemeContext, LayoutContext, units, styles } from "../context";
 
 export const Header2 = (props) => {
   const { theme } = useContext(ThemeContext);

@@ -1,11 +1,15 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
+import {
+  ThemeContext,
+  themes,
+  LayoutContext,
+  functions,
+  units,
+  styles,
+} from "../context";
 import { IconButton } from "./IconButton";
 import { RibbonButton } from "./RibbonButton";
-import { LayoutContext } from "./layout-context";
-import { ThemeContext, themes } from "./theme-context";
-import { functions } from "./functions";
-import { units, styles } from "./styles";
 import { ReactComponent as Tomato } from "../../assets/photos/tomato.svg";
 
 export const MenuCurtain = (props) => {

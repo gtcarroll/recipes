@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { ThemeContext, LayoutContext, units, styles } from "../../common";
+import { ThemeContext, LayoutContext, units, styles } from "../../context";
 
 export const NumberBubble = (props) => {
   const { theme } = useContext(ThemeContext);

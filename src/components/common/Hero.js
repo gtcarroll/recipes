@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+import { ThemeContext, LayoutContext, units, styles } from "../context";
 import { Header1 } from "./Header1";
-import { ThemeContext } from "./theme-context";
-import { LayoutContext } from "./layout-context";
-import { units, styles } from "./styles";
 
 export const Hero = (props) => {
   const { layout } = useContext(LayoutContext);

@@ -1,14 +1,13 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import {
-  Hero,
-  ThemeButton,
   ThemeContext,
   LayoutContext,
   functions,
   units,
   styles,
-} from "../common";
+} from "../context";
+import { Hero, ThemeButton } from "../common";
 import { IngredientList, InstructionList } from ".";
 import frogicon from "../../assets/photos/pb-cookies.png";
 

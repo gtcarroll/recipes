@@ -1,9 +1,12 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import { LayoutContext } from "./layout-context";
-import { ThemeContext } from "./theme-context";
-import { units, styles } from "./styles";
-import { functions } from "./functions";
+import {
+  ThemeContext,
+  LayoutContext,
+  functions,
+  units,
+  styles,
+} from "../context";
 
 export const IconButton = (props) => {
   const [isHovered, setIsHovered] = useState(false);

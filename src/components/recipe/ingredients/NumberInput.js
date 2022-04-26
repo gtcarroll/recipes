@@ -1,7 +1,12 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import { ThemeContext, LayoutContext, functions } from "../../common";
-import { styles, units } from "../../common/styles";
+import {
+  ThemeContext,
+  LayoutContext,
+  functions,
+  units,
+  styles,
+} from "../../context";
 
 export const NumberInput = (props) => {
   const [isHovered, setIsHovered] = useState(false);

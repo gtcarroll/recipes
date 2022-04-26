@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { units, styles } from "../../context";
+import { Header2 } from "../../common";
 import { Instruction } from ".";
-import { Header2, units, styles } from "../../common";
 
 export const InstructionList = (props) => {
   let ingredientIndex = 0;

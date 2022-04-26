@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Header3, units } from "../../common";
+import { units } from "../../context";
+import { Header3 } from "../../common";
 import { SubTask, NumberBubble } from ".";
 
 export const Instruction = (props) => {

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { ThemeContext } from "./theme-context";
+import { ThemeContext } from "../context";
 
 export const PaletteStrip = (props) => {
   const { theme } = useContext(ThemeContext);

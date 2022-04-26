@@ -1,13 +1,8 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+import { ThemeContext, LayoutContext, units, styles } from "../../context";
 import { Ingredient, MultiplierTray } from ".";
-import {
-  Header2,
-  ThemeContext,
-  LayoutContext,
-  units,
-  styles,
-} from "../../common";
+import { Header2 } from "../../common";
 
 export const IngredientList = (props) => {
   const { theme } = useContext(ThemeContext);

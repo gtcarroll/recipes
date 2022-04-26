@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { functions } from "./functions";
-import { units, styles } from "./styles";
+import { functions, units, styles } from "../context";
 
 export const MixedNumber = (props) => {
   let fraction = functions.splitFraction(props.number);

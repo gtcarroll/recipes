@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { units, styles } from "./styles";
+import { units, styles } from "../context";
 import froggy from "../../assets/photos/froggychef_dark_lg.png";
 import froggyLight from "../../assets/photos/froggychef_light.png";
 

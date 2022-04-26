@@ -1,14 +1,11 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import { LayoutContext } from "./layout-context";
-import { ThemeContext } from "./theme-context";
-import { units, styles } from "./styles";
+import { ThemeContext, units, styles } from "../context";
 import { ReactComponent as PatreonLogo } from "../../assets/photos/patreon-logo.svg";
 import { ReactComponent as PatreonWordmark } from "../../assets/photos/patreon-wordmark.svg";
 
 export const PatreonButton = (props) => {
   const [isHovered, setIsHovered] = useState(false);
-  const { layout } = useContext(LayoutContext);
   const { theme } = useContext(ThemeContext);
   let patreonFG = theme.isDark ? "#FFFFFF" : "#141518";
   let patreonBG = theme.isDark ? "#141518" : "#FFFFFF";
@@ -60,12 +57,4 @@ const PatreonButtonDiv = styled.button`
   svg {
     height: ${units.rem3};
   }
-`;
-
-const Label = styled.div`
-  // box model
-  padding: 0 ${units.rem1};
-
-  // typography
-  white-space: nowrap;
 `;

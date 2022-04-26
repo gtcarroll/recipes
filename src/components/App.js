@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Recipe } from "./recipe/";
 import {
-  MenuCurtain,
   ThemeContext,
-  PaletteStrip,
   themes,
   LayoutContext,
   layouts,
   styles,
-} from "./common";
+} from "./context";
+import { MenuCurtain } from "./common";
+import { Recipe } from "./recipe/";
 let peanutButterCookies = require("../assets/recipes/peanut-butter-cookies.json");
 
 export const App = () => {

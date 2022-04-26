@@ -2,12 +2,12 @@ import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import {
   ThemeContext,
-  MixedNumber,
+  LayoutContext,
   functions,
   units,
   styles,
-  LayoutContext,
-} from "../../common";
+} from "../../context";
+import { MixedNumber } from "../../common";
 
 export const NumberButton = (props) => {
   const [isHovered, setIsHovered] = useState(false);

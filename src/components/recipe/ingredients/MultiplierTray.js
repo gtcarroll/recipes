@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
+import { ThemeContext, functions, units, styles } from "../../context";
 import { NumberButton } from "./NumberButton.js";
 import { NumberInput } from "./NumberInput";
-import { ThemeContext, functions, units, styles } from "../../common";
 
 export const MultiplierTray = (props) => {
   const buttonValues = ["1/2", "1", "2"];

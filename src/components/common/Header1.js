@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { LayoutContext } from "./layout-context";
-import { units, styles } from "./styles";
+import { LayoutContext, units, styles } from "../context";
 
 export const Header1 = (props) => {
   const { layout } = useContext(LayoutContext);

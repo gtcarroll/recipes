@@ -6,7 +6,7 @@ import {
   functions,
   units,
   styles,
-} from "../../common";
+} from "../../context";
 
 export const LetterBubble = (props) => {
   const { theme } = useContext(ThemeContext);
