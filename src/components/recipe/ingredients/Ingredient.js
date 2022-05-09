@@ -27,12 +27,12 @@ export const Ingredient = (props) => {
         }}
       >
         <MixedNumber
-          number={props.amount}
+          number={props[props.units]?.amount}
           color={theme.foreground}
           fontFamily={props.fontFamily}
           isIngredient
         />
-        <Measure>{props.measure}</Measure>
+        <Measure>{props[props.units]?.measure}</Measure>
       </RowDiv>
     </IngredientDiv>
   );
@@ -43,6 +43,7 @@ Ingredient.defaultProps = {
   amount: false,
   measure: false,
   ingredient: false,
+  units: "imperial",
 };
 
 const IngredientDiv = styled.li`

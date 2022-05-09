@@ -13,6 +13,10 @@ import frogicon from "../../assets/photos/pb-cookies.png";
 
 export const Recipe = (props) => {
   const [ingredients, setIngredients] = useState(props.ingredients);
+  const [state, setState] = useState({
+    ingredients: props.ingredients,
+    units: "imperial",
+  });
   const { theme } = useContext(ThemeContext);
   const { layout } = useContext(LayoutContext);
   const gradient = functions.getColorGradient(
@@ -31,14 +35,16 @@ export const Recipe = (props) => {
             <Hero backgroundImage={frogicon} text={props.name} />
           )}
           <IngredientList
-            ingredients={ingredients}
-            setIngredients={setIngredients}
+            units={state.units}
+            ingredients={state.ingredients}
+            setState={setState}
             originalIngredients={props.ingredients}
             gradient={gradient}
           />
           {layout.name !== "desktop" && (
             <InstructionList
-              ingredients={ingredients}
+              units={state.units}
+              ingredients={state.ingredients}
               instructions={props.instructions}
               gradient={gradient}
             />
@@ -47,7 +53,8 @@ export const Recipe = (props) => {
         {layout.name === "desktop" && (
           <ArticleContainer style={{ width: layout.width.instructions }}>
             <InstructionList
-              ingredients={ingredients}
+              units={state.units}
+              ingredients={state.ingredients}
               instructions={props.instructions}
               gradient={gradient}
             />

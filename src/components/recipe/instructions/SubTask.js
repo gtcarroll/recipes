@@ -13,6 +13,7 @@ export const SubTask = (props) => {
     ingredientList.push(
       <Ingredient
         key={i}
+        units={props.units}
         color={props.gradient[props.ingredientIndex + i]}
         fontFamily={styles.fontFamily.sansSerif}
         {...ingredient}

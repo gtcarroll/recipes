@@ -15,6 +15,7 @@ export const InstructionList = (props) => {
       <Instruction
         key={i}
         number={i + 1}
+        units={props.units}
         gradient={props.gradient}
         ingredientIndex={prevIndex}
         ingredientsRef={props.ingredients}

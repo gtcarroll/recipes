@@ -29,4 +29,5 @@ button {
   box-shadow: none;
   text-shadow: none;
   background-color: transparent;
+  cursor: pointer;
 }

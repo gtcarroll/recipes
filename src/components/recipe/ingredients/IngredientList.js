@@ -1,14 +1,36 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { ThemeContext, LayoutContext, units, styles } from "../../context";
-import { Ingredient, MultiplierTray } from ".";
+import { Ingredient, MultiplierTray, UnitsTray } from ".";
 import { Header2 } from "../../common";
 
 export const IngredientList = (props) => {
   const { theme } = useContext(ThemeContext);
   const { layout } = useContext(LayoutContext);
+
+  const setIngredients = (newIngredients) => {
+    props.setState({
+      ingredients: newIngredients,
+      units: props.units,
+    });
+  };
+
+  const setUnits = (newUnits) => {
+    props.setState({
+      ingredients: props.ingredients,
+      units: newUnits,
+    });
+  };
+
   let ingredientList = props.ingredients.map((item, i) => {
-    return <Ingredient key={i} color={props.gradient[i]} {...item} />;
+    return (
+      <Ingredient
+        key={i}
+        color={props.gradient[i]}
+        units={props.units}
+        {...item}
+      />
+    );
   });
 
   return (
@@ -22,10 +44,13 @@ export const IngredientList = (props) => {
     >
       <Header2 text="Ingredients" isOffset />
       <Ingredients>{ingredientList}</Ingredients>
-      <MultiplierTray
-        ingredients={props.originalIngredients}
-        setIngredients={props.setIngredients}
-      />
+      <RowDiv>
+        <MultiplierTray
+          ingredients={props.originalIngredients}
+          setIngredients={setIngredients}
+        />
+        <UnitsTray units={props.units} setUnits={setUnits} />
+      </RowDiv>
     </IngredientListDiv>
   );
 };
@@ -55,4 +80,13 @@ const IngredientListDiv = styled.div`
 const Ingredients = styled.ul`
   // typography
   font-family: ${styles.fontFamily.monospace};
+`;
+
+const RowDiv = styled.div`
+  // flexbox
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 100%;
 `;

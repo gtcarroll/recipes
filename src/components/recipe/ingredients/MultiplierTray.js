@@ -40,7 +40,7 @@ export const MultiplierTray = (props) => {
     );
   });
   return (
-    <MultiplierTrayDiv style={{ color: theme.ingredient1 }}>
+    <MultiplierTrayDiv>
       {buttons}
       <NumberInput
         value={state.customMultiple}

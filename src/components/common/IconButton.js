@@ -16,7 +16,7 @@ export const IconButton = (props) => {
   return (
     <IconButtonDiv
       onClick={() => {
-        props.onClick();
+        if (!props.isActive) props.onClick();
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -55,6 +55,7 @@ IconButton.defaultProps = {
 const IconButtonDiv = styled.div`
   // animation
   /* transition: ${styles.transition.button}; */
+  cursor: pointer;
 
   // flexbox
   display: flex;

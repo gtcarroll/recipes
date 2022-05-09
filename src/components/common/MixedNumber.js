@@ -44,7 +44,7 @@ export const MixedNumber = (props) => {
 };
 
 MixedNumber.defaultProps = {
-  number: "1 1/2",
+  number: "",
   fontFamily: styles.fontFamily.monospace,
   isIngredient: false,
 };

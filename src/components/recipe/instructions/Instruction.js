@@ -16,6 +16,7 @@ export const Instruction = (props) => {
     return (
       <SubTask
         key={i}
+        units={props.units}
         letter={String.fromCharCode(97 + i)}
         gradient={props.gradient}
         ingredientIndex={prevIndex}

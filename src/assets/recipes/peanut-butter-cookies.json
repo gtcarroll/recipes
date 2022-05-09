@@ -1,33 +1,49 @@
 {
     "name": "Peanut Butter Cookies",
-    "yields": {
-        "amount": "24",
-        "measure": "cookies"
-    },
     "ingredients": [
         {
-            "amount": "1 3/4",
-            "measure": "cup",
-            "ingredient": "brown sugar"
+            "ingredient": "brown sugar",
+            "imperial": {
+                "amount": "1 3/4",
+                "measure": "cup"
+            },
+            "metric": {
+                "amount": "100",
+                "measure": "g"
+            }
         },
         {
-            "amount": "2",
-            "measure": "",
-            "ingredient": "eggs"
+            "ingredient": "eggs",
+            "imperial": {
+                "amount": "2"
+            },
+            "metric": {
+                "amount": "2"
+            }
         },
         {
-            "amount": "1/2",
-            "measure": "tsp",
-            "ingredient": "vanilla extract"
+            "ingredient": "vanilla extract",
+            "imperial": {
+                "amount": "1/2",
+                "measure": "tsp"
+            },
+            "metric": {
+                "amount": "5",
+                "measure": "ml"
+            }
         },
         {
-            "amount": "1 3/4",
-            "measure": "cup",
-            "ingredient": "peanut butter"
+            "ingredient": "peanut butter",
+            "imperial": {
+                "amount": "1 3/4",
+                "measure": "cup"
+            },
+            "metric": {
+                "amount": "100",
+                "measure": "g"
+            }
         },
         {
-            "amount": "",
-            "measure": "",
             "ingredient": "salt"
         }
     ],
@@ -39,34 +55,12 @@
                 "subtasks": [
                     {
                         "pretext": "In a large bowl, mix together",
-                        "ingredients": [
-                            {
-                                "amount": "1 3/4",
-                                "measure": "cup",
-                                "ingredient": "brown sugar"
-                            },
-                            {
-                                "amount": "2",
-                                "measure": "",
-                                "ingredient": "eggs"
-                            }
-                        ],
+                        "ingredients": ["brown sugar", "eggs"],
                         "text": "until smooth."
                     },
                     {
                         "pretext": "Then, mix in",
-                        "ingredients": [
-                            {
-                                "amount": "1/2",
-                                "measure": "tsp",
-                                "ingredient": "vanilla extract"
-                            },
-                            {
-                                "amount": "1 3/4",
-                                "measure": "cup",
-                                "ingredient": "peanut butter"
-                            }
-                        ],
+                        "ingredients": ["vanilla extract", "peanut butter"],
                         "text": "until smooth again."
                     }
                 ]
@@ -85,13 +79,7 @@
                     },
                     {
                         "pretext": "Finally, sprinkle a bit of",
-                        "ingredients": [
-                            {
-                                "amount": "",
-                                "measure": "",
-                                "ingredient": "salt"
-                            }
-                        ],
+                        "ingredients": ["salt"],
                         "text": "onto each dough ball."
                     }
                 ]
@@ -108,5 +96,14 @@
                 ]
             }
         ]
+    },
+    "yields": {
+        "amount": "24",
+        "measure": "cookies"
+    },
+    "tags": {
+        "vegetarian": true,
+        "hasNuts": true,
+        "hasEggs": true
     }
 }

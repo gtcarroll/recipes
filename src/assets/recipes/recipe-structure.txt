@@ -1,0 +1,44 @@
+{
+    NAME
+    INGREDIENTS [
+        {
+            INGREDIENT
+            imperial {
+                amount
+                measure
+            }
+            metric {
+                amount
+                measure
+            }
+        }
+    ]
+    INSTRUCTIONS {
+        prep
+        STEPS [
+            {
+                TASK
+                SUBTASKS [
+                    {
+                        pretext
+                        ingredients []
+                        TEXT
+                    }
+                ]
+            }
+        ]
+    }
+    yields {
+        amount
+        measure
+    }
+    tags {
+        vegetarian
+        vegan
+        hasDairy
+        hasEggs
+        hasGluten
+        hasNuts
+        hasSoy
+    }
+}

@@ -10,7 +10,12 @@ import {
 } from "../context";
 import { IconButton } from "./IconButton";
 import { RibbonButton } from "./RibbonButton";
-import { ReactComponent as Tomato } from "../../assets/photos/tomato.svg";
+import { ReactComponent as MeasuringCup } from "../../assets/photos/measuring-cup.svg";
+import { ReactComponent as GramWeight } from "../../assets/photos/gram-weight.svg";
+import { ReactComponent as Vegan } from "../../assets/photos/vegan.svg";
+import { ReactComponent as D20 } from "../../assets/photos/d20.svg";
+import { ReactComponent as Moon } from "../../assets/photos/moon.svg";
+import { ReactComponent as Sun } from "../../assets/photos/sun.svg";
 
 export const MenuCurtain = (props) => {
   const { layout } = useContext(LayoutContext);
@@ -20,10 +25,10 @@ export const MenuCurtain = (props) => {
   const [themesIndex, setThemesIndex] = useState(0);
   const menuHeight = "23rem";
   const recipesData = [
-    { label: "sweet", icon: Tomato },
-    { label: "savory", icon: Tomato },
-    { label: "vegan", icon: Tomato },
-    { label: "random", icon: Tomato },
+    { label: "sweet", icon: MeasuringCup },
+    { label: "savory", icon: GramWeight },
+    { label: "vegan", icon: Vegan },
+    { label: "random", icon: D20 },
   ];
   const themesData = Object.keys(themes);
   let recipesGradient = functions.getColorGradient(
@@ -58,7 +63,7 @@ export const MenuCurtain = (props) => {
         color={recipesGradient[i]}
         label={item.label}
         icon={
-          <Tomato
+          <item.icon
             fill={isActiveRecipe ? theme.background : recipesGradient[i]}
           />
         }
@@ -76,7 +81,7 @@ export const MenuCurtain = (props) => {
         key={i}
         color={themesGradient[i]}
         icon={
-          <Tomato fill={isActiveTheme ? theme.background : themesGradient[i]} />
+          <Moon fill={isActiveTheme ? theme.background : themesGradient[i]} />
         }
         isCentered
         isActive={isActiveTheme}
@@ -127,7 +132,43 @@ export const MenuCurtain = (props) => {
           >
             Themes
           </MenuHeader>
-          <RowDiv>{themeButtons}</RowDiv>
+          <RowDiv>
+            {/* {themeButtons} */}
+            <IconButton
+              key={0}
+              color={themesGradient[0]}
+              icon={
+                <Moon
+                  fill={
+                    0 === themesIndex ? theme.background : themesGradient[0]
+                  }
+                />
+              }
+              isCentered
+              isActive={0 === themesIndex}
+              onClick={() => {
+                setThemesIndex(0);
+                themeClick(themes["dark"]);
+              }}
+            />
+            <IconButton
+              key={1}
+              color={themesGradient[1]}
+              icon={
+                <Sun
+                  fill={
+                    1 === themesIndex ? theme.background : themesGradient[1]
+                  }
+                />
+              }
+              isCentered
+              isActive={1 === themesIndex}
+              onClick={() => {
+                setThemesIndex(1);
+                themeClick(themes["light"]);
+              }}
+            />
+          </RowDiv>
         </ColumnDiv>
         <RibbonButton
           menuHeight={menuHeight}
