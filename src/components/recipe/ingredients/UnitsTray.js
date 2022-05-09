@@ -43,10 +43,11 @@ const UnitsTrayDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  /* gap: ${units.rem1}; */
+  gap: ${units.rem1};
 
   // box model
   margin-top: ${units.rem0};
+  margin-right: -${units.rem0};
 
   // typography
   font-family: ${styles.fontFamily.monospace};
