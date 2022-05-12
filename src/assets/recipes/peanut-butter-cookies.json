@@ -8,7 +8,7 @@
                 "measure": "cup"
             },
             "metric": {
-                "amount": "100",
+                "amount": "400",
                 "measure": "g"
             }
         },
@@ -28,7 +28,7 @@
                 "measure": "tsp"
             },
             "metric": {
-                "amount": "5",
+                "amount": "2 1/2",
                 "measure": "ml"
             }
         },
@@ -39,7 +39,7 @@
                 "measure": "cup"
             },
             "metric": {
-                "amount": "100",
+                "amount": "480",
                 "measure": "g"
             }
         },

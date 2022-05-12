@@ -43,7 +43,7 @@ const UnitsTrayDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  gap: ${units.rem1};
+  gap: ${units.rem0};
 
   // box model
   margin-top: ${units.rem0};
