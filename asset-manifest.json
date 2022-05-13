@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/recipes/static/css/main.abc93006.css",
-    "main.js": "/recipes/static/js/main.d1844d99.js",
+    "main.js": "/recipes/static/js/main.97094362.js",
     "static/media/pb-cookies.png": "/recipes/static/media/pb-cookies.40c55e63b164372949ba.png",
     "static/media/froggychef_dark_lg.png": "/recipes/static/media/froggychef_dark_lg.912c158f365578f42aff.png",
     "static/media/froggychef_light.png": "/recipes/static/media/froggychef_light.468c476de36e871dff55.png",
@@ -10,16 +10,15 @@
     "static/media/measuring-cup.svg": "/recipes/static/media/measuring-cup.ff0368c2408d3af055883f2fb327c20b.svg",
     "static/media/vegan.svg": "/recipes/static/media/vegan.8f34a6f194ceab111eec1475776b8225.svg",
     "static/media/gram-weight.svg": "/recipes/static/media/gram-weight.5257ddd54b916c117737b8306bb0055a.svg",
-    "static/media/gluten-free.svg": "/recipes/static/media/gluten-free.8c9dd9ec6c7e4fe11ea3bfac8024887f.svg",
-    "static/media/veg_egg.svg": "/recipes/static/media/veg_egg.66c482022bec0e4989e7f9a277ba3ca0.svg",
+    "static/media/vegetarian.svg": "/recipes/static/media/vegetarian.66c482022bec0e4989e7f9a277ba3ca0.svg",
     "static/media/menu.svg": "/recipes/static/media/menu.0dc5e94ff27d3d5110d6a6abb82a8577.svg",
     "index.html": "/recipes/index.html",
     "static/media/moon.svg": "/recipes/static/media/moon.38e0fa4af5f95b18c3f84344cb2555db.svg",
     "main.abc93006.css.map": "/recipes/static/css/main.abc93006.css.map",
-    "main.d1844d99.js.map": "/recipes/static/js/main.d1844d99.js.map"
+    "main.97094362.js.map": "/recipes/static/js/main.97094362.js.map"
   },
   "entrypoints": [
     "static/css/main.abc93006.css",
-    "static/js/main.d1844d99.js"
+    "static/js/main.97094362.js"
   ]
 }
