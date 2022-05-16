@@ -22,7 +22,7 @@ export const MenuCurtain = (props) => {
   const { theme, setTheme } = useContext(ThemeContext);
   const [isActive, setActive] = useState(false);
   const [recipesIndex, setRecipesIndex] = useState(-1);
-  const [themesIndex, setThemesIndex] = useState(0);
+  const [themesIndex, setThemesIndex] = useState(theme.isDark ? 0 : 1);
   const menuHeight = "23rem";
   const recipesData = [
     { label: "vegetarian", icon: Savory },
