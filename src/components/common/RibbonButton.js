@@ -7,7 +7,7 @@ import {
   units,
   styles,
 } from "../context";
-import { ReactComponent as MenuIcon } from "../../assets/photos/menu.svg";
+import { ReactComponent as MenuIcon } from "../../assets/icons/menu.svg";
 
 export const RibbonButton = (props) => {
   const [isVisible, setVisible] = useState(true);

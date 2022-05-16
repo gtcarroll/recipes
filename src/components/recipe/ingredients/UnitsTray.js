@@ -2,8 +2,8 @@ import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { ThemeContext, functions, units, styles } from "../../context";
 import { IconButton } from "../../common";
-import { ReactComponent as Imperial } from "../../../assets/photos/measuring-cup.svg";
-import { ReactComponent as Metric } from "../../../assets/photos/gram-weight.svg";
+import { ReactComponent as Imperial } from "../../../assets/icons/measuring-cup.svg";
+import { ReactComponent as Metric } from "../../../assets/icons/gram-weight.svg";
 
 export const UnitsTray = (props) => {
   const unitButtons = [

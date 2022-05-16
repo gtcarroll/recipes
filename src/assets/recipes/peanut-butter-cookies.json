@@ -72,10 +72,10 @@
                         "text": "Store the dough in the freezer for 15 min."
                     },
                     {
-                        "text": "Scoop the dough into golf ball-sized lumps and place them onto a baking sheet lined with parchment paper."
+                        "text": "Drop the dough in heaping spoonfuls onto a baking sheet."
                     },
                     {
-                        "text": "Drag a fork across the top of each dough ball to create the signature striations."
+                        "text": "Drag a fork across the top of each dough ball to add decorative striations."
                     },
                     {
                         "pretext": "Finally, sprinkle a bit of",
@@ -88,10 +88,10 @@
                 "task": "Bake the cookies",
                 "subtasks": [
                     {
-                        "text": "Bake the cookies for 15-20 min. The cookies should be lightly browned around the edges when done."
+                        "text": "Bake 15-20 min. The cookies will be lightly browned around the edges when done."
                     },
                     {
-                        "text": "Let cool for a couple minutes so the cookies can get crispy on the outside and enjoy!"
+                        "text": "Let cool for 5 min and enjoy!"
                     }
                 ]
             }

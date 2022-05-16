@@ -32,7 +32,13 @@ export const Ingredient = (props) => {
           fontFamily={props.fontFamily}
           isIngredient
         />
-        <Measure>{props[props.units]?.measure}</Measure>
+        <Measure
+          style={{
+            minWidth: props.units === "metric" ? units.rem5 : units.rem6,
+          }}
+        >
+          {props[props.units]?.measure}
+        </Measure>
       </RowDiv>
     </IngredientDiv>
   );
@@ -74,7 +80,9 @@ const RowDiv = styled.div`
 `;
 
 const Measure = styled.div`
+  // animation
+  transition: min-width ${styles.transition.body};
+
   // box model
   margin-left: ${units.rem1};
-  min-width: ${units.rem6};
 `;
