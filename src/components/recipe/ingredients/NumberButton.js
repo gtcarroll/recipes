@@ -13,7 +13,7 @@ export const NumberButton = (props) => {
   const [isHovered, setIsHovered] = useState(false);
   const { theme } = useContext(ThemeContext);
   const { layout } = useContext(LayoutContext);
-  let transparentColor = functions.addAlpha(props.color, 0.15);
+  let transparentColor = functions.addAlpha(props.color, 0.3);
   return (
     <MultiplierButtonDiv
       style={{

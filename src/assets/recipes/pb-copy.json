@@ -1,5 +1,5 @@
 {
-    "name": "Peanut Butter Cookies",
+    "name": "Banana Peanut Butter Cookies",
     "ingredients": [
         {
             "ingredient": "brown sugar",
@@ -13,7 +13,7 @@
             }
         },
         {
-            "ingredient": "eggs",
+            "ingredient": "bananas",
             "imperial": {
                 "amount": "2"
             },
@@ -55,7 +55,7 @@
                 "subtasks": [
                     {
                         "pretext": "In a large bowl, mix together",
-                        "ingredients": ["brown sugar", "eggs"],
+                        "ingredients": ["brown sugar", "banana"],
                         "text": "until smooth."
                     },
                     {
@@ -103,7 +103,7 @@
     },
     "tags": {
         "vegetarian": true,
-        "vegan": false,
-        "glutenFree": true
+        "hasNuts": true,
+        "hasEggs": true
     }
 }

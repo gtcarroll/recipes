@@ -23,6 +23,7 @@ export const UnitsTray = (props) => {
       <IconButton
         key={i}
         value={item.value}
+        title={item.value}
         color={gradient[i]}
         isActive={isActiveUnit}
         icon={

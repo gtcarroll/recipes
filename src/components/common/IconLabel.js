@@ -8,20 +8,15 @@ import {
   styles,
 } from "../context";
 
-export const IconButton = (props) => {
+export const IconLabel = (props) => {
   const [isHovered, setIsHovered] = useState(false);
   const { layout } = useContext(LayoutContext);
   const { theme } = useContext(ThemeContext);
   let transparentColor = functions.addAlpha(props.color, 0.3);
   return (
-    <IconButtonDiv
-      onClick={() => {
-        if (!props.isActive) props.onClick();
-      }}
+    <IconLabelDiv
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onFocus={() => setIsHovered(true)}
-      onBlur={() => setIsHovered(false)}
       style={{
         justifyContent: props.isCentered ? "center" : null,
       }}
@@ -41,11 +36,11 @@ export const IconButton = (props) => {
         {props.icon && <Icon>{props.icon}</Icon>}
         {props.label && <Label>{props.label}</Label>}
       </DisplayDiv>
-    </IconButtonDiv>
+    </IconLabelDiv>
   );
 };
 
-IconButton.defaultProps = {
+IconLabel.defaultProps = {
   isActive: false,
   isCentered: false,
   icon: null,
@@ -54,9 +49,9 @@ IconButton.defaultProps = {
   color: "rgb(125, 125, 0)",
 };
 
-const IconButtonDiv = styled.div`
+const IconLabelDiv = styled.div`
   // animation
-  cursor: pointer;
+  cursor: default;
 
   // flexbox
   display: flex;
@@ -67,7 +62,7 @@ const IconButtonDiv = styled.div`
   width: 100%;
 `;
 
-const DisplayDiv = styled.button`
+const DisplayDiv = styled.div`
   // animation
   transition: ${styles.transition.button};
 

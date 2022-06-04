@@ -9,6 +9,7 @@ import {
 } from "./context";
 import { MenuCurtain } from "./common";
 import { Recipe } from "./recipe/";
+// import { Home } from "./home/Home.js";
 let peanutButterCookies = require("../assets/recipes/peanut-butter-cookies.json");
 
 export const App = () => {
@@ -75,6 +76,7 @@ export const App = () => {
           }}
         >
           <MenuCurtain dropToggle={false} />
+          {/* <Home /> */}
           <Recipe {...peanutButterCookies} />
         </AppDiv>
       </LayoutContext.Provider>

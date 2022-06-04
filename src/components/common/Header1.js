@@ -22,6 +22,9 @@ Header1.defaultProps = {
 };
 
 const Header1Div = styled.h1`
+  // animation
+  transition: ${styles.transition.body};
+
   // box model
   padding: 0 ${units.rem2};
 

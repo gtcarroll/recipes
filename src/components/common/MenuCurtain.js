@@ -88,6 +88,7 @@ export const MenuCurtain = (props) => {
     return (
       <IconButton
         key={i}
+        title={item.label}
         color={themesGradient[i]}
         icon={
           <item.icon

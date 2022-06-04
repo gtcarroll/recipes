@@ -1,22 +1,20 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import {
-  ThemeContext,
-  LayoutContext,
-  functions,
-  units,
-  styles,
-} from "../context";
-import { Hero, ThemeButton } from "../common";
+import { ThemeContext, LayoutContext, functions, units } from "../context";
+import { Hero, ThemeButton, ContentContainer } from "../common";
 import { IngredientList, InstructionList } from ".";
-import frogicon from "../../assets/photos/pb-cookies.png";
+import pbCookies from "../../assets/photos/pb-cookies.png";
 
 export const Recipe = (props) => {
-  const [ingredients, setIngredients] = useState(props.ingredients);
   const [state, setState] = useState({
     ingredients: props.ingredients,
+    yields: props.yields,
     units: "imperial",
   });
+  const originalState = {
+    ingredients: props.ingredients,
+    yields: props.yields,
+  };
   const { theme } = useContext(ThemeContext);
   const { layout } = useContext(LayoutContext);
   const gradient = functions.getColorGradient(
@@ -27,18 +25,28 @@ export const Recipe = (props) => {
   return (
     <RecipeDiv>
       {layout.name === "mobile" && (
-        <Hero backgroundImage={frogicon} text={props.name} isScreenWidth />
+        <Hero
+          tags={props.tags}
+          backgroundImage={pbCookies}
+          text={props.name}
+          isScreenWidth
+        />
       )}
-      <ContentDiv>
-        <ArticleContainer style={{ width: layout.width.ingredients }}>
+      <RowDiv>
+        <ContentContainer width={layout.width.ingredients}>
           {layout.name !== "mobile" && (
-            <Hero backgroundImage={frogicon} text={props.name} />
+            <Hero
+              tags={props.tags}
+              backgroundImage={pbCookies}
+              text={props.name}
+            />
           )}
           <IngredientList
             units={state.units}
             ingredients={state.ingredients}
+            yields={state.yields}
             setState={setState}
-            originalIngredients={props.ingredients}
+            originalState={originalState}
             gradient={gradient}
           />
           {layout.name !== "desktop" && (
@@ -49,18 +57,18 @@ export const Recipe = (props) => {
               gradient={gradient}
             />
           )}
-        </ArticleContainer>
+        </ContentContainer>
         {layout.name === "desktop" && (
-          <ArticleContainer style={{ width: layout.width.instructions }}>
+          <ContentContainer width={layout.width.instructions}>
             <InstructionList
               units={state.units}
               ingredients={state.ingredients}
               instructions={props.instructions}
               gradient={gradient}
             />
-          </ArticleContainer>
+          </ContentContainer>
         )}
-      </ContentDiv>
+      </RowDiv>
       <ThemeButton />
     </RecipeDiv>
   );
@@ -83,7 +91,7 @@ const RecipeDiv = styled.div`
   padding: 0 0 ${units.rem4} 0;
 `;
 
-const ContentDiv = styled.div`
+const RowDiv = styled.div`
   // flexbox
   display: flex;
   flex-direction: row;
@@ -95,17 +103,17 @@ const ContentDiv = styled.div`
   max-width: 100vw;
 `;
 
-const ArticleContainer = styled.div`
-  // animation
-  transition: width ${styles.transition.body};
+// const ContentContainer = styled.div`
+//   // animation
+//   transition: width ${styles.transition.body};
 
-  // flexbox
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: ${units.rem5};
+//   // flexbox
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   gap: ${units.rem5};
 
-  // box model
-  width: ${styles.width.content};
-  padding: ${units.rem4};
-`;
+//   // box model
+//   max-width: calc(100vw - 2 * ${units.rem4});
+//   padding: ${units.rem4};
+// `;

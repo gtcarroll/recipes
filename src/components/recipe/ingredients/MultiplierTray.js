@@ -24,7 +24,8 @@ export const MultiplierTray = (props) => {
     if (multiplier) {
       if (isCustom) multiplier = functions.roundToNearestHalf(multiplier);
       props.setIngredients(
-        functions.multiplyIngredients(multiplier, props.ingredients)
+        functions.multiplyIngredients(multiplier, props.ingredients),
+        functions.multiplyYields(multiplier, props.yields)
       );
     }
   };

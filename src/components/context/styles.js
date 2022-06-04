@@ -15,6 +15,7 @@ export const units = {
   px0: px + "px", // 3
   px1: px * 2 + "px", // 6
   px2: px * 4 + "px", // 12
+  pxImg: "1000px",
 };
 
 // css style values
@@ -40,16 +41,6 @@ export const styles = {
   boxShadow: {
     card: "0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)",
     hover: "0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)",
-  },
-  width: {
-    h2: "19rem",
-    content: "31rem",
-    frog: "10rem",
-  },
-  height: {
-    h2: rem * 8 + "rem",
-    bubble: rem * 7 + "rem",
-    photo: "19rem",
   },
   fontFamily: {
     monospace:

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { ThemeContext, LayoutContext, units, styles } from "../context";
 import { Header1 } from "./Header1";
+import { IconTray } from "./IconTray";
 
 export const Hero = (props) => {
   const { layout } = useContext(LayoutContext);
@@ -9,22 +10,30 @@ export const Hero = (props) => {
   return (
     <HeroDiv
       style={{
-        backgroundImage: `url(${props.backgroundImage})`,
-        borderRadius: props.isScreenWidth ? 0 : styles.borderRadius.card,
-        boxShadow: props.isScreenWidth ? null : styles.boxShadow.card,
-        height: layout.height.hero,
         width: props.isScreenWidth
           ? "100%"
           : "calc(100% + 2 * " + units.rem2 + ")",
+        maxWidth: units.pxImg,
       }}
     >
-      <OverlayBar
+      <HeroImg
         style={{
-          backgroundColor: theme.photoOverlay,
+          backgroundImage: `url(${props.backgroundImage})`,
+          borderRadius: props.isScreenWidth ? 0 : styles.borderRadius.card,
+          boxShadow: props.isScreenWidth ? null : styles.boxShadow.card,
+          height: layout.height.hero,
+          maxWidth: units.pxImg,
         }}
       >
-        <Header1 text={props.text} color={theme.photoForeground} />
-      </OverlayBar>
+        <OverlayBar
+          style={{
+            backgroundColor: theme.photoOverlay,
+          }}
+        >
+          <Header1 text={props.text} color={theme.photoForeground} />
+        </OverlayBar>
+      </HeroImg>
+      <IconTray {...props.tags} />
     </HeroDiv>
   );
 };
@@ -33,7 +42,34 @@ Hero.defaultProps = {
   text: "default text",
   backgroundImage: "",
   isScreenWidth: false,
+  tags: {
+    vegetarian: true,
+    vegan: false,
+    glutenFree: true,
+  },
 };
+
+const HeroDiv = styled.div``;
+
+const HeroImg = styled.div`
+  // animation
+  transition: ${styles.transition.body};
+
+  // flexbox
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  // box model
+  width: 100%;
+  max-width: ${units.pxImg};
+
+  // background image
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+`;
 
 const OverlayBar = styled.div`
   // animation
@@ -42,16 +78,4 @@ const OverlayBar = styled.div`
   // box model
   width: 100%;
   padding: ${units.rem1} 0;
-`;
-
-const HeroDiv = styled.div`
-  // flexbox
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  // background image
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 `;

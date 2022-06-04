@@ -38,7 +38,6 @@ const Header2Div = styled.h2`
   margin: auto;
   border-radius: ${styles.borderRadius.header};
   width: 100%;
-  max-width: ${styles.width.h2};
   padding-bottom: ${units.px0};
 
   // typography

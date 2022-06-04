@@ -105,6 +105,13 @@ export const functions = {
     return newIngredients;
   },
 
+  multiplyYields: (multiplier, yields) => {
+    return {
+      amount: functions.multiplyAmount(multiplier, yields.amount),
+      measure: yields.measure,
+    };
+  },
+
   multiplyAmount(multiplier, amount) {
     if (!amount) return null;
 
