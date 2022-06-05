@@ -1,6 +1,7 @@
 import { Header1 } from "./Header1";
 import { Header2 } from "./Header2";
 import { Header3 } from "./Header3";
+import { Note } from "./Note";
 import { Hero } from "./Hero";
 import { Footer } from "./Footer";
 import { IconTray } from "./IconTray";
@@ -17,6 +18,7 @@ export {
   Header2,
   Header3,
   Hero,
+  Note,
   Footer,
   IconTray,
   MenuCurtain,

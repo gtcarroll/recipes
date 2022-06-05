@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { ThemeContext, LayoutContext, units, styles } from "../context";
 import { Header1 } from "./Header1";
 import { IconTray } from "./IconTray";
+import { Note } from "./Note";
 
 export const Hero = (props) => {
   const { layout } = useContext(LayoutContext);
@@ -49,7 +50,13 @@ Hero.defaultProps = {
   },
 };
 
-const HeroDiv = styled.div``;
+const HeroDiv = styled.div`
+  // flexbox
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 const HeroImg = styled.div`
   // animation

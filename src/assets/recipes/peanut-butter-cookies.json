@@ -101,6 +101,11 @@
         "amount": "24",
         "measure": "cookies"
     },
+    "attribution": {
+        "text": "adapted from",
+        "linkText": "Ovenly",
+        "linkRef": "https://oven.ly/blogs/recipes/salted-peanut-butter-cookies"
+    },
     "tags": {
         "vegetarian": true,
         "vegan": false,

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import { units, styles } from "../../context";
-import { Header2 } from "../../common";
+import { ThemeContext, LayoutContext, units, styles } from "../../context";
+import { Header2, Note } from "../../common";
 import { Instruction } from ".";
 
 export const InstructionList = (props) => {
+  const { theme } = useContext(ThemeContext);
+  const { layout } = useContext(LayoutContext);
   let ingredientIndex = 0;
   let instructionList = props.instructions.steps.map((step, i) => {
     let prevIndex = ingredientIndex;
@@ -32,6 +34,22 @@ export const InstructionList = (props) => {
         )}
         {instructionList}
       </Instructions>
+      <Note>
+        <i>{props.attribution.text} </i>
+        {props.attribution.linkText && (
+          <a
+            href={props.attribution.linkRef}
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              color: theme.instruction,
+              transition: styles.transition.body,
+            }}
+          >
+            {props.attribution.linkText}
+          </a>
+        )}
+      </Note>
     </InstructionListDiv>
   );
 };
@@ -59,5 +77,5 @@ const InstructionListDiv = styled.div`
 
 const Instructions = styled.ol`
   // box model
-  margin-top: ${units.rem1};
+  margin: ${units.rem1} 0;
 `;

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { ThemeContext, LayoutContext, functions, units } from "../context";
-import { Hero, ThemeButton, ContentContainer } from "../common";
+import { Hero, ContentContainer } from "../common";
 import { IngredientList, InstructionList } from ".";
 import pbCookies from "../../assets/photos/pb-cookies.png";
 
@@ -54,6 +54,7 @@ export const Recipe = (props) => {
               units={state.units}
               ingredients={state.ingredients}
               instructions={props.instructions}
+              attribution={props.attribution}
               gradient={gradient}
             />
           )}
@@ -64,12 +65,12 @@ export const Recipe = (props) => {
               units={state.units}
               ingredients={state.ingredients}
               instructions={props.instructions}
+              attribution={props.attribution}
               gradient={gradient}
             />
           </ContentContainer>
         )}
       </RowDiv>
-      <ThemeButton />
     </RecipeDiv>
   );
 };
