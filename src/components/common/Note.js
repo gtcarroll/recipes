@@ -7,6 +7,7 @@ export const Note = (props) => {
   return (
     <NoteDiv
       style={{
+        color: theme.foreground,
         fontSize: props.fontSize,
       }}
     >
