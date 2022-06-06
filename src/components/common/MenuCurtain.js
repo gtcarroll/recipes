@@ -111,10 +111,6 @@ export const MenuCurtain = (props) => {
     <MenuUnderlay
       tabIndex={-1}
       onBlur={(e) => {
-        console.log("target", e.target);
-        console.log("current", e.currentTarget);
-        console.log("related", e.relatedTarget);
-        console.log();
         if (!e.currentTarget.contains(e.relatedTarget)) {
           setActive(false);
         }
