@@ -38,7 +38,6 @@ export const InstructionList = (props) => {
         {props.attribution.linkText && (
           <a
             href={props.attribution.linkRef}
-            target="_blank"
             rel="noreferrer"
             style={{
               color: theme.instruction,
