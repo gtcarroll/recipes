@@ -107,6 +107,11 @@ export const MenuCurtain = (props) => {
 
   return (
     <MenuUnderlay
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+          setActive(false);
+        }
+      }}
       style={{
         backgroundColor: theme.background,
         boxShadow: isActive ? styles.boxShadow.card : null,

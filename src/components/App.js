@@ -52,6 +52,7 @@ export const App = () => {
     };
     checkResize();
     window.addEventListener("resize", checkResize);
+    window.addEventListener("orientationchange", checkResize);
     return () => window.removeEventListener("resize", checkResize);
   }, []);
 

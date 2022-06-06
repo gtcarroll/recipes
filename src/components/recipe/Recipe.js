@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ThemeContext, LayoutContext, functions, units } from "../context";
 import { Hero, ContentContainer } from "../common";
 import { IngredientList, InstructionList } from ".";
-import pbCookies from "../../assets/photos/pb-cookies.png";
+import pbCookies from "../../assets/photos/pb-cookies.jpg";
 
 export const Recipe = (props) => {
   const [state, setState] = useState({
@@ -37,7 +37,8 @@ export const Recipe = (props) => {
           {layout.name !== "mobile" && (
             <Hero
               tags={props.tags}
-              backgroundImage={pbCookies}
+              // backgroundImage={pbCookies}
+              backgroundImage={props.imgUrl}
               text={props.name}
             />
           )}

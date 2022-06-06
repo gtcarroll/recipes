@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { ThemeContext, LayoutContext, units, styles } from "../../context";
+import { ThemeContext, units, styles } from "../../context";
 import { Header2, Note } from "../../common";
 import { Instruction } from ".";
 
 export const InstructionList = (props) => {
   const { theme } = useContext(ThemeContext);
-  const { layout } = useContext(LayoutContext);
   let ingredientIndex = 0;
   let instructionList = props.instructions.steps.map((step, i) => {
     let prevIndex = ingredientIndex;

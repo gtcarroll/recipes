@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { LayoutContext, units } from "../context";
 import { Hero, ContentContainer } from "../common";
-import pbCookies from "../../assets/photos/pb-cookies.png";
+import pbCookies from "../../assets/photos/pb-cookies.jpg";
 
 export const Home = (props) => {
   const [records, setRecords] = useState([]);

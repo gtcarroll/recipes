@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { ThemeContext, LayoutContext, units, styles } from "../context";
 import { Header1 } from "./Header1";
 import { IconTray } from "./IconTray";
-import { Note } from "./Note";
 
 export const Hero = (props) => {
   const { layout } = useContext(LayoutContext);

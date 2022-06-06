@@ -54,7 +54,7 @@ IconButton.defaultProps = {
   color: "rgb(125, 125, 0)",
 };
 
-const IconButtonDiv = styled.div`
+const IconButtonDiv = styled.button`
   // animation
   cursor: pointer;
 
@@ -67,7 +67,7 @@ const IconButtonDiv = styled.div`
   width: 100%;
 `;
 
-const DisplayDiv = styled.button`
+const DisplayDiv = styled.div`
   // animation
   transition: ${styles.transition.button};
 
