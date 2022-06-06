@@ -16,16 +16,6 @@ export const NumberButton = (props) => {
   let transparentColor = functions.addAlpha(props.color, 0.3);
   return (
     <MultiplierButtonDiv
-      style={{
-        fontSize: layout.fontSize.body,
-        color: props.isActive ? theme.background : props.color,
-        backgroundColor: props.isActive
-          ? props.color
-          : isHovered
-          ? transparentColor
-          : "transparent",
-        opacity: props.isActive || isHovered ? 1 : 1, //styles.transparency.underline,
-      }}
       onClick={() => {
         props.onClick();
       }}
@@ -34,7 +24,20 @@ export const NumberButton = (props) => {
       onFocus={() => setIsHovered(true)}
       onBlur={() => setIsHovered(false)}
     >
-      <MixedNumber number={props.value} />
+      <DisplayDiv
+        style={{
+          fontSize: layout.fontSize.body,
+          color: props.isActive ? theme.background : props.color,
+          backgroundColor: props.isActive
+            ? props.color
+            : isHovered
+            ? transparentColor
+            : "transparent",
+          opacity: props.isActive || isHovered ? 1 : 1, //styles.transparency.underline,
+        }}
+      >
+        <MixedNumber number={props.value} />
+      </DisplayDiv>
     </MultiplierButtonDiv>
   );
 };
@@ -47,14 +50,25 @@ NumberButton.defaultProps = {
 };
 
 const MultiplierButtonDiv = styled.button`
+  // box model
+  border-radius: ${styles.borderRadius.button};
+  width: 100%;
+`;
+
+const DisplayDiv = styled.div`
   // animation
   transition: ${styles.transition.button};
+
+  // flexbox
+  display: flex;
+  align-content: center;
+  justify-content: center;
 
   // box model
   border-radius: ${styles.borderRadius.button};
   width: ${units.rem4};
   height: ${units.rem4};
-  margin: ${units.rem0} 0;
+  margin: ${units.rem0};
 
   // typography
   font-family: ${styles.fontFamily.monospace};

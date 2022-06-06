@@ -12,6 +12,7 @@ export const MixedNumber = (props) => {
         transition: props.isIngredient
           ? styles.transition.body
           : styles.transition.button,
+        margin: props.isIngredient ? null : "auto",
       }}
     >
       {fraction.whole && fraction.whole}
@@ -57,6 +58,10 @@ const MixedNumberDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+
+  // box model
+  height: min-content;
+  width: min-content;
 `;
 
 const Fraction = styled.div`

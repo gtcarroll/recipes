@@ -58,7 +58,7 @@ const NumberInputDiv = styled.input`
   border-radius: ${styles.borderRadius.button};
   width: ${units.rem4};
   height: ${units.rem4};
-  margin: ${units.rem0} 0;
+  margin: ${units.rem0};
 
   // typography
   font-family: ${styles.fontFamily.monospace};
