@@ -68,6 +68,7 @@ export const MenuCurtain = (props) => {
     let isActiveRecipe = i === recipesIndex;
     return (
       <IconButton
+        tabIndex={isActive ? 2 : -1}
         key={i}
         color={recipesGradient[i]}
         label={item.label}
@@ -87,6 +88,7 @@ export const MenuCurtain = (props) => {
     let isActiveTheme = i === themesIndex;
     return (
       <IconButton
+        tabIndex={isActive ? 2 : -1}
         key={i}
         title={item.label}
         color={themesGradient[i]}
@@ -107,7 +109,12 @@ export const MenuCurtain = (props) => {
 
   return (
     <MenuUnderlay
+      tabIndex={-1}
       onBlur={(e) => {
+        console.log("target", e.target);
+        console.log("current", e.currentTarget);
+        console.log("related", e.relatedTarget);
+        console.log();
         if (!e.currentTarget.contains(e.relatedTarget)) {
           setActive(false);
         }
@@ -152,6 +159,7 @@ export const MenuCurtain = (props) => {
           <RowDiv>{themeButtons}</RowDiv>
         </ColumnDiv>
         <RibbonButton
+          tabIndex={1}
           menuHeight={menuHeight}
           isActive={isActive}
           onClick={() => {

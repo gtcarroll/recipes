@@ -59,7 +59,7 @@ export const IngredientList = (props) => {
         </RowDiv>
       </IngredientsCard>
       <Note>
-        yields <b>{props.yields.amount}</b> {props.yields.measure}
+        shmyields <b>{props.yields.amount}</b> {props.yields.measure}
       </Note>
     </IngredientsListDiv>
   );

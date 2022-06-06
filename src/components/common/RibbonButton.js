@@ -43,6 +43,7 @@ export const RibbonButton = (props) => {
 
   return (
     <RibbonButtonDiv
+      tabIndex={props.tabIndex}
       style={{
         backgroundColor: theme.background,
         top: props.isActive || isHovered || isVisible ? "0" : "-" + units.rem6,

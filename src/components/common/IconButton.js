@@ -15,6 +15,7 @@ export const IconButton = (props) => {
   let transparentColor = functions.addAlpha(props.color, 0.3);
   return (
     <IconButtonDiv
+      tabIndex={props.tabIndex}
       onClick={() => {
         if (!props.isActive) props.onClick();
       }}
