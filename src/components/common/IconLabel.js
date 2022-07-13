@@ -19,6 +19,7 @@ export const IconLabel = (props) => {
       onMouseLeave={() => setIsHovered(false)}
       style={{
         justifyContent: props.isCentered ? "center" : null,
+        cursor: "inherit",
       }}
       title={props.title}
     >

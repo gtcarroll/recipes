@@ -50,7 +50,12 @@ export const IconTray = (props) => {
   });
   return (
     <IconTrayUnderlay style={{ backgroundColor: theme.background }}>
-      <IconTrayDiv style={{ backgroundColor: theme.overlay }}>
+      <IconTrayDiv
+        style={{
+          backgroundColor: theme.overlay,
+          cursor: props.isHome ? "pointer" : null,
+        }}
+      >
         {labels}
       </IconTrayDiv>
     </IconTrayUnderlay>

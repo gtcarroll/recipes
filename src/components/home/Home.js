@@ -1,17 +1,43 @@
 import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
-import { LayoutContext, units } from "../context";
-import { Hero, ContentContainer } from "../common";
-import pbCookies from "../../assets/photos/pb-cookies.jpg";
+import { useSearchParams } from "react-router-dom";
+import {
+  LayoutContext,
+  ThemeContext,
+  functions,
+  styles,
+  units,
+} from "../context";
+import { Hero, ContentContainer, IconButton } from "../common";
+import pbCookies from "../../assets/photos/peanut-butter-cookies.jpg";
+import { SearchControls } from "./SearchControls";
+import { ReactComponent as Vegetarian } from "../../assets/icons/vegetarian.svg";
+import { ReactComponent as Vegan } from "../../assets/icons/vegan-plus.svg";
+import { ReactComponent as GlutenFree } from "../../assets/icons/gluten-free.svg";
+import { ReactComponent as Search } from "../../assets/icons/search.svg";
 
 export const Home = (props) => {
-  const [records, setRecords] = useState([]);
+  console.log("rendering Home");
+  const [recipes, setRecipes] = useState([]);
+  const [search, setSearch] = useSearchParams();
   const { layout } = useContext(LayoutContext);
+  let prevSearch = search.get("name");
 
   // This method fetches the records from the database.
   useEffect(() => {
     async function getRecords() {
-      const response = await fetch(`http://localhost:3001/recipe/`);
+      const searchParams = ["name", "vegetarian", "vegan", "glutenFree"];
+      let searchURL = `http://localhost:3001/search/`;
+      let firstParam = true;
+      searchParams.forEach((param) => {
+        if (search.get(param) != null) {
+          searchURL += firstParam ? "?" : "&";
+          searchURL += param + "=" + search.get(param);
+          firstParam = false;
+        }
+      });
+      const response = await fetch(searchURL);
+      console.log(searchURL);
 
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
@@ -19,27 +45,49 @@ export const Home = (props) => {
         return;
       }
 
-      const records = await response.json();
-      setRecords(records);
+      const recipes = await response.json();
+      setRecipes(recipes);
     }
 
     getRecords();
 
     return;
-  }, [records.length]);
+  }, [search]);
 
   // This method will map out the records on the table
   function recordList() {
-    return records.map((record) => {
+    return recipes.map((recipe) => {
       return (
         <Hero
-          key={record._id}
+          key={recipe._id}
           backgroundImage={pbCookies}
-          text={record.name}
+          text={recipe.name}
+          url={recipe.url}
           isScreenWidth={layout.name === "mobile"}
+          isHome
         />
       );
     });
+  }
+
+  function updateOnEnter(e) {
+    if (e.key === "Enter") {
+      updateSearch();
+    }
+  }
+  function updateSearch() {
+    const nextSearch = search.get("name");
+    // const prevSearch = search.get("name");
+    console.log(prevSearch + " -> " + nextSearch);
+    if (
+      nextSearch !== prevSearch &&
+      !(nextSearch === "" && prevSearch === null)
+    ) {
+      if (nextSearch) search.set("name", nextSearch);
+      else search.delete("name");
+      setSearch(search);
+    }
+    prevSearch = nextSearch;
   }
 
   return (
@@ -50,11 +98,12 @@ export const Home = (props) => {
         flexDirection={layout.name === "desktop" ? "row" : "column"}
         justifyContent={layout.name === "desktop" ? "center" : "flex-start"}
       >
-        {recordList()}
-        {recordList()}
-        {recordList()}
-        {recordList()}
-        {recordList()}
+        <SearchControls
+          search={search}
+          updateSearch={updateSearch}
+          updateOnEnter={updateOnEnter}
+          setSearch={setSearch}
+        />
         {recordList()}
       </ContentContainer>
     </ColDiv>

@@ -1,5 +1,6 @@
 import { Recipe } from "./Recipe.js";
+import { RecipeRouter } from "./RecipeRouter.js";
 import { InstructionList } from "./instructions";
 import { IngredientList } from "./ingredients";
 
-export { Recipe, IngredientList, InstructionList };
+export { Recipe, RecipeRouter, IngredientList, InstructionList };

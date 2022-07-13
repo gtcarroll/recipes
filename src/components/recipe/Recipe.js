@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import styled from "styled-components";
 import { ThemeContext, LayoutContext, functions, units } from "../context";
 import { Hero, ContentContainer } from "../common";
 import { IngredientList, InstructionList } from ".";
-import pbCookies from "../../assets/photos/pb-cookies.jpg";
 
 export const Recipe = (props) => {
   const [state, setState] = useState({
@@ -27,20 +26,15 @@ export const Recipe = (props) => {
       {layout.name === "mobile" && (
         <Hero
           tags={props.tags}
-          backgroundImage={pbCookies}
           text={props.name}
+          url={props.url}
           isScreenWidth
         />
       )}
       <RowDiv>
         <ContentContainer width={layout.width.ingredients}>
           {layout.name !== "mobile" && (
-            <Hero
-              tags={props.tags}
-              // backgroundImage={pbCookies}
-              backgroundImage={props.imgUrl}
-              text={props.name}
-            />
+            <Hero tags={props.tags} text={props.name} url={props.url} />
           )}
           <IngredientList
             units={state.units}

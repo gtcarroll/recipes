@@ -17,7 +17,7 @@ export const IconButton = (props) => {
     <IconButtonDiv
       tabIndex={props.tabIndex}
       onClick={() => {
-        if (!props.isActive) props.onClick();
+        if (!props.isActive || props.isToggle) props.onClick();
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -47,6 +47,7 @@ export const IconButton = (props) => {
 };
 
 IconButton.defaultProps = {
+  isToggle: false,
   isActive: false,
   isCentered: false,
   icon: null,

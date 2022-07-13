@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { ThemeContext, LayoutContext, units, styles } from "../context";
 import { Header1 } from "./Header1";
@@ -7,18 +8,23 @@ import { IconTray } from "./IconTray";
 export const Hero = (props) => {
   const { layout } = useContext(LayoutContext);
   const { theme } = useContext(ThemeContext);
+  const image = require(`../../assets/photos/${props.url}.jpg`);
   return (
-    <HeroDiv
+    <Link
+      to={props.isHome ? "recipes/" + props.url : ""}
       style={{
+        textDecoration: "none",
         width: props.isScreenWidth
           ? "100%"
           : "calc(100% + 2 * " + units.rem2 + ")",
         maxWidth: units.pxImg,
+        cursor: props.isHome ? null : "default",
       }}
+      draggable="false"
     >
       <HeroImg
         style={{
-          backgroundImage: `url(${props.backgroundImage})`,
+          backgroundImage: `url(${image})`,
           borderRadius: props.isScreenWidth ? 0 : styles.borderRadius.card,
           boxShadow: props.isScreenWidth ? null : styles.boxShadow.card,
           height: layout.height.hero,
@@ -33,8 +39,8 @@ export const Hero = (props) => {
           <Header1 text={props.text} color={theme.photoForeground} />
         </OverlayBar>
       </HeroImg>
-      <IconTray {...props.tags} />
-    </HeroDiv>
+      <IconTray {...props.tags} isHome={props.isHome} />
+    </Link>
   );
 };
 
@@ -48,14 +54,6 @@ Hero.defaultProps = {
     glutenFree: true,
   },
 };
-
-const HeroDiv = styled.div`
-  // flexbox
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
 
 const HeroImg = styled.div`
   // animation

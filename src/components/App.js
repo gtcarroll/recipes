@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
 import {
   ThemeContext,
   themes,
@@ -8,9 +9,8 @@ import {
   styles,
 } from "./context";
 import { MenuCurtain } from "./common";
-import { Recipe } from "./recipe/";
-// import { Home } from "./home/Home.js";
-let peanutButterCookies = require("../assets/recipes/peanut-butter-cookies.json");
+import { RecipeRouter } from "./recipe/";
+import { Home } from "./home/Home.js";
 
 export const App = () => {
   const getLayout = (width) => {
@@ -77,8 +77,14 @@ export const App = () => {
           }}
         >
           <MenuCurtain dropToggle={false} />
-          {/* <Home /> */}
-          <Recipe {...peanutButterCookies} />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/">
+                <Route index element={<Home />} />
+                <Route path="recipes/:url" element={<RecipeRouter />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
         </AppDiv>
       </LayoutContext.Provider>
     </ThemeContext.Provider>

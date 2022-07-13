@@ -145,6 +145,7 @@ export const MenuCurtain = (props) => {
             Recipes
           </MenuHeader>
           {recipeButtons}
+          <a href="/?vegetarian=true">vegetarian</a>
           <MenuHeader
             style={{
               borderColor: transparent0,

@@ -24,7 +24,7 @@ body {
 }
 
 /* remove default button styles */
-button {
+button, input {
   border: none;
   box-shadow: none;
   text-shadow: none;
