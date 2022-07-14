@@ -81,7 +81,7 @@ export const App = () => {
             <Routes>
               <Route path="/">
                 <Route index element={<Home />} />
-                <Route path="recipes/:url" element={<RecipeRouter />} />
+                <Route path=":url" element={<RecipeRouter />} />
               </Route>
             </Routes>
           </BrowserRouter>

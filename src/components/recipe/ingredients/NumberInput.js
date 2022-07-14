@@ -14,30 +14,32 @@ export const NumberInput = (props) => {
   const { layout } = useContext(LayoutContext);
   let transparentColor = functions.addAlpha(props.color, 0.3);
   return (
-    <NumberInputDiv
-      value={props.value}
-      placeholder="_"
-      type="number"
-      style={{
-        fontSize: layout.fontSize.body,
-        color: props.isActive ? theme.background : props.color,
-        backgroundColor: props.isActive
-          ? props.color
-          : isHovered
-          ? transparentColor
-          : "transparent",
-      }}
-      onChange={(event) => {
-        props.onChange(event.target.value);
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onFocus={(event) => {
-        event.target.select();
-        setIsHovered(true);
-      }}
-      onBlur={() => setIsHovered(false)}
-    />
+    <DisplayDiv>
+      <NumberInputDiv
+        value={props.value}
+        placeholder="_"
+        type="number"
+        style={{
+          fontSize: layout.fontSize.body,
+          color: props.isActive ? theme.background : props.color,
+          backgroundColor: props.isActive
+            ? props.color
+            : isHovered
+            ? transparentColor
+            : "transparent",
+        }}
+        onChange={(event) => {
+          props.onChange(event.target.value);
+        }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onFocus={(event) => {
+          event.target.select();
+          setIsHovered(true);
+        }}
+        onBlur={() => setIsHovered(false)}
+      />
+    </DisplayDiv>
   );
 };
 
@@ -48,6 +50,25 @@ NumberInput.defaultProps = {
   value: "0",
   label: "0",
 };
+
+const DisplayDiv = styled.label`
+  // animation
+  transition: ${styles.transition.button};
+  cursor: pointer;
+
+  // flexbox
+  display: flex;
+  flex-direction: row;
+
+  // box model
+  border-radius: ${styles.borderRadius.button};
+
+  :focus-within {
+    /* background-color: red;  */
+    outline: 5px auto Highlight;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+`;
 
 const NumberInputDiv = styled.input`
   // animation
@@ -79,5 +100,9 @@ const NumberInputDiv = styled.input`
     -webkit-appearance: none;
     appearance: none;
     margin: 0;
+  }
+
+  :focus {
+    outline: none;
   }
 `;

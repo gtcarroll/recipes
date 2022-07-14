@@ -11,13 +11,8 @@ import {
 import { Hero, ContentContainer, IconButton } from "../common";
 import pbCookies from "../../assets/photos/peanut-butter-cookies.jpg";
 import { SearchControls } from "./SearchControls";
-import { ReactComponent as Vegetarian } from "../../assets/icons/vegetarian.svg";
-import { ReactComponent as Vegan } from "../../assets/icons/vegan-plus.svg";
-import { ReactComponent as GlutenFree } from "../../assets/icons/gluten-free.svg";
-import { ReactComponent as Search } from "../../assets/icons/search.svg";
 
 export const Home = (props) => {
-  console.log("rendering Home");
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useSearchParams();
   const { layout } = useContext(LayoutContext);
@@ -37,7 +32,6 @@ export const Home = (props) => {
         }
       });
       const response = await fetch(searchURL);
-      console.log(searchURL);
 
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
@@ -77,8 +71,6 @@ export const Home = (props) => {
   }
   function updateSearch() {
     const nextSearch = search.get("name");
-    // const prevSearch = search.get("name");
-    console.log(prevSearch + " -> " + nextSearch);
     if (
       nextSearch !== prevSearch &&
       !(nextSearch === "" && prevSearch === null)

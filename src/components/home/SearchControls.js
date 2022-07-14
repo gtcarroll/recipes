@@ -14,7 +14,6 @@ import { ReactComponent as GlutenFree } from "../../assets/icons/gluten-free.svg
 import { ReactComponent as Search } from "../../assets/icons/search.svg";
 
 export const SearchControls = (props) => {
-  console.log("rendering SearchControls");
   let name = props.search.get("name");
   const [state, setState] = useState({
     isHovered: false,
@@ -68,7 +67,10 @@ export const SearchControls = (props) => {
       <SearchInputDiv
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        onFocus={() => setIsHovered(true)}
+        onFocus={(event) => {
+          event.target.select();
+          setIsHovered(true);
+        }}
         onBlur={() => setIsHovered(false)}
       >
         <SearchInputDisplayDiv
@@ -95,7 +97,6 @@ export const SearchControls = (props) => {
             onKeyDown={props.updateOnEnter}
             onBlur={props.updateSearch}
             onChange={(event) => {
-              console.log(event.target.value);
               props.search.set("name", event.target.value);
               setState({
                 isHovered: state.isHovered,
@@ -131,6 +132,12 @@ const SearchInputDiv = styled.label`
 
   // box model
   border-radius: ${styles.borderRadius.button};
+
+  :focus-within {
+    /* background-color: red;  */
+    outline: 5px auto Highlight;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
 `;
 
 const SearchInputDisplayDiv = styled.div`
@@ -156,6 +163,10 @@ const SearchInput = styled.input`
 
   // typography
   font-family: ${styles.fontFamily.sansSerif};
+
+  :focus {
+    outline: none;
+  }
 `;
 const Icon = styled.div`
   // animation
