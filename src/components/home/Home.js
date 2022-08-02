@@ -1,41 +1,49 @@
 import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { useSearchParams } from "react-router-dom";
-import { LayoutContext, units } from "../context";
+import { LayoutContext, units, functions } from "../context";
 import { Hero, ContentContainer } from "../common";
-import pbCookies from "../../assets/photos/peanut-butter-cookies.jpg";
 import { SearchControls } from "./SearchControls";
 import { MenuCurtain } from "../common";
+// import * as fs from "fs/promises";
+// const fs = require('fs');
 
 export const Home = (props) => {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useSearchParams();
   const { layout } = useContext(LayoutContext);
   let prevSearch = search.get("name");
+  // const fs = require("fs").promises;
 
   // This method fetches the records from the database.
   useEffect(() => {
     document.title = "Recipes";
     async function getRecords() {
       const searchParams = ["name", "vegetarian", "vegan", "glutenFree"];
-      let searchURL = `http://localhost:3001/search/`;
-      let firstParam = true;
+      // let searchURL = `http://localhost:3001/search/`;
+      // let firstParam = true;
+      let filters = {};
       searchParams.forEach((param) => {
         if (search.get(param) != null) {
-          searchURL += firstParam ? "?" : "&";
-          searchURL += param + "=" + search.get(param);
-          firstParam = false;
+          // build express router url
+          // searchURL += firstParam ? "?" : "&";
+          // searchURL += param + "=" + search.get(param);
+          // firstParam = false;
+
+          // build github pages filter object
+          filters[param] = search.get(param);
         }
       });
-      const response = await fetch(searchURL);
 
-      if (!response.ok) {
-        const message = `An error occurred: ${response.statusText}`;
-        window.alert(message);
-        return;
-      }
+      // const response = await fetch(searchURL);
+      // if (!response.ok) {
+      //   const message = `An error occurred: ${response.statusText}`;
+      //   window.alert(message);
+      //   return;
+      // }
 
-      const recipes = await response.json();
+      // const recipes = await response.json();
+      const recipes = functions.getRecipesJSON(filters);
       setRecipes(recipes);
     }
 
@@ -50,7 +58,7 @@ export const Home = (props) => {
       return (
         <Hero
           key={recipe._id}
-          backgroundImage={pbCookies}
+          backgroundImage={require(`../../assets/photos/${recipe.url}.jpg`)}
           tags={recipe.tags}
           text={recipe.name}
           url={recipe.url}

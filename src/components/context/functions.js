@@ -176,4 +176,24 @@ export const functions = {
       return Math.abs(a);
     }
   },
+
+  // iterate over JSON files and return only those that match given filters
+  getRecipesJSON(filters) {
+    function importAll(f) {
+      return f.keys().map(f);
+    }
+    const files = importAll(
+      require.context(`../../assets/recipes`, false, /.*json/)
+    );
+    if (filters.name) filters.name = filters.name.toLowerCase();
+    return files.filter((file) => {
+      let result = true;
+      if (filters.name)
+        result &= file.name.toLowerCase().includes(filters.name);
+      if (filters.vegetarian) result &= file.tags.vegetarian;
+      if (filters.vegan) result &= file.tags.vegan;
+      if (filters.glutenFree) result &= file.tags.glutenFree;
+      return result;
+    });
+  },
 };

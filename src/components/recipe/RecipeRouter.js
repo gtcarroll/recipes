@@ -9,15 +9,16 @@ export const RecipeRouter = (props) => {
   // This method fetches the records from the database.
   useEffect(() => {
     async function getRecipe() {
-      const response = await fetch(`http://localhost:3001/recipes/` + url);
+      // const response = await fetch(`http://localhost:3001/recipes/` + url);
 
-      if (!response.ok) {
-        const message = `An error occurred: ${response.statusText}`;
-        window.alert(message);
-        return;
-      }
+      // if (!response.ok) {
+      //   const message = `An error occurred: ${response.statusText}`;
+      //   window.alert(message);
+      //   return;
+      // }
 
-      const records = await response.json();
+      //const records = await response.json();
+      const records = require(`../../assets/recipes/${url}.json`);
       setRecipe(records);
     }
 
