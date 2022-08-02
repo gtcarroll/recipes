@@ -15,6 +15,7 @@ export const Home = (props) => {
 
   // This method fetches the records from the database.
   useEffect(() => {
+    document.title = "Recipes";
     async function getRecords() {
       const searchParams = ["name", "vegetarian", "vegan", "glutenFree"];
       let searchURL = `http://localhost:3001/search/`;

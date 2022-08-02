@@ -6,6 +6,7 @@ import { IngredientList, InstructionList } from ".";
 import { MenuCurtain } from "../common";
 
 export const Recipe = (props) => {
+  document.title = props.name;
   const [state, setState] = useState({
     ingredients: props.ingredients,
     yields: props.yields,
