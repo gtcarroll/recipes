@@ -1,0 +1,128 @@
+{
+    "name": "Brown Sugar Boba",
+    "url": "brown-sugar-boba",
+    "ingredients": [
+        {
+            "ingredient": "brown sugar",
+            "imperial": {
+                "amount": "1",
+                "measure": "cup"
+            },
+            "metric": {
+                "amount": "200",
+                "measure": "g"
+            }
+        },
+        {
+            "ingredient": "water",
+            "imperial": {
+                "amount": "1/2",
+                "measure": "cup"
+            },
+            "metric": {
+                "amount": "100",
+                "measure": "ml"
+            }
+        },
+        {
+            "ingredient": "tapioca flour",
+            "imperial": {
+                "amount": "1",
+                "measure": "cup"
+            },
+            "metric": {
+                "amount": "200",
+                "measure": "g"
+            }
+        },
+        {
+            "ingredient": "brown sugar syrup",
+            "url": "brown-sugar-syrup",
+            "imperial": {
+                "amount": "1",
+                "measure": "cup"
+            },
+            "metric": {
+                "amount": "200",
+                "measure": "g"
+            }
+        }
+    ],
+    "instructions": {
+        "steps": [
+            {
+                "task": "Mix the tapioca dough",
+                "subtasks": [
+                    {
+                        "pretext": "In a small pot, over medium heat, mix together",
+                        "ingredients": ["brown sugar", "water"],
+                        "text": "until sugar is dissolved."
+                    },
+                    {
+                        "pretext": "Remove from heat and add in",
+                        "ingredients": ["tapioca flour"],
+                        "text": "starting with a small spoonful and mixing until it forms a sticky goo before adding the rest."
+                    }
+                ]
+            },
+            {
+                "task": "Form the boba",
+                "subtasks": [
+                    {
+                        "text": "Place the dough on a tapioca-floured surface and knead until smooth, adding water if necessary. The dough should be sticky."
+                    },
+                    {
+                        "text": "Before the dough cools and dries, roll it out into thin snakes."
+                    },
+                    {
+                        "text": "Let the dough cool a bit, then chop it into pea-sized chunks. These are your boba! You can cook them now or store them in an air-tight container for later."
+                    }
+                ]
+            },
+            {
+                "task": "Cook the boba",
+                "subtasks": [
+                    {
+                        "text": "In a small pot, bring water to a boil. Add in your dried boba."
+                    },
+                    {
+                        "text": "Cover and continue to boil for about 15 min. The boba should float to the top."
+                    },
+                    {
+                        "text": "Drain the boba."
+                    }
+                ]
+            },
+            {
+                "task": "Flavor the boba",
+                "subtasks": [
+                    {
+                        "pretext": "In a small pot, over medium heat, warm",
+                        "ingredients": ["brown sugar syrup"],
+                        "text": "before adding in your cooked boba."
+                    },
+                    {
+                        "text": "Continue to heat the boba for about 5 minutes, stirring occasionally."
+                    },
+                    {
+                        "text": "Remove from heat. Add the brown sugar syrup and boba mixture to your tea of choice and enjoy!"
+                    }
+                ]
+            }
+        ]
+    },
+    "yields": {
+        "amount": "1",
+        "measure": "serving"
+    },
+    "attribution": {
+        "text": "adapted from",
+        "linkText": "Alpha Foodie",
+        "linkRef": "https://www.alphafoodie.com/homemade-boba-tapioca-pearls-bubble-milk-tea/"
+    },
+    "tags": {
+        "vegetarian": true,
+        "vegan": true,
+        "glutenFree": true
+    }
+}

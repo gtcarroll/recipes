@@ -89,6 +89,7 @@ export const SearchControls = (props) => {
             style={{
               color: theme.foreground,
               fontSize: layout.fontSize.body,
+              // width: layout.width.ingredients,
             }}
             type="text"
             name="search"

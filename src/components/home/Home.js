@@ -1,16 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { useSearchParams } from "react-router-dom";
-import {
-  LayoutContext,
-  ThemeContext,
-  functions,
-  styles,
-  units,
-} from "../context";
-import { Hero, ContentContainer, IconButton } from "../common";
+import { LayoutContext } from "../context";
+import { Hero, ContentContainer } from "../common";
 import pbCookies from "../../assets/photos/peanut-butter-cookies.jpg";
 import { SearchControls } from "./SearchControls";
+import { MenuCurtain } from "../common";
 
 export const Home = (props) => {
   const [recipes, setRecipes] = useState([]);
@@ -55,6 +50,7 @@ export const Home = (props) => {
         <Hero
           key={recipe._id}
           backgroundImage={pbCookies}
+          tags={recipe.tags}
           text={recipe.name}
           url={recipe.url}
           isScreenWidth={layout.name === "mobile"}
@@ -84,6 +80,7 @@ export const Home = (props) => {
 
   return (
     <ColDiv>
+      <MenuCurtain dropToggle={false} />
       <ContentContainer
         width={layout.name === "desktop" ? "100%" : layout.width.ingredients}
         flexWrap={layout.name === "desktop" ? "wrap" : "nowrap"}

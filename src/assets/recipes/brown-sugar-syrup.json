@@ -1,0 +1,67 @@
+{
+    "name": "Brown Sugar Syrup",
+    "url": "brown-sugar-syrup",
+    "ingredients": [
+        {
+            "ingredient": "brown sugar",
+            "imperial": {
+                "amount": "1",
+                "measure": "cup"
+            },
+            "metric": {
+                "amount": "200",
+                "measure": "g"
+            }
+        },
+        {
+            "ingredient": "water",
+            "imperial": {
+                "amount": "1/2",
+                "measure": "cup"
+            },
+            "metric": {
+                "amount": "100",
+                "measure": "ml"
+            }
+        }
+    ],
+    "instructions": {
+        "steps": [
+            {
+                "task": "Combine ingredients",
+                "subtasks": [
+                    {
+                        "pretext": "In a small pot, over medium heat, mix together",
+                        "ingredients": ["brown sugar", "water"],
+                        "text": "until sugar is dissolved."
+                    },
+                    {
+                        "text": "Remove from heat. Or, for a thicker syrup, heat until you reach your desired consistency."
+                    }
+                ]
+            },
+            {
+                "task": "Use or store for later",
+                "subtasks": [
+                    {
+                        "text": "Use syrup immediately or let cool and store in the fridge for later."
+                    }
+                ]
+            }
+        ]
+    },
+    "yields": {
+        "amount": "1",
+        "measure": "serving"
+    },
+    "attribution": {
+        "text": "adapted from",
+        "linkText": "Honest Food Talks",
+        "linkRef": "https://www.honestfoodtalks.com/how-to-make-tapioca-pearls/#how-to-make-tapioca-pearls-boba-bubble-tea"
+    },
+    "tags": {
+        "vegetarian": true,
+        "vegan": true,
+        "glutenFree": true
+    }
+}

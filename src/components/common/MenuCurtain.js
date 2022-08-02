@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import {
   ThemeContext,
@@ -8,10 +9,11 @@ import {
   units,
   styles,
 } from "../context";
+import { LinkButton } from "./LinkButton";
 import { IconButton } from "./IconButton";
 import { RibbonButton } from "./RibbonButton";
-import { ReactComponent as Sweet } from "../../assets/icons/gluten-free.svg";
-import { ReactComponent as Savory } from "../../assets/icons/vegetarian.svg";
+import { ReactComponent as GlutenFree } from "../../assets/icons/gluten-free.svg";
+import { ReactComponent as Vegetarian } from "../../assets/icons/vegetarian.svg";
 import { ReactComponent as Vegan } from "../../assets/icons/vegan-plus.svg";
 import { ReactComponent as D20 } from "../../assets/icons/d20.svg";
 import { ReactComponent as Moon } from "../../assets/icons/moon.svg";
@@ -23,12 +25,11 @@ export const MenuCurtain = (props) => {
   const [isActive, setActive] = useState(false);
   const [recipesIndex, setRecipesIndex] = useState(-1);
   const [themesIndex, setThemesIndex] = useState(theme.isDark ? 0 : 1);
-  const menuHeight = "23rem";
+  const menuHeight = "20rem";
   const recipesData = [
-    { label: "vegetarian", icon: Savory },
-    { label: "vegan", icon: Vegan },
-    { label: "gluten-free", icon: Sweet },
-    { label: "random", icon: D20 },
+    { label: "vegetarian", value: "vegetarian", icon: Vegetarian },
+    { label: "vegan", value: "vegan", icon: Vegan },
+    { label: "gluten-free", value: "glutenFree", icon: GlutenFree },
   ];
   const themesData = [
     { label: "dark", icon: Moon },
@@ -67,7 +68,8 @@ export const MenuCurtain = (props) => {
   let recipeButtons = recipesData.map((item, i) => {
     let isActiveRecipe = i === recipesIndex;
     return (
-      <IconButton
+      <LinkButton
+        to={"/?" + item.value + "=true"}
         tabIndex={isActive ? 2 : -1}
         key={i}
         color={recipesGradient[i]}
@@ -145,7 +147,7 @@ export const MenuCurtain = (props) => {
             Recipes
           </MenuHeader>
           {recipeButtons}
-          <a href="/?vegetarian=true">vegetarian</a>
+          <Link to="/?vegetarian=true" />
           <MenuHeader
             style={{
               borderColor: transparent0,

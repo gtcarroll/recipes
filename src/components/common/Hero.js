@@ -11,7 +11,7 @@ export const Hero = (props) => {
   const image = require(`../../assets/photos/${props.url}.jpg`);
   return (
     <Link
-      to={props.isHome ? props.url : ""}
+      to={props.isHome ? props.url : false}
       style={{
         textDecoration: "none",
         width: props.isScreenWidth

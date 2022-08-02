@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { ThemeContext, LayoutContext, functions, units } from "../context";
 import { Hero, ContentContainer } from "../common";
 import { IngredientList, InstructionList } from ".";
+import { MenuCurtain } from "../common";
 
 export const Recipe = (props) => {
   const [state, setState] = useState({
@@ -23,6 +24,7 @@ export const Recipe = (props) => {
   );
   return (
     <RecipeDiv>
+      <MenuCurtain dropToggle={false} />
       {layout.name === "mobile" && (
         <Hero
           tags={props.tags}

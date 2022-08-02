@@ -76,7 +76,6 @@ export const App = () => {
             fontSize: layout.fontSize.body,
           }}
         >
-          <MenuCurtain dropToggle={false} />
           <BrowserRouter>
             <Routes>
               <Route path="/">

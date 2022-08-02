@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import {
   ThemeContext,
@@ -20,7 +21,19 @@ export const Ingredient = (props) => {
         borderColor: transparentColor,
       }}
     >
-      <div>{props.ingredient}</div>
+      {props.url ? (
+        <Link
+          to={"/" + props.url}
+          target="_blank"
+          style={{
+            color: props.color,
+          }}
+        >
+          {props.ingredient}
+        </Link>
+      ) : (
+        <div>{props.ingredient}</div>
+      )}
       <RowDiv
         style={{
           height: layout.fontSize.h2,
