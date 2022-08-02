@@ -86,7 +86,7 @@ const RecipeDiv = styled.div`
   // box model
   margin: 0 auto;
   width: 100%;
-  padding: 0 0 ${units.rem4} 0;
+  min-height: 100vh;
 `;
 
 const RowDiv = styled.div`
@@ -99,6 +99,7 @@ const RowDiv = styled.div`
   margin: 0 auto;
   width: 100%;
   max-width: 100vw;
+  padding: 0 0 ${units.rem4} 0;
 `;
 
 // const ContentContainer = styled.div`
