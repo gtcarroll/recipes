@@ -23,7 +23,7 @@ export const Ingredient = (props) => {
     >
       {props.url ? (
         <Link
-          to={"/" + props.url}
+          to={"/recipes/" + props.url}
           target="_blank"
           style={{
             color: props.color,

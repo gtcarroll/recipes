@@ -78,7 +78,7 @@ export const App = () => {
         >
           <BrowserRouter>
             <Routes>
-              <Route path="/">
+              <Route path="/recipes/">
                 <Route index element={<Home />} />
                 <Route path=":url" element={<RecipeRouter />} />
               </Route>
