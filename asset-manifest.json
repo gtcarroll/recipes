@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/recipes/static/css/main.43fc676c.css",
-    "main.js": "/recipes/static/js/main.3c5e6d66.js",
-    "static/media/brown-sugar-boba.jpg": "/recipes/static/media/brown-sugar-boba.464f2111b5aa16c83d62.jpg",
-    "static/media/brown-sugar-syrup.jpg": "/recipes/static/media/brown-sugar-syrup.464f2111b5aa16c83d62.jpg",
-    "static/media/peanut-butter-cookies.jpg": "/recipes/static/media/peanut-butter-cookies.464f2111b5aa16c83d62.jpg",
-    "static/media/sun.svg": "/recipes/static/media/sun.1abd5f060b396cb576d181f89e623c78.svg",
-    "static/media/d20.svg": "/recipes/static/media/d20.5fd7769d91610a13c96645368e25f10e.svg",
-    "static/media/measuring-cup.svg": "/recipes/static/media/measuring-cup.ff0368c2408d3af055883f2fb327c20b.svg",
-    "static/media/gluten-free.svg": "/recipes/static/media/gluten-free.c85977fea64b0a7a4be18d063ea13a5a.svg",
-    "static/media/vegan-plus.svg": "/recipes/static/media/vegan-plus.8f34a6f194ceab111eec1475776b8225.svg",
-    "static/media/gram-weight.svg": "/recipes/static/media/gram-weight.5257ddd54b916c117737b8306bb0055a.svg",
-    "static/media/vegetarian.svg": "/recipes/static/media/vegetarian.66c482022bec0e4989e7f9a277ba3ca0.svg",
-    "static/media/search.svg": "/recipes/static/media/search.1935913f24b5b26c3250588b1c13bfa4.svg",
-    "static/media/menu.svg": "/recipes/static/media/menu.0dc5e94ff27d3d5110d6a6abb82a8577.svg",
-    "index.html": "/recipes/index.html",
-    "static/media/moon.svg": "/recipes/static/media/moon.38e0fa4af5f95b18c3f84344cb2555db.svg",
-    "main.43fc676c.css.map": "/recipes/static/css/main.43fc676c.css.map",
-    "main.3c5e6d66.js.map": "/recipes/static/js/main.3c5e6d66.js.map"
+    "main.css": "/static/css/main.43fc676c.css",
+    "main.js": "/static/js/main.b291bf93.js",
+    "static/media/brown-sugar-boba.jpg": "/static/media/brown-sugar-boba.464f2111b5aa16c83d62.jpg",
+    "static/media/brown-sugar-syrup.jpg": "/static/media/brown-sugar-syrup.464f2111b5aa16c83d62.jpg",
+    "static/media/peanut-butter-cookies.jpg": "/static/media/peanut-butter-cookies.464f2111b5aa16c83d62.jpg",
+    "static/media/sun.svg": "/static/media/sun.1abd5f060b396cb576d181f89e623c78.svg",
+    "static/media/d20.svg": "/static/media/d20.5fd7769d91610a13c96645368e25f10e.svg",
+    "static/media/measuring-cup.svg": "/static/media/measuring-cup.ff0368c2408d3af055883f2fb327c20b.svg",
+    "static/media/gluten-free.svg": "/static/media/gluten-free.c85977fea64b0a7a4be18d063ea13a5a.svg",
+    "static/media/vegan-plus.svg": "/static/media/vegan-plus.8f34a6f194ceab111eec1475776b8225.svg",
+    "static/media/gram-weight.svg": "/static/media/gram-weight.5257ddd54b916c117737b8306bb0055a.svg",
+    "static/media/vegetarian.svg": "/static/media/vegetarian.66c482022bec0e4989e7f9a277ba3ca0.svg",
+    "static/media/search.svg": "/static/media/search.1935913f24b5b26c3250588b1c13bfa4.svg",
+    "static/media/menu.svg": "/static/media/menu.0dc5e94ff27d3d5110d6a6abb82a8577.svg",
+    "index.html": "/index.html",
+    "static/media/moon.svg": "/static/media/moon.38e0fa4af5f95b18c3f84344cb2555db.svg",
+    "main.43fc676c.css.map": "/static/css/main.43fc676c.css.map",
+    "main.b291bf93.js.map": "/static/js/main.b291bf93.js.map"
   },
   "entrypoints": [
     "static/css/main.43fc676c.css",
-    "static/js/main.3c5e6d66.js"
+    "static/js/main.b291bf93.js"
   ]
 }
