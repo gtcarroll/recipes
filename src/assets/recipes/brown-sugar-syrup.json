@@ -52,7 +52,8 @@
     },
     "yields": {
         "amount": "1",
-        "measure": "serving"
+        "measure": "serving",
+        "plural": "servings"
     },
     "attribution": {
         "text": "adapted from",

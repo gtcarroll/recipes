@@ -29,7 +29,7 @@ export const Ingredient = (props) => {
             color: props.color,
           }}
         >
-          {props.ingredient}
+          {props.ingredient} <UnicodeSpan>→</UnicodeSpan>
         </Link>
       ) : (
         <div>{props.ingredient}</div>
@@ -64,6 +64,11 @@ Ingredient.defaultProps = {
   ingredient: false,
   units: "imperial",
 };
+
+const UnicodeSpan = styled.span`
+  // typography
+  font-family: ${styles.fontFamily.monospace};
+`;
 
 const IngredientDiv = styled.li`
   // animation

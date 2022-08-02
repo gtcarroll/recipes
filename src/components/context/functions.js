@@ -107,8 +107,8 @@ export const functions = {
 
   multiplyYields: (multiplier, yields) => {
     return {
+      ...yields,
       amount: functions.multiplyAmount(multiplier, yields.amount),
-      measure: yields.measure,
     };
   },
 

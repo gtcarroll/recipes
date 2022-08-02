@@ -14,10 +14,14 @@ export const Hero = (props) => {
       to={props.isHome ? props.url : false}
       style={{
         textDecoration: "none",
-        width: props.isScreenWidth
-          ? "100%"
-          : "calc(100% + 2 * " + units.rem2 + ")",
-        maxWidth: units.pxImg,
+        width:
+          props.isScreenWidth && !props.isHome
+            ? "100%"
+            : "calc(100% + 2 * " + units.rem2 + ")",
+        maxWidth:
+          layout.name === "desktop"
+            ? "calc(50vw - " + units.rem6 + ")"
+            : units.pxImg,
         cursor: props.isHome ? null : "default",
       }}
       draggable="false"
@@ -25,7 +29,8 @@ export const Hero = (props) => {
       <HeroImg
         style={{
           backgroundImage: `url(${image})`,
-          borderRadius: props.isScreenWidth ? 0 : styles.borderRadius.card,
+          borderRadius:
+            props.isScreenWidth && !props.isHome ? 0 : styles.borderRadius.card,
           boxShadow: props.isScreenWidth ? null : styles.boxShadow.card,
           height: layout.height.hero,
           maxWidth: units.pxImg,

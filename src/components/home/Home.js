@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { useSearchParams } from "react-router-dom";
-import { LayoutContext } from "../context";
+import { LayoutContext, units } from "../context";
 import { Hero, ContentContainer } from "../common";
 import pbCookies from "../../assets/photos/peanut-butter-cookies.jpg";
 import { SearchControls } from "./SearchControls";
@@ -89,8 +89,6 @@ export const Home = (props) => {
       />
       <ContentContainer
         width={layout.name === "desktop" ? "100%" : layout.width.ingredients}
-        flexWrap={layout.name === "desktop" ? "wrap" : "nowrap"}
-        flexDirection={layout.name === "desktop" ? "row" : "column"}
         justifyContent={layout.name === "desktop" ? "center" : "flex-start"}
       >
         <SearchControls
@@ -99,7 +97,14 @@ export const Home = (props) => {
           updateOnEnter={updateOnEnter}
           setSearch={setSearch}
         />
-        {recordList()}
+        <RecordDiv
+          style={{
+            flexDirection: layout.name === "desktop" ? "row" : "column",
+            flexWrap: layout.name === "desktop" ? "wrap" : "nowrap",
+          }}
+        >
+          {recordList()}
+        </RecordDiv>
       </ContentContainer>
     </ColDiv>
   );
@@ -117,4 +122,19 @@ const ColDiv = styled.div`
   width: 100%;
   max-width: 100vw;
   min-height: 100vh;
+`;
+
+const RecordDiv = styled.div`
+  // flexbox
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  gap: ${units.rem3};
+
+  // box model
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100vw;
+  /* min-height: 100vh; */
 `;
