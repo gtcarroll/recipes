@@ -80,7 +80,13 @@ export const Home = (props) => {
 
   return (
     <ColDiv>
-      <MenuCurtain dropToggle={false} />
+      <MenuCurtain
+        isHome
+        search={search}
+        updateSearch={updateSearch}
+        updateOnEnter={updateOnEnter}
+        setSearch={setSearch}
+      />
       <ContentContainer
         width={layout.name === "desktop" ? "100%" : layout.width.ingredients}
         flexWrap={layout.name === "desktop" ? "wrap" : "nowrap"}
@@ -103,11 +109,12 @@ const ColDiv = styled.div`
   // flexbox
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 
   // box model
   margin: 0 auto;
   width: 100%;
   max-width: 100vw;
+  min-height: 100vh;
 `;

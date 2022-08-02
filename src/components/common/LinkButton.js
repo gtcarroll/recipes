@@ -18,9 +18,9 @@ export const LinkButton = (props) => {
     <Link
       to={props.to}
       tabIndex={props.tabIndex}
-      //   onClick={() => {
-      //     if (!props.isActive || props.isToggle) props.onClick();
-      //   }}
+      onClick={() => {
+        if (!props.isActive || props.isToggle) props.onClick();
+      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onFocus={() => setIsHovered(true)}
@@ -28,16 +28,6 @@ export const LinkButton = (props) => {
       style={{
         justifyContent: props.isCentered ? "center" : null,
         textDecoration: "none",
-        // animation
-        // cursor: "pointer",
-
-        // // flexbox
-        // display: "flex",
-        // flexDirection: "row",
-
-        // // box model
-        // borderRadius: styles.borderRadius.button,
-        // width: "100%",
       }}
       title={props.title}
     >
@@ -69,19 +59,6 @@ LinkButton.defaultProps = {
   title: null,
   color: "rgb(125, 125, 0)",
 };
-
-const LinkButtonDiv = styled.button`
-  // animation
-  cursor: pointer;
-
-  // flexbox
-  display: flex;
-  flex-direction: row;
-
-  // box model
-  border-radius: ${styles.borderRadius.button};
-  width: 100%;
-`;
 
 const DisplayDiv = styled.div`
   // animation

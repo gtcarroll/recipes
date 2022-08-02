@@ -23,7 +23,7 @@ export const MenuCurtain = (props) => {
   const { layout } = useContext(LayoutContext);
   const { theme, setTheme } = useContext(ThemeContext);
   const [isActive, setActive] = useState(false);
-  const [recipesIndex, setRecipesIndex] = useState(-1);
+  // const [recipesIndex, setRecipesIndex] = useState(-1);
   const [themesIndex, setThemesIndex] = useState(theme.isDark ? 0 : 1);
   const menuHeight = "20rem";
   const recipesData = [
@@ -66,8 +66,27 @@ export const MenuCurtain = (props) => {
   };
   let transparent0 = functions.addAlpha(theme.instruction, 0.3);
   let recipeButtons = recipesData.map((item, i) => {
-    let isActiveRecipe = i === recipesIndex;
-    return (
+    let isActiveButton = props.search?.get(item.value);
+    return props.isHome ? (
+      <IconButton
+        tabIndex={isActive ? 2 : -1}
+        key={i}
+        color={recipesGradient[i]}
+        label={item.label}
+        icon={
+          <item.icon
+            fill={isActiveButton ? theme.background : recipesGradient[i]}
+          />
+        }
+        isActive={isActiveButton}
+        isToggle
+        onClick={() => {
+          if (props.search.get(item.value)) props.search.delete(item.value);
+          else props.search.set(item.value, true);
+          props.setSearch(props.search);
+        }}
+      />
+    ) : (
       <LinkButton
         to={"/?" + item.value + "=true"}
         tabIndex={isActive ? 2 : -1}
@@ -76,12 +95,12 @@ export const MenuCurtain = (props) => {
         label={item.label}
         icon={
           <item.icon
-            fill={isActiveRecipe ? theme.background : recipesGradient[i]}
+            fill={recipesGradient[i]} //{isActiveRecipe ? theme.background : recipesGradient[i]}
           />
         }
-        isActive={isActiveRecipe}
+        // isActive={isActiveRecipe}
         onClick={() => {
-          setRecipesIndex(i);
+          setActive(false);
         }}
       />
     );
@@ -169,6 +188,8 @@ export const MenuCurtain = (props) => {
     </MenuUnderlay>
   );
 };
+
+MenuCurtain.defaultProps = { isHome: false };
 
 const MenuUnderlay = styled.div`
   // animation

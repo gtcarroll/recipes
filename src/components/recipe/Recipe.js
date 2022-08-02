@@ -24,7 +24,7 @@ export const Recipe = (props) => {
   );
   return (
     <RecipeDiv>
-      <MenuCurtain dropToggle={false} />
+      <MenuCurtain />
       {layout.name === "mobile" && (
         <Hero
           tags={props.tags}
