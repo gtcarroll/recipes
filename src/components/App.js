@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
+import { BrowserRouter, HashRouter, Routes, Route } from "react-router-dom";
 import {
   ThemeContext,
   themes,
@@ -8,7 +8,6 @@ import {
   layouts,
   styles,
 } from "./context";
-import { MenuCurtain } from "./common";
 import { RecipeRouter } from "./recipe/";
 import { Home } from "./home/Home.js";
 
@@ -76,14 +75,14 @@ export const App = () => {
             fontSize: layout.fontSize.body,
           }}
         >
-          <BrowserRouter>
+          <HashRouter>
             <Routes>
-              <Route path="/recipes/">
+              <Route path="/">
                 <Route index element={<Home />} />
                 <Route path=":url" element={<RecipeRouter />} />
               </Route>
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
         </AppDiv>
       </LayoutContext.Provider>
     </ThemeContext.Provider>
