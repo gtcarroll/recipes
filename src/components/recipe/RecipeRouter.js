@@ -22,7 +22,6 @@ export const RecipeRouter = (props) => {
     }
 
     getRecipe();
-    // document.title = recipe.url;
 
     return;
   }, [url]);
