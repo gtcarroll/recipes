@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/recipes/static/css/main.43fc676c.css",
-    "main.js": "/recipes/static/js/main.180e2cf2.js",
+    "main.js": "/recipes/static/js/main.e257ac0b.js",
     "static/media/brown-sugar-boba.jpg": "/recipes/static/media/brown-sugar-boba.464f2111b5aa16c83d62.jpg",
     "static/media/brown-sugar-syrup.jpg": "/recipes/static/media/brown-sugar-syrup.464f2111b5aa16c83d62.jpg",
     "static/media/peanut-butter-cookies.jpg": "/recipes/static/media/peanut-butter-cookies.464f2111b5aa16c83d62.jpg",
@@ -17,10 +17,10 @@
     "static/media/menu.svg": "/recipes/static/media/menu.0dc5e94ff27d3d5110d6a6abb82a8577.svg",
     "static/media/moon.svg": "/recipes/static/media/moon.38e0fa4af5f95b18c3f84344cb2555db.svg",
     "main.43fc676c.css.map": "/recipes/static/css/main.43fc676c.css.map",
-    "main.180e2cf2.js.map": "/recipes/static/js/main.180e2cf2.js.map"
+    "main.e257ac0b.js.map": "/recipes/static/js/main.e257ac0b.js.map"
   },
   "entrypoints": [
     "static/css/main.43fc676c.css",
-    "static/js/main.180e2cf2.js"
+    "static/js/main.e257ac0b.js"
   ]
 }
