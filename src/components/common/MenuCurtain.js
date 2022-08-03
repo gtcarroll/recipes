@@ -15,7 +15,6 @@ import { RibbonButton } from "./RibbonButton";
 import { ReactComponent as GlutenFree } from "../../assets/icons/gluten-free.svg";
 import { ReactComponent as Vegetarian } from "../../assets/icons/vegetarian.svg";
 import { ReactComponent as Vegan } from "../../assets/icons/vegan-plus.svg";
-import { ReactComponent as D20 } from "../../assets/icons/d20.svg";
 import { ReactComponent as Moon } from "../../assets/icons/moon.svg";
 import { ReactComponent as Sun } from "../../assets/icons/sun.svg";
 
@@ -23,9 +22,8 @@ export const MenuCurtain = (props) => {
   const { layout } = useContext(LayoutContext);
   const { theme, setTheme } = useContext(ThemeContext);
   const [isActive, setActive] = useState(false);
-  // const [recipesIndex, setRecipesIndex] = useState(-1);
   const [themesIndex, setThemesIndex] = useState(theme.isDark ? 0 : 1);
-  const menuHeight = "20rem";
+  const menuHeight = "20rem"; // +/-3rem
   const recipesData = [
     { label: "vegetarian", value: "vegetarian", icon: Vegetarian },
     { label: "vegan", value: "vegan", icon: Vegan },

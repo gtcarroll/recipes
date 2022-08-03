@@ -5,7 +5,6 @@ import { Recipe } from ".";
 export const RecipeRouter = (props) => {
   const [recipe, setRecipe] = useState(null);
   const { url } = useParams();
-  console.log(url);
 
   // This method fetches the records from the database.
   useEffect(() => {
