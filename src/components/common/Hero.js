@@ -15,7 +15,8 @@ export const Hero = (props) => {
         backgroundImage: `url(${image})`,
         borderRadius:
           props.isScreenWidth && !props.isHome ? 0 : styles.borderRadius.card,
-        boxShadow: props.isScreenWidth ? null : styles.boxShadow.card,
+        boxShadow:
+          props.isScreenWidth && !props.isHome ? null : styles.boxShadow.card,
         height: layout.height.hero,
         maxWidth: units.pxImg,
       }}

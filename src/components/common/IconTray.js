@@ -26,7 +26,7 @@ export const IconTray = (props) => {
     theme.ingredient2
   );
   const labels = labelsData.map((item, i) => {
-    if (props[item.value] || layout.name === "mobile") {
+    if (props[item.value]) {
       return (
         <IconLabel
           key={i}
