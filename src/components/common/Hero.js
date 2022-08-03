@@ -9,43 +9,48 @@ export const Hero = (props) => {
   const { layout } = useContext(LayoutContext);
   const { theme } = useContext(ThemeContext);
   const image = require(`../../assets/photos/${props.url}.jpg`);
-  return (
-    <Link
-      to={props.isHome ? props.url : false}
+  const heroImg = (
+    <HeroImg
       style={{
-        textDecoration: "none",
-        width:
-          props.isScreenWidth && !props.isHome
-            ? "100%"
-            : "calc(100% + 2 * " + units.rem2 + ")",
-        maxWidth:
-          layout.name === "desktop"
-            ? "calc(50vw - " + units.rem6 + ")"
-            : units.pxImg,
-        cursor: props.isHome ? null : "default",
+        backgroundImage: `url(${image})`,
+        borderRadius:
+          props.isScreenWidth && !props.isHome ? 0 : styles.borderRadius.card,
+        boxShadow: props.isScreenWidth ? null : styles.boxShadow.card,
+        height: layout.height.hero,
+        maxWidth: units.pxImg,
       }}
-      draggable="false"
     >
-      <HeroImg
+      <OverlayBar
         style={{
-          backgroundImage: `url(${image})`,
-          borderRadius:
-            props.isScreenWidth && !props.isHome ? 0 : styles.borderRadius.card,
-          boxShadow: props.isScreenWidth ? null : styles.boxShadow.card,
-          height: layout.height.hero,
-          maxWidth: units.pxImg,
+          backgroundColor: theme.photoOverlay,
         }}
       >
-        <OverlayBar
-          style={{
-            backgroundColor: theme.photoOverlay,
-          }}
-        >
-          <Header1 text={props.text} color={theme.photoForeground} />
-        </OverlayBar>
-      </HeroImg>
+        <Header1 text={props.text} color={theme.photoForeground} />
+      </OverlayBar>
+    </HeroImg>
+  );
+  const containerStyles = {
+    textDecoration: "none",
+    width:
+      props.isScreenWidth && !props.isHome
+        ? "100%"
+        : "calc(100% + 2 * " + units.rem2 + ")",
+    maxWidth:
+      layout.name === "desktop"
+        ? "calc(50vw - " + units.rem6 + ")"
+        : units.pxImg,
+    cursor: props.isHome ? null : "default",
+  };
+  return props.isHome ? (
+    <Link to={props.url} style={containerStyles} draggable="false">
+      {heroImg}
       <IconTray {...props.tags} isHome={props.isHome} />
     </Link>
+  ) : (
+    <div style={containerStyles} draggable="false">
+      {heroImg}
+      <IconTray {...props.tags} isHome={props.isHome} />
+    </div>
   );
 };
 
