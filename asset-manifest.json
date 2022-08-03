@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/recipes/static/css/main.43fc676c.css",
-    "main.js": "/recipes/static/js/main.96c75201.js",
+    "main.js": "/recipes/static/js/main.cbf1cd6c.js",
     "static/media/brown-sugar-syrup.jpg": "/recipes/static/media/brown-sugar-syrup.a06d62dca5bd89f1e967.jpg",
     "static/media/peanut-butter-cookies.jpg": "/recipes/static/media/peanut-butter-cookies.464f2111b5aa16c83d62.jpg",
     "static/media/black-barley-milk-tea.jpg": "/recipes/static/media/black-barley-milk-tea.0efa6562da7eea7f40b5.jpg",
@@ -18,10 +18,10 @@
     "index.html": "/recipes/index.html",
     "static/media/moon.svg": "/recipes/static/media/moon.38e0fa4af5f95b18c3f84344cb2555db.svg",
     "main.43fc676c.css.map": "/recipes/static/css/main.43fc676c.css.map",
-    "main.96c75201.js.map": "/recipes/static/js/main.96c75201.js.map"
+    "main.cbf1cd6c.js.map": "/recipes/static/js/main.cbf1cd6c.js.map"
   },
   "entrypoints": [
     "static/css/main.43fc676c.css",
-    "static/js/main.96c75201.js"
+    "static/js/main.cbf1cd6c.js"
   ]
 }
