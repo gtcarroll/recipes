@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/recipes/static/css/main.43fc676c.css",
-    "main.js": "/recipes/static/js/main.cbf1cd6c.js",
-    "static/media/brown-sugar-syrup.jpg": "/recipes/static/media/brown-sugar-syrup.a06d62dca5bd89f1e967.jpg",
+    "main.js": "/recipes/static/js/main.b4146fbf.js",
     "static/media/peanut-butter-cookies.jpg": "/recipes/static/media/peanut-butter-cookies.464f2111b5aa16c83d62.jpg",
     "static/media/black-barley-milk-tea.jpg": "/recipes/static/media/black-barley-milk-tea.0efa6562da7eea7f40b5.jpg",
     "static/media/brown-sugar-boba.jpg": "/recipes/static/media/brown-sugar-boba.0b5034e39ed33baa568d.jpg",
+    "static/media/brown-sugar-syrup1.jpg": "/recipes/static/media/brown-sugar-syrup1.1ead9be8dfa821cd10ae.jpg",
+    "static/media/brown-sugar-syrup.jpg": "/recipes/static/media/brown-sugar-syrup.0110c1630d2c04361b91.jpg",
     "static/media/sun.svg": "/recipes/static/media/sun.1abd5f060b396cb576d181f89e623c78.svg",
-    "static/media/d20.svg": "/recipes/static/media/d20.5fd7769d91610a13c96645368e25f10e.svg",
     "static/media/measuring-cup.svg": "/recipes/static/media/measuring-cup.ff0368c2408d3af055883f2fb327c20b.svg",
     "static/media/gluten-free.svg": "/recipes/static/media/gluten-free.c85977fea64b0a7a4be18d063ea13a5a.svg",
     "static/media/vegan-plus.svg": "/recipes/static/media/vegan-plus.8f34a6f194ceab111eec1475776b8225.svg",
@@ -18,10 +18,10 @@
     "index.html": "/recipes/index.html",
     "static/media/moon.svg": "/recipes/static/media/moon.38e0fa4af5f95b18c3f84344cb2555db.svg",
     "main.43fc676c.css.map": "/recipes/static/css/main.43fc676c.css.map",
-    "main.cbf1cd6c.js.map": "/recipes/static/js/main.cbf1cd6c.js.map"
+    "main.b4146fbf.js.map": "/recipes/static/js/main.b4146fbf.js.map"
   },
   "entrypoints": [
     "static/css/main.43fc676c.css",
-    "static/js/main.cbf1cd6c.js"
+    "static/js/main.b4146fbf.js"
   ]
 }
