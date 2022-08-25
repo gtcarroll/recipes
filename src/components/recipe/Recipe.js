@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { ThemeContext, LayoutContext, functions, units } from "../context";
 import { Hero, ContentContainer } from "../common";
@@ -102,18 +102,3 @@ const RowDiv = styled.div`
   max-width: 100vw;
   padding: 0 0 ${units.rem4} 0;
 `;
-
-// const ContentContainer = styled.div`
-//   // animation
-//   transition: width ${styles.transition.body};
-
-//   // flexbox
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   gap: ${units.rem5};
-
-//   // box model
-//   max-width: calc(100vw - 2 * ${units.rem4});
-//   padding: ${units.rem4};
-// `;

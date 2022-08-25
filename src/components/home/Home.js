@@ -5,8 +5,6 @@ import { LayoutContext, units, functions } from "../context";
 import { Hero, ContentContainer } from "../common";
 import { SearchControls } from "./SearchControls";
 import { MenuCurtain } from "../common";
-// import * as fs from "fs/promises";
-// const fs = require('fs');
 
 export const Home = (props) => {
   const [recipes, setRecipes] = useState([]);

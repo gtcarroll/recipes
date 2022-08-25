@@ -218,6 +218,9 @@ const MenuOverlay = styled.div`
 `;
 
 const MenuHeader = styled.div`
+  // animation
+  transition: ${styles.transition.body};
+
   // box model
   border-bottom: 3px solid;
   padding: ${units.rem1} ${units.rem2} ${units.rem0} ${units.rem1};
@@ -228,9 +231,6 @@ const MenuHeader = styled.div`
   white-space: nowrap;
   font-family: ${styles.fontFamily.sansSerif};
   font-weight: bold;
-  /* margin-left: -${units.rem2}; */
-  /* padding-left: ${units.rem1}; */
-  /* margin-right: calc(-${units.rem5} - ${units.rem1} - 4px); */
 `;
 
 const ColumnDiv = styled.div`

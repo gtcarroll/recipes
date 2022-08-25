@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { ThemeContext, LayoutContext, units, styles } from "../../context";
 import { Ingredient, MultiplierTray, UnitsTray } from ".";
 import { Header2, Note } from "../../common";
+
 export const IngredientList = (props) => {
   const { theme } = useContext(ThemeContext);
   const { layout } = useContext(LayoutContext);
